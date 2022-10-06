@@ -1,0 +1,46 @@
+@import "../utils/mixins";
+@import "../utils/variable";
+.links {
+  a {
+    @include primary-fonts;
+    color: $secondary-color;
+  }
+  .active {
+    color: $primary-color !important;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background: $primary-color;
+      bottom: -12px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background: $primary-color;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 12px;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+  }
+}
+.tire__finder {
+  @include primary-fonts;
+  color: $primary-color !important;
+  background: transparent;
+  padding: 10px 45px;
+  border: 2px solid $primary-color;
+  transition: all linear 0.3s;
+
+  &:hover {
+    background: $secondary-color;
+    border-color: $secondary-color;
+  }
+}
