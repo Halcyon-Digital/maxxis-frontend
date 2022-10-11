@@ -8,16 +8,16 @@ import "../assets/sass/pages/_navigation.scss";
 function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+      <>
         <Navbar.Brand as={Link} to="/">
           <img src={Logo} alt="maxxis" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="links mx-auto">
-            <Nav.Link as={NavLink} to="/home">
+            {/* <Nav.Link as={NavLink} to="/home">
               Home
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link as={NavLink} to="/about">
               About
             </Nav.Link>
@@ -36,7 +36,7 @@ function Navigation() {
           </Nav>
           <button className="tire__finder">Tire Finder</button>
         </Navbar.Collapse>
-      </Container>
+      </>
     </Navbar>
   );
 }

@@ -13,8 +13,6 @@ function TireRange() {
     dots: true,
     infinite: true,
     speed: 400,
-    centerMode: true,
-    centerPadding: "0",
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,

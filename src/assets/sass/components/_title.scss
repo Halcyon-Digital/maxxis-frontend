@@ -2,9 +2,12 @@
 @import "../utils/mixins";
 
 .title {
-  @include primary-fonts(42px);
   position: relative;
   display: inline-block;
+
+  h3 {
+    @include primary-fonts(42px);
+  }
 
   &::before {
     position: absolute;

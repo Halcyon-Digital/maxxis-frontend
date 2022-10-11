@@ -6,12 +6,12 @@
   padding-bottom: 150px;
   background: url("../../images/tire-range-bg.png") no-repeat center;
   background-size: 100% 100%;
-  margin-top: -170px;
+  margin-top: -194px;
   position: relative;
 
-  // .slick-slide {
-  //   padding: 0px 6px;
-  // }
+  .slick-slide {
+    padding: 0px 6px;
+  }
 
   .slider__main {
     margin-top: 100px;
@@ -19,6 +19,7 @@
 
   .tire__item {
     height: 634px;
+    // margin: 0 30px;
     position: relative;
 
     .overlay {
@@ -33,6 +34,27 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-90deg);
+    }
+  }
+
+  ul {
+    bottom: -60px;
+    z-index: 1;
+
+    li {
+      &.slick-active {
+        background: $primary-color;
+      }
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid $secondary-color;
+      background: $secondary-color;
+      button {
+        &::before {
+          font-size: 0;
+        }
+      }
     }
   }
 }
