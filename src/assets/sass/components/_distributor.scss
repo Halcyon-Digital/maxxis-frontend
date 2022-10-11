@@ -1,0 +1,27 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.distributor {
+  padding-top: 135px;
+
+  .maxxis {
+    margin-bottom: 80px;
+  }
+
+  h4 {
+    @include secondary-fonts(42px, 600);
+  }
+
+  p {
+    @include secondary-fonts(16px);
+    color: $dark-color;
+    margin: 40px 0;
+  }
+
+  button {
+    padding: 13px 50px;
+    border: 2px solid $black-color;
+    @include secondary-fonts(24px);
+    background: transparent;
+  }
+}

@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,10 +9,8 @@ function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
-          <Link to="/">
-            <img src={Logo} alt="" />
-          </Link>
+        <Navbar.Brand as={Link} to="/">
+          <img src={Logo} alt="maxxis" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -37,8 +34,8 @@ function Navigation() {
               Login/Reg
             </Nav.Link>
           </Nav>
+          <button className="tire__finder">Tire Finder</button>
         </Navbar.Collapse>
-        <button className="tire__finder">Tire Finder</button>
       </Container>
     </Navbar>
   );

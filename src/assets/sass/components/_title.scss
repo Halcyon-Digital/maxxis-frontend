@@ -1,0 +1,33 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.title {
+  @include primary-fonts(42px);
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 135px;
+    height: 1px;
+    right: -143px;
+    bottom: 0;
+    background: $secondary-color;
+  }
+
+  .title__span {
+    color: $primary-color;
+  }
+  .title__black {
+    color: $black-color;
+  }
+  .title__white {
+    color: $secondary-color;
+  }
+}
+.black__border {
+  &::before {
+    background: $black-color;
+  }
+}

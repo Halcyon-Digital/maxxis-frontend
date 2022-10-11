@@ -5,3 +5,9 @@
   font-size: $font_size;
   font-weight: $font-weight;
 }
+
+@mixin secondary-fonts($font_size: 18px, $font_weight: 400) {
+  font-family: $secondary-font;
+  font-size: $font_size;
+  font-weight: $font-weight;
+}

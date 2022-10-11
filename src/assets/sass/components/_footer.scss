@@ -1,0 +1,79 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+footer {
+  padding-top: 115px;
+  background: $black-color;
+
+  img {
+    margin-bottom: 45px;
+  }
+
+  p {
+    @include secondary-fonts(16px);
+    color: $secondary-color;
+  }
+
+  .social-icon {
+    margin-top: 45px;
+    .icon {
+      font-size: 22px;
+      background: $dark-color;
+      color: $secondary-color;
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all linear 0.4s;
+
+      &:hover {
+        background: $primary-color;
+      }
+    }
+  }
+
+  h3 {
+    @include primary-fonts;
+    color: $secondary-color;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  ul {
+    li {
+      @include secondary-fonts(18px, 600);
+      a {
+        color: $secondary-color;
+        transition: all linear 0.4s;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .icon {
+    font-size: 18px;
+    color: $secondary-color;
+  }
+
+  .links {
+    color: $secondary-color;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  .bottom {
+    background: $dark-color;
+    @include secondary-fonts(14px);
+    padding: 20px 0;
+    margin-top: 100px;
+    text-align: center;
+    color: $secondary-color;
+  }
+}

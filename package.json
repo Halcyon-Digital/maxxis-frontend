@@ -12,10 +12,13 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "sass": "^1.55.0",
+    "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.4.37",
     "web-vitals": "^2.1.4"
   },
