@@ -1,4 +1,4 @@
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, Link } from "react-router-dom";
@@ -7,7 +7,13 @@ import "../assets/sass/pages/_navigation.scss";
 
 function Navigation() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      className="px-4"
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+    >
       <>
         <Navbar.Brand as={Link} to="/">
           <img src={Logo} alt="maxxis" />

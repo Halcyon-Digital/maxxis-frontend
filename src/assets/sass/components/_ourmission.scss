@@ -1,0 +1,16 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.about-us {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .caption {
+    margin-top: 50px;
+  }
+
+  p {
+    @include secondary-fonts(16px);
+    margin-bottom: 30px;
+  }
+}

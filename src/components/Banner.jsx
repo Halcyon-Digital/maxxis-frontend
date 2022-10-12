@@ -29,6 +29,7 @@ function Banner() {
       {
         breakpoint: 600,
         settings: {
+          arrows: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
@@ -37,6 +38,7 @@ function Banner() {
       {
         breakpoint: 480,
         settings: {
+          arrows: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },

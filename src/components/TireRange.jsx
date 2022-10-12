@@ -14,28 +14,28 @@ function TireRange() {
     infinite: true,
     speed: 400,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     initialSlide: 0,
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 991,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 575,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -47,7 +47,11 @@ function TireRange() {
   return (
     <section className="tire__range">
       <Container>
-        <Title spanItem="TIRE" main="RANGE" classList="title__white" />
+        <div className="text-center">
+          <h3 className="tire__title">
+            <span>Tire</span> Range
+          </h3>
+        </div>
       </Container>
       <div className="slider__main">
         <Slider {...settings}>

@@ -13,6 +13,15 @@
     padding: 0px 6px;
   }
 
+  .tire__title {
+    @include primary-fonts(70px);
+    color: $secondary-color;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
   .slider__main {
     margin-top: 100px;
   }

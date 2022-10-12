@@ -16,7 +16,7 @@ function Distributor() {
             mainClass="black__border"
           />
         </div>
-        <Row>
+        <Row xs={1} md={2}>
           <Col>
             <img className="w-100" src={DistributorImage} alt="" />
           </Col>

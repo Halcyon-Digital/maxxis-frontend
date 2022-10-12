@@ -7,7 +7,7 @@ function Sponsor() {
   return (
     <section className="distributor">
       <Container>
-        <Row>
+        <Row xs={1} md={2}>
           <Col>
             <h4>Proud Sponsors Of Rajshahi Royals</h4>
             <p>

@@ -1,10 +1,11 @@
 import React from "react";
+import OurMission from "../components/OurMission";
 import Layout from "../shared/Layout";
 
 function AboutPage() {
   return (
     <Layout>
-      <div>AboutPage</div>
+      <OurMission />
     </Layout>
   );
 }

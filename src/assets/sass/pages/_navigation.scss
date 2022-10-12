@@ -1,12 +1,17 @@
 @import "../utils/mixins";
 @import "../utils/variable";
 
+.navbar.bg-dark {
+  background: $black-color !important;
+}
+
 .links {
   a {
-    @include primary-fonts;
+    @include primary-fonts(18px);
+    text-transform: uppercase !important;
     color: $secondary-color;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
   .active {
     color: $primary-color !important;
@@ -35,7 +40,7 @@
   }
 }
 .tire__finder {
-  @include primary-fonts;
+  @include primary-fonts(18px);
   color: $primary-color !important;
   background: transparent;
   padding: 10px 45px;

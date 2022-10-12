@@ -1,12 +1,11 @@
 @import "../utils/variable";
 @import "../utils/mixins";
 .filter {
-  display: grid;
-  grid-template-columns: 1fr 200px;
   background: $primary-color;
   align-items: center;
+  padding: 0 5px;
 
-  .title {
+  .titlle {
     text-align: center;
 
     .choose {
@@ -14,14 +13,17 @@
     }
   }
   .shopping {
-    background: $secondary-color;
     color: $primary-color;
-    padding: 15px 0;
+    height: 100%;
+    padding: 0 20px;
 
     .cart {
       margin-left: 30px;
       margin-right: 15px;
       font-size: 32px;
+    }
+
+    .shop__button {
     }
   }
   h3 {
