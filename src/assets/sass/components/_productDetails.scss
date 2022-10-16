@@ -1,0 +1,50 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.product-details {
+  padding: 50px 0;
+  background: url("../../images/product-details-bg.png") no-repeat center;
+  background-size: cover;
+
+  .img {
+    background: $secondary-color;
+    border: 1px solid #000;
+    padding: 10px;
+  }
+
+  h2 {
+    @include primary-fonts(32px);
+    color: $primary-color;
+    margin: 5px 0;
+  }
+  p {
+    @include secondary-fonts;
+  }
+  h6 {
+    @include secondary-fonts(24px);
+    margin-bottom: 20px;
+  }
+
+  .content-title {
+    @include secondary-fonts(24px, 500);
+  }
+
+  .button {
+    margin-top: 30px;
+
+    button {
+      margin-right: 15px;
+      padding: 15px 50px;
+      border: 1px solid $primary-color;
+      background: $secondary-color;
+      transition: all linear 0.4s;
+      @include secondary-fonts(24px, 600);
+      color: $primary-color;
+
+      &:hover {
+        background: $primary-color;
+        color: $secondary-color;
+      }
+    }
+  }
+}

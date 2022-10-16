@@ -11,3 +11,9 @@
   font-size: $font_size;
   font-weight: $font-weight;
 }
+
+@mixin button($padding: 7px 15px, $font-size: 16px) {
+  font-size: $font-size;
+  padding: $padding;
+  border: 0;
+}

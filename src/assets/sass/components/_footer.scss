@@ -51,6 +51,7 @@ footer {
 
         &:hover {
           color: $primary-color;
+          margin-left: 5px;
         }
       }
     }
@@ -75,5 +76,9 @@ footer {
     margin-top: 100px;
     text-align: center;
     color: $secondary-color;
+  }
+
+  .content {
+    margin-left: 100px;
   }
 }

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "../assets/sass/components/_banner.scss";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import BannerImage from "../assets/images/banner.png";
+import BannerImage2 from "../assets/images/banner2.png";
 
 function Banner() {
   const settings = {
@@ -57,7 +58,7 @@ function Banner() {
           <img className="w-100" src={BannerImage} alt="banner" />
         </div>
         <div className="w-100">
-          <img className="w-100" src={BannerImage} alt="banner" />
+          <img className="w-100" src={BannerImage2} alt="banner" />
         </div>
         <div className="w-100">
           <img className="w-100" src={BannerImage} alt="banner" />

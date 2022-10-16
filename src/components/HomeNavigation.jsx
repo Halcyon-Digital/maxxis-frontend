@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import "../assets/sass/pages/_navigation.scss";
 
-function Navigation() {
+function HomeNavigation() {
   return (
     <Navbar
       className="px-4"
@@ -21,9 +21,6 @@ function Navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="links mx-auto">
-            <Nav.Link as={NavLink} to="/home">
-              Home
-            </Nav.Link>
             <Nav.Link as={NavLink} to="/about">
               About
             </Nav.Link>
@@ -50,4 +47,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default HomeNavigation;

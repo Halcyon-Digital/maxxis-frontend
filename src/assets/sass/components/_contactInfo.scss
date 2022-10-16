@@ -1,0 +1,18 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.contact-info {
+  margin-bottom: 100px;
+
+  p {
+    @include secondary-fonts(16px);
+  }
+  a {
+    @include secondary-fonts(16px);
+    color: $black-color;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}

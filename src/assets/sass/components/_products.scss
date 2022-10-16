@@ -1,0 +1,51 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.products {
+  /* background: url("../../images/products-bg.png") no-repeat left;
+  background-size: auto 100%; */
+  background: #000;
+  margin-top: -7px;
+  padding: 150px 0;
+
+  .change__button {
+    width: 38px;
+    height: 38px;
+    color: $secondary-color;
+    background: $black-color;
+    margin: 0 10px;
+    transition: all linear 0.4s;
+
+    &:hover {
+      background: $primary-color;
+    }
+  }
+
+  .product-info {
+    background: #e3e3e3;
+    padding: 10px;
+
+    h3 {
+      @include secondary-fonts(18px, 600);
+    }
+
+    p {
+      @include secondary-fonts(18px, 400);
+      margin: 3px 0;
+    }
+
+    button {
+      background: $dark-color;
+      border: 0;
+      padding: 10px 30px;
+      @include secondary-fonts(14px, 400);
+      color: $secondary-color;
+      margin-right: 10px;
+      transition: all linear 0.4s;
+
+      &:hover {
+        background: $primary-color;
+      }
+    }
+  }
+}

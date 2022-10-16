@@ -17,7 +17,7 @@ function Footer() {
       <Container>
         <Row xs={1} md={3}>
           <Col>
-            <div className="text-center">
+            <div>
               <img className="img-fluid" src={FooterImage} alt="maxxis" />
             </div>
             <p>
@@ -36,57 +36,59 @@ function Footer() {
           </Col>
 
           <Col>
-            <h3>Information</h3>
-            <ul>
-              <li className="mb-2">
-                <Link to="/">
-                  <span>
-                    <IoIosArrowForward />
-                  </span>
-                  Home
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/">
-                  <span>
-                    <IoIosArrowForward />
-                  </span>
-                  Products
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/">
-                  <span>
-                    <IoIosArrowForward />
-                  </span>
-                  Career
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/">
-                  <span>
-                    <IoIosArrowForward />
-                  </span>
-                  News & Events
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/">
-                  <span>
-                    <IoIosArrowForward />
-                  </span>
-                  Gallery
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link to="/contact">
-                  <span>
-                    <IoIosArrowForward />
-                  </span>
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
+            <div className="content">
+              <h3>Information</h3>
+              <ul>
+                <li className="mb-2">
+                  <Link to="/">
+                    <span>
+                      <IoIosArrowForward />
+                    </span>
+                    Home
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link to="/">
+                    <span>
+                      <IoIosArrowForward />
+                    </span>
+                    Products
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link to="/">
+                    <span>
+                      <IoIosArrowForward />
+                    </span>
+                    Career
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link to="/">
+                    <span>
+                      <IoIosArrowForward />
+                    </span>
+                    News & Events
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link to="/">
+                    <span>
+                      <IoIosArrowForward />
+                    </span>
+                    Gallery
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link to="/contact">
+                    <span>
+                      <IoIosArrowForward />
+                    </span>
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </Col>
 
           <Col>

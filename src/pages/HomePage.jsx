@@ -5,18 +5,19 @@ import FilterBar from "../components/FilterBar";
 import NewArrivals from "../components/NewArrivals";
 import Sponsor from "../components/Sponsor";
 import TireRange from "../components/TireRange";
+import HomeLayout from "../shared/HomeLayout";
 import Layout from "../shared/Layout";
 
 function HomePage() {
   return (
-    <Layout>
+    <HomeLayout>
       <FilterBar />
       <Banner />
       <TireRange />
       <Distributor />
       <Sponsor />
       <NewArrivals />
-    </Layout>
+    </HomeLayout>
   );
 }
 

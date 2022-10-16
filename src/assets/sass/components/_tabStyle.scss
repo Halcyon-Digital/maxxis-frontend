@@ -1,0 +1,28 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.tab-item {
+  padding: 100px 0;
+
+  ul {
+    border-bottom: 0;
+    text-align: right;
+    margin: 0;
+
+    li {
+      padding: 5px 50px;
+      @include secondary-fonts;
+      background: $dark-color;
+      color: $secondary-color;
+    }
+    .react-tabs__tab--selected {
+      border-radius: 0;
+      background: $primary-color;
+    }
+  }
+}
+.react-tabs__tab-panel {
+  iframe {
+    width: 100%;
+  }
+}

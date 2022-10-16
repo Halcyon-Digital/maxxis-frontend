@@ -6,6 +6,9 @@ import DealershipPage from "../pages/DealershipPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import NewsPage from "../pages/NewsPage";
+import ProductDetailPage from "../pages/ProductDetailPage";
+import ProductsPage from "../pages/ProductsPage";
+import TireCategoriesPage from "../pages/TireCategoriesPage";
 
 function index() {
   return (
@@ -13,9 +16,12 @@ function index() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:slug" element={<ProductDetailPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/dealer" element={<DealershipPage />} />
+        <Route path="/tire/:slug" element={<TireCategoriesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
