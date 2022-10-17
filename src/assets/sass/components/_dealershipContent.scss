@@ -1,0 +1,49 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.dealership {
+  padding: 100px 0;
+
+  .content {
+    margin-top: 30px;
+    // text-align: justify;
+    p {
+      @include secondary-fonts;
+      margin-bottom: 15px;
+    }
+  }
+
+  form {
+    background: $light-dark;
+    padding: 50px 80px;
+    label {
+      @include secondary-fonts;
+    }
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      line-height: 40px;
+      margin-bottom: 10px;
+      margin-top: 5px;
+      padding: 2px 10px;
+      background: $theme-dark;
+      border: 0;
+
+      &::placeholder {
+        @include secondary-fonts;
+      }
+    }
+    button {
+      @include button(5px 40px);
+      @include secondary-fonts(18px, 600);
+      color: $secondary-color;
+      background: $primary-color;
+      margin-top: 15px;
+    }
+    h6 {
+      @include secondary-fonts(22px, 600);
+      margin-bottom: 15px;
+    }
+  }
+}

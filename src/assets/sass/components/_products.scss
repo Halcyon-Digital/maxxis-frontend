@@ -2,11 +2,11 @@
 @import "../utils/mixins";
 
 .products {
-  /* background: url("../../images/products-bg.png") no-repeat left;
-  background-size: auto 100%; */
-  background: #000;
+  background: url("../../images/products-bg.png") no-repeat left;
+  background-size: 90% 100%;
+  background-blend-mode: hard-light;
   margin-top: -7px;
-  padding: 150px 0;
+  padding: 100px 0;
 
   .change__button {
     width: 38px;
@@ -21,16 +21,19 @@
     }
   }
 
+  .product-image {
+    border: 2px solid $theme-dark;
+  }
   .product-info {
     background: #e3e3e3;
     padding: 10px;
 
     h3 {
-      @include secondary-fonts(18px, 600);
+      @include secondary-fonts(16px, 600);
     }
 
     p {
-      @include secondary-fonts(18px, 400);
+      @include secondary-fonts(16px, 400);
       margin: 3px 0;
     }
 
@@ -38,7 +41,7 @@
       background: $dark-color;
       border: 0;
       padding: 10px 30px;
-      @include secondary-fonts(14px, 400);
+      @include secondary-fonts(12px, 400);
       color: $secondary-color;
       margin-right: 10px;
       transition: all linear 0.4s;

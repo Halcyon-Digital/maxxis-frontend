@@ -6,7 +6,6 @@ import "../assets/sass/components/_products.scss";
 import ProductsCard from "./ProductsCard";
 
 function AllProducts() {
-  console.log(Array(8));
   return (
     <section className="products">
       <Container>
@@ -18,7 +17,7 @@ function AllProducts() {
                 spanItem="Products"
                 main=""
                 classList="title__back"
-                mainClass="white__border"
+                mainClass="black__border"
               />
               <div>
                 <IoIosArrowBack className="change__button" />

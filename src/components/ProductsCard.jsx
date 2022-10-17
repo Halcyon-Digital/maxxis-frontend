@@ -5,10 +5,10 @@ import ProductImage from "../assets/images/product.png";
 function ProductsCard() {
   return (
     <Col className=" mb-4">
-      <div>
+      <div className="product-image">
         <HashLink className="d-block" to="/products/slug">
           <img
-            className="w-100 border-3 bg-white p-2"
+            className="w-100 border-3 bg-white"
             src={ProductImage}
             alt="product"
           />

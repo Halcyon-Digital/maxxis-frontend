@@ -48,7 +48,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link to="/">
+                  <Link to="/products">
                     <span>
                       <IoIosArrowForward />
                     </span>
@@ -56,7 +56,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link to="/">
+                  <Link to="/career">
                     <span>
                       <IoIosArrowForward />
                     </span>
@@ -64,7 +64,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link to="/">
+                  <Link to="/news">
                     <span>
                       <IoIosArrowForward />
                     </span>
@@ -72,7 +72,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link to="/">
+                  <Link to="/gallery">
                     <span>
                       <IoIosArrowForward />
                     </span>
