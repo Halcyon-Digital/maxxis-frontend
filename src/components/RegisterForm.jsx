@@ -39,7 +39,7 @@ function RegisterForm() {
   return (
     <section className="authentication">
       <Container>
-        <div className="wrapper">
+        <div className="wrapper shadow-lg">
           <img src={Logo} alt="logo" />
           <h4>Welcome Back !</h4>
           <p>Sign up to continue to maxxis.</p>
