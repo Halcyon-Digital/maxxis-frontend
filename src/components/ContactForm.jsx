@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "../assets/sass/components/_contactForm.scss";
 import Swal from "sweetalert2";
+import { alrtError } from "../utils/common";
 
 function ContactForm() {
   const { register, handleSubmit, resetField } = useForm();
@@ -24,7 +25,7 @@ function ContactForm() {
       .then((res) => {
         alrt(res.data.message);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alrtError(error.message));
 
     resetField("name");
     resetField("mobile");

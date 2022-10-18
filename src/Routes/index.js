@@ -8,6 +8,7 @@ import LoginPage from "../pages/LoginPage";
 import NewsPage from "../pages/NewsPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProductsPage from "../pages/ProductsPage";
+import RegisterPage from "../pages/RegisterPage";
 import TireCategoriesPage from "../pages/TireCategoriesPage";
 
 function index() {
@@ -24,6 +25,7 @@ function index() {
         <Route path="/tire/:slug" element={<TireCategoriesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );

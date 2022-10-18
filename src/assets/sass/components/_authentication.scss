@@ -1,0 +1,52 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.authentication {
+  padding: 100px 0;
+  text-align: center;
+
+  .wrapper {
+    width: 600px;
+    padding: 50px;
+    margin: 0 auto;
+    background: $light-dark;
+
+    h4 {
+      @include secondary-fonts(28px, 600);
+      margin-top: 10px;
+    }
+    p {
+      @include secondary-fonts(16px);
+      margin-bottom: 15px;
+    }
+    form {
+      margin-top: 40px;
+
+      input,
+      textarea {
+        display: block;
+        width: 100%;
+        line-height: 40px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        padding: 2px 10px;
+        background: $theme-dark;
+        border: 0;
+
+        &::placeholder {
+          @include secondary-fonts;
+        }
+      }
+
+      p {
+        @include secondary-fonts(16px);
+      }
+      button {
+        @include button(5px 40px);
+        @include secondary-fonts(18px, 600);
+        color: $secondary-color;
+        background: $primary-color;
+      }
+    }
+  }
+}
