@@ -1,0 +1,41 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.order {
+  padding: 100px 0;
+  background: url("../../images/body-bg.png") no-repeat center;
+  form {
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      line-height: 40px;
+      margin-bottom: 20px;
+      padding: 2px 10px;
+      border: 1px solid $dark-color;
+      background: $secondary-color;
+
+      &::placeholder {
+        @include secondary-fonts;
+      }
+    }
+
+    select {
+      border: 1px solid $dark-color;
+      margin-bottom: 20px;
+      border-radius: 0%;
+
+      line-height: 40px;
+    }
+
+    p {
+      @include secondary-fonts(16px);
+    }
+    button {
+      @include button(5px 40px);
+      @include secondary-fonts(18px, 600);
+      color: $secondary-color;
+      background: $primary-color;
+    }
+  }
+}

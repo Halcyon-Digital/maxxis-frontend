@@ -40,7 +40,7 @@ function RegisterForm() {
     <section className="authentication">
       <Container>
         <div className="wrapper shadow-lg">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" loading="lazy" />
           <h4>Welcome Back !</h4>
           <p>Sign up to continue to maxxis.</p>
           <Form onSubmit={handleSubmit(onSubmit)}>

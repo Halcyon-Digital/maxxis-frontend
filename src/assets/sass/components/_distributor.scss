@@ -23,5 +23,12 @@
     border: 2px solid $black-color;
     @include secondary-fonts(24px);
     background: transparent;
+    transition: all linear 0.4s;
+
+    &:hover {
+      border-color: $primary-color;
+      background: $primary-color;
+      color: $secondary-color;
+    }
   }
 }

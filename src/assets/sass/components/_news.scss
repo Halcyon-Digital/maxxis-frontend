@@ -1,0 +1,32 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.news {
+  padding: 100px 0;
+  background: url("../../images/orderbg.png") no-repeat center;
+  background-size: 100% 100%;
+
+  .news-card {
+    background: $light-dark;
+    transition: all linear 0.4s;
+
+    h3 {
+      @include secondary-fonts(22px, 600);
+    }
+
+    p {
+      @include secondary-fonts(14px, 400);
+      margin-top: 10px;
+    }
+
+    a {
+      @include secondary-fonts(18px, 600);
+      color: $primary-color;
+      margin-top: 10px;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.35);
+    }
+  }
+}

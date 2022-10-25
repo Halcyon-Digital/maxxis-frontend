@@ -24,22 +24,22 @@ function ProductDetails() {
             <div>
               <Carousel autoPlay={true} showStatus={false}>
                 <div className="img">
-                  <img src={Product} alt="product" />
+                  <img src={Product} alt="product" loading="lazy" />
                 </div>
                 <div className="img">
-                  <img src={Product} alt="product" />
+                  <img src={Product} alt="product" loading="lazy" />
                 </div>
                 <div className="img">
-                  <img src={Product} alt="product" />
+                  <img src={Product} alt="product" loading="lazy" />
                 </div>
               </Carousel>
             </div>
           </Col>
           <Col>
             <div className="d-flex align-items-end mb-4">
-              <img src={Feature1} alt="" />
-              <img src={Feature2} alt="" />
-              <img src={Feature3} alt="" />
+              <img src={Feature1} alt="feature" loading="lazy" />
+              <img src={Feature2} alt="feature" loading="lazy" />
+              <img src={Feature3} alt="feature" loading="lazy" />
             </div>
 
             <h2>Extramaxx (M6234)</h2>

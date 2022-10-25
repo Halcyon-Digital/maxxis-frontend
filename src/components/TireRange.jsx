@@ -45,70 +45,75 @@ function TireRange() {
   };
 
   return (
-    <section className="tire__range">
+    <section className="tire_range">
       <Container>
         <div className="text-center">
-          <h3 className="tire__title">
+          <h3 className="tiretitle">
             <span>Tire</span> Range
           </h3>
         </div>
       </Container>
       <div className="slider__main">
         <Slider {...settings}>
-          <HashLink to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/motorcycle">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
                 src={Image1}
                 alt="tire"
+                loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
               <h3>Track</h3>
             </div>
           </HashLink>
 
-          <HashLink to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/motorcycle">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
                 src={Image2}
                 alt="tire"
+                loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
               <h3>BUS</h3>
             </div>
           </HashLink>
 
-          <HashLink to="/tire/car">
+          <HashLink className="banner-item" to="/tire/car">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
                 src={Image3}
                 alt="tire"
+                loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
               <h3>Passenger Car</h3>
             </div>
           </HashLink>
 
-          <HashLink to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/motorcycle">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
                 src={Image4}
                 alt="tire"
+                loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
               <h3>Motorcycle</h3>
             </div>
           </HashLink>
 
-          <HashLink to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/motorcycle">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
                 src={Image4}
                 alt="tire"
+                loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
               <h3>Motorcycle</h3>

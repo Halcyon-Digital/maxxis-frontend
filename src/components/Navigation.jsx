@@ -16,7 +16,7 @@ function Navigation() {
     >
       <>
         <Navbar.Brand as={Link} to="/">
-          <img src={Logo} alt="maxxis" />
+          <img src={Logo} alt="maxxis" loading="lazy" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

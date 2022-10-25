@@ -8,7 +8,7 @@
   background-size: 100% 100%;
 
   .wrapper {
-    width: 600px;
+    width: 550px;
     padding: 50px;
     margin: 0 auto;
     background: $light-dark;
@@ -41,7 +41,7 @@
       }
 
       p {
-        @include secondary-fonts(16px);
+        @include secondary-fonts(14px);
       }
       button {
         @include button(5px 40px);

@@ -47,7 +47,12 @@ function OurMission() {
             </p>
           </Col>
           <Col>
-            <img className="img-fluid" src={AboutImage} alt="about-us" />
+            <img
+              className="img-fluid"
+              src={AboutImage}
+              alt="about-us"
+              loading="lazy"
+            />
           </Col>
         </Row>
       </Container>

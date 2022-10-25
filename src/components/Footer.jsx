@@ -18,7 +18,12 @@ function Footer() {
         <Row xs={1} md={3}>
           <Col>
             <div>
-              <img className="img-fluid" src={FooterImage} alt="maxxis" />
+              <img
+                className="img-fluid"
+                src={FooterImage}
+                alt="maxxis"
+                loading="lazy"
+              />
             </div>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting

@@ -1,5 +1,6 @@
 {
   "name": "maxxis-frontend",
+  "homepage": "https://maxxis.netlify.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,8 +16,10 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.37.0",
     "react-icons": "^4.4.0",
+    "react-lazy-load-image-component": "^1.5.5",
     "react-redux": "^8.0.4",
     "react-responsive-carousel": "^3.2.23",
+    "react-responsive-masonry": "^2.1.6",
     "react-router-dom": "^6.4.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",

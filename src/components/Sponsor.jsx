@@ -27,7 +27,7 @@ function Sponsor() {
             </p>
           </Col>
           <Col>
-            <img className="w-100" src={SponsorImage} alt="" />
+            <img className="w-100" src={SponsorImage} alt="sponsor" />
           </Col>
         </Row>
       </Container>

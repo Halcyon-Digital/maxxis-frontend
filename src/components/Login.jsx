@@ -37,9 +37,9 @@ function Login() {
     <section className="authentication">
       <Container>
         <div className="wrapper shadow-lg">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" loading="lazy" />
           <h4>Welcome Back !</h4>
-          <p>Sign up to continue to maxxis.</p>
+          <p>Sign In to continue to maxxis.</p>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <input
               {...register("mobile", { required: true })}
@@ -55,7 +55,7 @@ function Login() {
               placeholder="password"
             />
 
-            <div className="d-flex justify-content-between align-items-center">
+            <div>
               <p>
                 Don't have an account? Please{" "}
                 <Link to="/Register">Register.</Link>

@@ -27,8 +27,8 @@ function AllProducts() {
 
             <div className="mt-5">
               <Row lg={3} xs={1}>
-                {[...Array(9).keys()].map((product) => (
-                  <ProductsCard product={product} />
+                {[...Array(9).keys()].map((product, i) => (
+                  <ProductsCard key={i} index={i} product={product} />
                 ))}
               </Row>
             </div>

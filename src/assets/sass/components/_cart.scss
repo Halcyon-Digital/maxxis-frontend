@@ -1,0 +1,45 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.cart-page {
+  padding: 100px;
+  background: url("../../images/orderbg.png") no-repeat center;
+  background-size: 100% 100%;
+
+  table {
+    tr {
+      height: 80px;
+
+      td {
+        button {
+          border: 1px solid $primary-color;
+          padding: 0px 7px;
+          margin: 0 10px;
+        }
+      }
+    }
+    .delete {
+      background: $primary-color;
+      border: 0;
+      color: $secondary-color;
+      padding: 5px 15px;
+    }
+  }
+  .continue-shopping {
+    padding: 10px 20px;
+    background: $primary-color;
+    color: $secondary-color;
+    transition: all linear 0.4s;
+    border: 1px solid $primary-color;
+
+    &:hover {
+      border-color: $primary-color;
+      background: $secondary-color;
+      color: $primary-color;
+    }
+  }
+  .paragraph {
+    @include secondary-fonts;
+    margin-bottom: 15px;
+  }
+}

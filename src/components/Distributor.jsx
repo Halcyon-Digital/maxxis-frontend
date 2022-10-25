@@ -18,7 +18,12 @@ function Distributor() {
         </div>
         <Row xs={1} md={2}>
           <Col>
-            <img className="w-100" src={DistributorImage} alt="" />
+            <img
+              className="w-100"
+              src={DistributorImage}
+              alt="distributor"
+              loading="lazy"
+            />
           </Col>
           <Col>
             <h4>The Sole Distributor Of Maxxis Tires</h4>

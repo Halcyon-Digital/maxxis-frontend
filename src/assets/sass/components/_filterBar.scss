@@ -19,14 +19,29 @@
 
     .cart {
       margin-left: 30px;
-      margin-right: 15px;
       font-size: 32px;
     }
 
-    .shop__button {
+    a {
+      color: $primary-color;
     }
   }
   h3 {
     @include primary-fonts(32px);
+  }
+
+  .cart-icon {
+    margin-right: 15px;
+  }
+  .quantity {
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    color: $secondary-color;
+    background: $primary-color;
   }
 }

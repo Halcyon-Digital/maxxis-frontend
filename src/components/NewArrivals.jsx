@@ -26,42 +26,42 @@ function NewArrivals() {
           <Row xs={1} sm={2} md={3} lg={4}>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
             <Col>
               <div className="item">
-                <img src={Image1} alt="arrivals" />
+                <img src={Image1} alt="arrivals" loading="lazy" />
               </div>
             </Col>
           </Row>

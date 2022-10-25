@@ -1,7 +1,7 @@
 @import "../utils/variable";
 @import "../utils/mixins";
 
-.tire__range {
+.tire_range {
   padding-top: 300px;
   padding-bottom: 150px;
   background: url("../../images/tire-range-bg.png") no-repeat center;
@@ -13,7 +13,43 @@
     padding: 0px 6px;
   }
 
-  .tire__title {
+  .banner-item {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.1);
+      top: 0;
+      left: 0;
+      transition: all linear 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.1);
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      transition: all linear 0.3s;
+    }
+
+    &:hover:before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .tiretitle {
     @include primary-fonts(70px);
     color: $secondary-color;
 

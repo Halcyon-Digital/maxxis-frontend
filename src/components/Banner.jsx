@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import "../assets/sass/components/_banner.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import BannerImage from "../assets/images/banner.png";
 import BannerImage2 from "../assets/images/banner2.png";
@@ -55,19 +56,44 @@ function Banner() {
         nextArrow={<IoIosArrowForward />}
       >
         <div className="w-100">
-          <img className="w-100" src={BannerImage} alt="banner" />
+          <LazyLoadImage
+            className="w-100"
+            src={BannerImage}
+            alt="banner"
+            loading="lazy"
+          />
         </div>
         <div className="w-100">
-          <img className="w-100" src={BannerImage2} alt="banner" />
+          <LazyLoadImage
+            className="w-100"
+            src={BannerImage2}
+            alt="banner"
+            loading="lazy"
+          />
         </div>
         <div className="w-100">
-          <img className="w-100" src={BannerImage} alt="banner" />
+          <LazyLoadImage
+            className="w-100"
+            src={BannerImage}
+            alt="banner"
+            loading="lazy"
+          />
         </div>
         <div className="w-100">
-          <img className="w-100" src={BannerImage} alt="banner" />
+          <LazyLoadImage
+            className="w-100"
+            src={BannerImage}
+            alt="banner"
+            loading="lazy"
+          />
         </div>
         <div className="w-100">
-          <img className="w-100" src={BannerImage} alt="banner" />
+          <LazyLoadImage
+            className="w-100"
+            src={BannerImage}
+            alt="banner"
+            loading="lazy"
+          />
         </div>
       </Slider>
     </div>
