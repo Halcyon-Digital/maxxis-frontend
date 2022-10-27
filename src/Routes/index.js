@@ -14,6 +14,7 @@ import ProductDetailPage from "../pages/ProductDetailPage";
 import ProductsPage from "../pages/ProductsPage";
 import RegisterPage from "../pages/RegisterPage";
 import TireCategoriesPage from "../pages/TireCategoriesPage";
+import DashboardPage from "./DashboardPage";
 
 function index() {
   return (
@@ -33,6 +34,8 @@ function index() {
         <Route path="/order" element={<OrderPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

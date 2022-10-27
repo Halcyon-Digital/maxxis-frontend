@@ -1,0 +1,56 @@
+@import "../utils/mixins";
+@import "../utils/variable";
+
+.dashboard-header {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  background: $light-dark;
+  color: $black-color;
+  @include secondary-fonts;
+
+  button {
+    @include button(7px 15px, 18px);
+    background: $primary-color;
+    color: $secondary-color;
+  }
+  input {
+    padding: 4px;
+  }
+}
+
+// Dashboard Main Content
+.dashboard-content {
+  background: url("../../images/dashboard-bg.png") no-repeat center;
+  background-size: cover;
+
+  .dashboard-colum {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .sidebar {
+    background: $primary-rgba;
+
+    ul {
+      li {
+        a {
+          color: $secondary-color;
+          @include secondary-fonts;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+  .row {
+    --bs-gutter-x: 0;
+  }
+}
+
+// footer
+.dashboard-footer {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: $secondary-color;
+  padding: 0;
+}

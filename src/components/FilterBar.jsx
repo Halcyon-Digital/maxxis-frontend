@@ -16,8 +16,6 @@ function FilterBar() {
     return total;
   };
 
-  console.log(getTotalQuantity());
-
   return (
     <div className="filter position-relative py-1">
       <div className="titlle">

@@ -43,8 +43,8 @@ function ProductDetails() {
             </div>
 
             <h2>Extramaxx (M6234)</h2>
-            <h2>140/70-17</h2>
             <h6>BDT. Price: 500/-</h6>
+            <h2>140/70-17</h2>
             <p className="content-title">Specifications</p>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

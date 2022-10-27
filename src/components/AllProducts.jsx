@@ -10,8 +10,7 @@ function AllProducts() {
     <section className="products">
       <Container>
         <Row>
-          <Col lg={3}></Col>
-          <Col lg={9}>
+          <Col>
             <div className="d-flex justify-content-between">
               <Title
                 spanItem="Products"
@@ -26,8 +25,8 @@ function AllProducts() {
             </div>
 
             <div className="mt-5">
-              <Row lg={3} xs={1}>
-                {[...Array(9).keys()].map((product, i) => (
+              <Row lg={4} xs={1}>
+                {[...Array(8).keys()].map((product, i) => (
                   <ProductsCard key={i} index={i} product={product} />
                 ))}
               </Row>

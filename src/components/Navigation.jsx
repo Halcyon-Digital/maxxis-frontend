@@ -42,6 +42,9 @@ function Navigation() {
             <Nav.Link as={NavLink} to="/login">
               Login/Reg
             </Nav.Link>
+            <Nav.Link as={NavLink} to="/dashboard">
+              Dashboard
+            </Nav.Link>
           </Nav>
           <button className="tire__finder">Tire Finder</button>
         </Navbar.Collapse>
