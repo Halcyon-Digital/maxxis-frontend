@@ -6,7 +6,6 @@ import { addToCart } from "../features/cart/cartSlice";
 import { alrtSuccess } from "../utils/common";
 
 function ProductsCard({ index }) {
-  console.log(index);
   const dispatch = useDispatch((state) => state.cart);
 
   const addCart = (data) => {

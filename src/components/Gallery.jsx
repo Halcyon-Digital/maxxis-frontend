@@ -1,11 +1,8 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Container } from "react-bootstrap";
 import "../assets/sass/components/_gallery.scss";
 import Title from "./Title";
-// import images from "/fakeData.json";
 
 function GalleryContainer() {
   // const [images, setImages] = useState([]);

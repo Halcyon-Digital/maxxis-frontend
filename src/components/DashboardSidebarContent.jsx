@@ -10,37 +10,37 @@ export default function DashboardSidebarContent() {
         <Link to="/dashboard/products">products</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Customer</Link>
+        <Link to="/dashboard/customers">Customer</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Categories</Link>
+        <Link to="/dashboard/categories">Categories</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Reports</Link>
+        <Link to="/dashboard/reports">Reports</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">News</Link>
+        <Link to="/dashboard/news">News</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Banner Image</Link>
+        <Link to="/dashboard/banner">Banner Image</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Dealer Requests</Link>
+        <Link to="/dashboard/requests">Dealer Requests</Link>
       </li>
       <li>
         <Link to="/dashboard/products">Tire Range</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Arrivals</Link>
+        <Link to="/dashboard/arrivals">Arrivals</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Gallery</Link>
+        <Link to="/dashboard/gallery">Gallery</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Jobs</Link>
+        <Link to="/dashboard/jobs">Jobs</Link>
       </li>
       <li>
-        <Link to="/dashboard/products">Make Admin</Link>
+        <Link to="/dashboard/admin">Make Admin</Link>
       </li>
     </ul>
   );

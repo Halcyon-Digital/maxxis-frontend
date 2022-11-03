@@ -6,7 +6,6 @@ import "../assets/sass/components/_filterBar.scss";
 
 function FilterBar() {
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
 
   const getTotalQuantity = () => {
     let total = 0;

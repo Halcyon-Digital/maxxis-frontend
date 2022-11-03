@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 
-import "../assets/sass/components/_dashboardLayout.scss";
+import "../assets/sass/components/admin/_dashboardLayout.scss";
 import AdminHeader from "../components/AdminHeader";
 import DashboardSidebarContent from "../components/DashboardSidebarContent";
 
@@ -19,7 +19,7 @@ function AdminLayout({ children }) {
             <Col className="dashboard-colum sidebar" lg={2}>
               <DashboardSidebarContent />
             </Col>
-            <Col className="dashboard-colum" lg={10}>
+            <Col className="dashboard-colum p-2" lg={10}>
               {children}
             </Col>
           </Row>

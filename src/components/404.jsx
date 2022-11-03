@@ -8,9 +8,9 @@ function NotFound() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    /*  setTimeout(() => {
+    /* setTimeout(() => {
       navigate("/");
-    }, 5000); */
+    }, 6000); */
   }, []);
 
   return (
@@ -21,7 +21,7 @@ function NotFound() {
         <br />
         <button>Page Not Found</button>
         <p>Back to</p>
-        <img src={CountImage} alt="" />
+        <img style={{ width: "40px" }} src={CountImage} alt="counter gif" />
         <p>
           Your page request is not found. After 5s it will automatically
           redirect on home page. <br />

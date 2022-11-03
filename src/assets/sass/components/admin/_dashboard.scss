@@ -1,0 +1,27 @@
+@import "../../utils/variable";
+@import "../../utils/mixins";
+
+.dashboard-main {
+  h3 {
+    @include secondary-fonts(32px, 600);
+    margin: 15px 0;
+  }
+
+  h4 {
+    @include secondary-fonts;
+    margin: 15px 0;
+  }
+
+  &__card-item {
+    background: $dark-color;
+    @include secondary-fonts;
+    transition: all linear 0.4s;
+    color: $secondary-color;
+    margin: 10px;
+    padding: 10px;
+
+    &:hover {
+      background: $primary-color;
+    }
+  }
+}

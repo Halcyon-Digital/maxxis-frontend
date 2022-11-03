@@ -2,9 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { alrtError, alrtSuccess } from "../utils/common";
 
 function DealerForm() {
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
   const { register, resetField } = useForm();
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -12,35 +16,38 @@ function DealerForm() {
   const [companyName, setCompanyName] = useState("");
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
-
   const formData = new FormData();
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    formData.append("name", name);
-    formData.append("mobile", mobile);
-    formData.append("email", email);
-    formData.append("companyName", companyName);
-    formData.append("file", file);
-    formData.append("message", message);
-    await axios
-      .post(`${process.env.REACT_APP_PROXY}/api/v1/dealer`, formData, {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzAxODFkMDVhMTJjNjFmNWM2NGRhYyIsImlhdCI6MTY2NjAwMjY3MSwiZXhwIjoxNjY2MDg5MDcxfQ.rMkjJpLJTdN9ZJ2MazOM3ZtgGr2fysb5OB_dEmIkJqg",
-        },
-      })
-      .then((res) => {
-        alrtSuccess(res.data.message);
-      })
-      .catch((error) => alrtError(error.message));
+    if (!user) {
+      alrtError("Please Login");
+      navigate("/login");
+    } else {
+      formData.append("name", name);
+      formData.append("mobile", mobile);
+      formData.append("email", email);
+      formData.append("companyName", companyName);
+      formData.append("file", file);
+      formData.append("message", message);
+      await axios
+        .post(`${process.env.REACT_APP_PROXY}/api/v1/dealer`, formData, {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        })
+        .then((res) => {
+          alrtSuccess(res.data.message);
+        })
+        .catch((error) => alrtError(error.message));
 
-    resetField("name");
-    resetField("mobile");
-    resetField("email");
-    resetField("companyName");
-    resetField("file");
-    resetField("message");
+      resetField("name");
+      resetField("mobile");
+      resetField("email");
+      resetField("companyName");
+      resetField("file");
+      resetField("message");
+    }
   };
 
   return (

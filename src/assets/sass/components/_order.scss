@@ -36,6 +36,52 @@
       @include secondary-fonts(18px, 600);
       color: $secondary-color;
       background: $primary-color;
+      scroll-behavior: none;
+    }
+  }
+  .popup {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.402);
+    padding: 20px;
+
+    .close-btn {
+      border: 0;
+      padding: 10px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 15px;
+
+      .icon {
+        font-size: 20px;
+      }
+    }
+
+    .card-bg {
+      background: $primary-color;
+    }
+
+    .span-item {
+      color: $primary-color;
+    }
+
+    p {
+      @include secondary-fonts(16px);
+    }
+
+    h2 {
+      @include secondary-fonts(40px, 600);
+    }
+    h4 {
+      @include secondary-fonts(30px, 600);
+    }
+    input {
+      width: 50%;
+      margin: 15px auto;
+      border: 1px solid $primary-color;
     }
   }
 }

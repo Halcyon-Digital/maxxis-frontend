@@ -1,0 +1,24 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.career {
+  padding: 80px 0;
+  background: url("../../images/orderbg.png") no-repeat center;
+  background-size: 100%;
+
+  .career-card {
+    background: $light-dark;
+    padding: 15px;
+
+    p {
+      @include secondary-fonts(14px);
+    }
+    a {
+      padding: 5px 10px;
+      background: $primary-color;
+      margin-top: 7px;
+      @include secondary-fonts(14px);
+      color: $secondary-color;
+    }
+  }
+}

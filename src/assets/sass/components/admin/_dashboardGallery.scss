@@ -1,0 +1,26 @@
+@import "../../utils/variable";
+@import "../../utils/mixins";
+
+.dashboard-gallery {
+  button {
+    border: 0;
+    background: rgba(0, 0, 0, 0.397);
+    color: $secondary-color;
+    padding: 10px;
+  }
+  form {
+    button {
+      @include button;
+      background: $primary-color;
+      @include secondary-fonts;
+      color: $secondary-color;
+    }
+  }
+
+  .new-gallery {
+    @include button;
+    background: $primary-color;
+    @include secondary-fonts;
+    color: $secondary-color;
+  }
+}

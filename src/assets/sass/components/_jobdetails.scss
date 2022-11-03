@@ -1,0 +1,57 @@
+@import "../utils/variable";
+@import "../utils/mixins";
+
+.job-details {
+  padding: 100px 0;
+  background: url("../../images//orderbg.png") no-repeat center;
+  background-size: 100% 100%;
+
+  .job-content {
+    background: $light-dark;
+    margin: 20px 0;
+    padding: 15px;
+
+    p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  p {
+    @include secondary-fonts(16px, 300);
+  }
+
+  h2 {
+    @include primary-fonts;
+  }
+
+  h5 {
+    @include secondary-fonts(16px, 600);
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  ul > li {
+    @include secondary-fonts(15px, 300);
+    padding-left: 18px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: $primary-color;
+      border-radius: 50%;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+  .button {
+    @include button;
+    background: $primary-color;
+    color: $secondary-color;
+    @include secondary-fonts;
+  }
+}
