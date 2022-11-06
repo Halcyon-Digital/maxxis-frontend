@@ -1,11 +1,13 @@
 // import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useSelector } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import "../assets/sass/pages/_navigation.scss";
 
 function HomeNavigation() {
+  const { user } = useSelector((state) => state.auth);
   return (
     <Navbar
       className="px-4"
@@ -36,9 +38,11 @@ function HomeNavigation() {
             <Nav.Link as={NavLink} to="/contact">
               Contact us
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/login">
-              Login/Reg
-            </Nav.Link>
+            {!user && (
+              <Nav.Link as={NavLink} to="/login">
+                Login/Reg
+              </Nav.Link>
+            )}
           </Nav>
           <button className="tire__finder">Tire Finder</button>
         </Navbar.Collapse>

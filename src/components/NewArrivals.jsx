@@ -57,8 +57,8 @@ function NewArrivals() {
             <Loading />
           ) : (
             <Row xs={1} sm={2} md={3} lg={4}>
-              {arrivals.map((item) => (
-                <Col>
+              {arrivals.map((item, i) => (
+                <Col key={i}>
                   <div className="item">
                     <LazyLoadImage
                       src={`${process.env.REACT_APP_PROXY}/files/${item.image}`}

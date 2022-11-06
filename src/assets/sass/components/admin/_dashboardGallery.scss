@@ -9,6 +9,11 @@
     padding: 10px;
   }
   form {
+    input {
+      border: 1px solid $primary-color;
+      padding: 5px;
+      margin-right: 5px;
+    }
     button {
       @include button;
       background: $primary-color;

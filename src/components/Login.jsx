@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import { login, reset } from "../features/auth/authSlice";
 import { alrtError } from "../utils/common";
+import "../assets/sass/components/_authentication.scss";
 
 function Login() {
   const navigate = useNavigate();
