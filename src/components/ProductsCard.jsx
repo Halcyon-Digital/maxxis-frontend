@@ -1,34 +1,33 @@
-import { Col } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { HashLink } from "react-router-hash-link";
-import ProductImage from "../assets/images/product.png";
-import { addToCart } from "../features/cart/cartSlice";
-import { alrtSuccess } from "../utils/common";
+import { Col } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { HashLink } from 'react-router-hash-link';
+import { addToCart } from '../features/cart/cartSlice';
+import { alrtSuccess } from '../utils/common';
 
-function ProductsCard({ index }) {
+function ProductsCard({ product }) {
   const dispatch = useDispatch((state) => state.cart);
 
   const addCart = (data) => {
     dispatch(addToCart(data));
-    alrtSuccess("Product Added to Cart");
+    alrtSuccess('Product Added to Cart');
   };
   return (
     <Col className=" mb-4">
       <div className="product-image">
-        <HashLink className="d-block" to="/products/slug">
+        <HashLink className="d-block" to={`/products/${product._id}`}>
           <img
             className="w-100 border-3 bg-white"
-            src={ProductImage}
+            src={product.thumbnailImage}
             alt="product"
             loading="lazy"
           />
         </HashLink>
       </div>
       <div className="product-info">
-        <h3>Extramaxx (M6234)</h3>
-        <p>BDT. Price: 5000/-</p>
+        <h3>{product.title}</h3>
+        <p>BDT. Price: {product.price}/-</p>
         <button>Buy Now</button>
-        <button onClick={() => addCart({ id: index })}>Add To Cart</button>
+        <button onClick={() => addCart(product)}>Add To Cart</button>
       </div>
     </Col>
   );

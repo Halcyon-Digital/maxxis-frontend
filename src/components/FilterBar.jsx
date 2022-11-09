@@ -1,8 +1,8 @@
-import React from "react";
-import { TiShoppingCart } from "react-icons/ti";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import "../assets/sass/components/_filterBar.scss";
+import React from 'react';
+import { TiShoppingCart } from 'react-icons/ti';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import '../assets/sass/components/_filterBar.scss';
 
 function FilterBar() {
   const cart = useSelector((state) => state.cart.cart);

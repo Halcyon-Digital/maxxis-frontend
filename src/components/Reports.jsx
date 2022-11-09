@@ -25,7 +25,7 @@ export default function Reports() {
           </thead>
           <tbody>
             {data.map((user) => (
-              <ReportInfo reporter={user} />
+              <ReportInfo reporter={user} key={user._id} />
             ))}
           </tbody>
         </Table>

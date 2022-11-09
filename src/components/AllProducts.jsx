@@ -1,11 +1,14 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import Title from "./Title";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import "../assets/sass/components/_products.scss";
-import ProductsCard from "./ProductsCard";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import Title from './Title';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import '../assets/sass/components/_products.scss';
+import ProductsCard from './ProductsCard';
+import { useQuery } from 'react-query';
+import { allProducts } from '../api/fetchData';
 
 function AllProducts() {
+  const { data, isLoading } = useQuery('allProducts', () => allProducts());
   return (
     <section className="products">
       <Container>
@@ -26,9 +29,10 @@ function AllProducts() {
 
             <div className="mt-5">
               <Row lg={4} xs={1}>
-                {[...Array(8).keys()].map((product, i) => (
-                  <ProductsCard key={i} index={i} product={product} />
-                ))}
+                {!isLoading &&
+                  data.map((product, i) => (
+                    <ProductsCard key={i} index={i} product={product} />
+                  ))}
               </Row>
             </div>
           </Col>

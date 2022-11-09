@@ -1,43 +1,56 @@
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-const AboutPage = lazy(() => import("../pages/AboutPage"));
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Loading from '../components/Loading';
+import DashboardProductCreatePage from '../pages/admin/DashboardProductCreatePage';
+import DashboardTireRangePage from '../pages/admin/DashboardTireRangePage';
+import PrivateRoute from '../utils/PrivateRoute';
+const DashboardAdmin = lazy(() => import('../pages/admin/DashboardAdmin'));
+const DashboardCustomers = lazy(() =>
+  import('../pages/admin/DashboardCustomers')
+);
+const DashboardDealerPage = lazy(() =>
+  import('../pages/admin/DashboardDealerPage')
+);
+const DashboardJobs = lazy(() => import('../pages/admin/DashboardJobs'));
+const DashboardNews = lazy(() => import('../pages/admin/DashboardNews'));
+const AboutPage = lazy(() => import('../pages/AboutPage'));
 const DashboardArrivalsPage = lazy(() =>
-  import("../pages/admin/DashboardArrivalsPage")
+  import('../pages/admin/DashboardArrivalsPage')
 );
 const DashboardBannerPage = lazy(() =>
-  import("../pages/admin/DashboardBannerPage")
+  import('../pages/admin/DashboardBannerPage')
 );
 const DashboardCategoriesPage = lazy(() =>
-  import("../pages/admin/DashboardCategoriesPage")
+  import('../pages/admin/DashboardCategoriesPage')
 );
 const DashboardGalleryPage = lazy(() =>
-  import("../pages/admin/DashboardGalleryPage")
+  import('../pages/admin/DashboardGalleryPage')
 );
-const DashboardPage = lazy(() => import("../pages/admin/DashboardPage"));
-const DashboardProduct = lazy(() => import("../pages/admin/DashboardProduct"));
+const DashboardPage = lazy(() => import('../pages/admin/DashboardPage'));
+const DashboardProduct = lazy(() => import('../pages/admin/DashboardProduct'));
 const DashboardReportsPage = lazy(() =>
-  import("../pages/admin/DashboardReportsPage")
+  import('../pages/admin/DashboardReportsPage')
 );
-const CareerPage = lazy(() => import("../pages/CareerPage"));
-const CartPage = lazy(() => import("../pages/CartPage"));
-const ContactPage = lazy(() => import("../pages/ContactPage"));
-const DealershipPage = lazy(() => import("../pages/DealershipPage"));
-const GalleryPage = lazy(() => import("../pages/GalleryPage"));
-const HomePage = lazy(() => import("../pages/HomePage"));
-const JobDetailsPage = lazy(() => import("../pages/JobDetailsPage"));
-const LoginPage = lazy(() => import("../pages/LoginPage"));
-const NewsPage = lazy(() => import("../pages/NewsPage"));
-const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
-const OrderPage = lazy(() => import("../pages/OrderPage"));
-const ProductDetailPage = lazy(() => import("../pages/ProductDetailPage"));
-const ProductsPage = lazy(() => import("../pages/ProductsPage"));
-const RegisterPage = lazy(() => import("../pages/RegisterPage"));
-const TireCategoriesPage = lazy(() => import("../pages/TireCategoriesPage"));
+const CareerPage = lazy(() => import('../pages/CareerPage'));
+const CartPage = lazy(() => import('../pages/CartPage'));
+const ContactPage = lazy(() => import('../pages/ContactPage'));
+const DealershipPage = lazy(() => import('../pages/DealershipPage'));
+const GalleryPage = lazy(() => import('../pages/GalleryPage'));
+const HomePage = lazy(() => import('../pages/HomePage'));
+const JobDetailsPage = lazy(() => import('../pages/JobDetailsPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const NewsPage = lazy(() => import('../pages/NewsPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const OrderPage = lazy(() => import('../pages/OrderPage'));
+const ProductDetailPage = lazy(() => import('../pages/ProductDetailPage'));
+const ProductsPage = lazy(() => import('../pages/ProductsPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const TireCategoriesPage = lazy(() => import('../pages/TireCategoriesPage'));
 
 function index() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<h3>Loading...</h3>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
@@ -58,18 +71,114 @@ function index() {
           <Route path="/jobs/:slug" element={<JobDetailsPage />} />
 
           {/* Admin Route */}
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/dashboard/products" element={<DashboardProduct />} />
-          <Route path="/dashboard/gallery" element={<DashboardGalleryPage />} />
+
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <DashboardPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/products"
+            element={
+              <PrivateRoute>
+                <DashboardProduct />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/products/create"
+            element={
+              <PrivateRoute>
+                <DashboardProductCreatePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/gallery"
+            element={
+              <PrivateRoute>
+                <DashboardGalleryPage />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/dashboard/arrivals"
             element={<DashboardArrivalsPage />}
           />
-          <Route path="/dashboard/banner" element={<DashboardBannerPage />} />
-          <Route path="/dashboard/reports" element={<DashboardReportsPage />} />
+          <Route
+            path="/dashboard/banner"
+            element={
+              <PrivateRoute>
+                <DashboardBannerPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/reports"
+            element={
+              <PrivateRoute>
+                <DashboardReportsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/requests"
+            element={
+              <PrivateRoute>
+                <DashboardDealerPage />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/dashboard/categories"
-            element={<DashboardCategoriesPage />}
+            element={
+              <PrivateRoute>
+                <DashboardCategoriesPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/news"
+            element={
+              <PrivateRoute>
+                <DashboardNews />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/jobs"
+            element={
+              <PrivateRoute>
+                <DashboardJobs />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/customers"
+            element={
+              <PrivateRoute>
+                <DashboardCustomers />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/admin"
+            element={
+              <PrivateRoute>
+                <DashboardAdmin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/tire_range"
+            element={
+              <PrivateRoute>
+                <DashboardTireRangePage />
+              </PrivateRoute>
+            }
           />
 
           {/* 404 Page */}

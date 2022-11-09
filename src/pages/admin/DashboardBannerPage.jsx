@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { alrtError, alrtSuccess } from "../../utils/common";
 import { useQuery } from "react-query";
 import { allBanner } from "../../api/fetchData";
+import "../../assets/sass/components/admin/_dashboardGallery.scss";
 import DashboardItemCard from "../../components/DashboardItemCard";
 
 export default function DashboardBannerPage() {

@@ -7,6 +7,7 @@ import { alrtError, alrtSuccess } from "../../utils/common";
 import { useQuery } from "react-query";
 import { arrivals } from "../../api/fetchData";
 import DashboardItemCard from "../../components/DashboardItemCard";
+import "../../assets/sass/components/admin/_dashboardGallery.scss";
 
 export default function DashboardArrivalsPage() {
   const [isAdd, setIsAdd] = useState(false);

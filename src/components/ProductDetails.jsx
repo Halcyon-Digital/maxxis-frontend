@@ -1,14 +1,30 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { Carousel } from "react-responsive-carousel";
-import Product from "../assets/images/product-view.png";
-import Feature1 from "../assets/images/featureImage1.png";
-import Feature2 from "../assets/images/featureImage2.png";
-import Feature3 from "../assets/images/featureImage3.png";
-import "../assets/sass/components/_productDetails.scss";
-import Title from "./Title";
+import axios from 'axios';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Carousel } from 'react-responsive-carousel';
+import { useParams } from 'react-router-dom';
+import Feature1 from '../assets/images/featureImage1.png';
+import Feature2 from '../assets/images/featureImage2.png';
+import Feature3 from '../assets/images/featureImage3.png';
+import '../assets/sass/components/_productDetails.scss';
+import Title from './Title';
 
 function ProductDetails() {
+  const [product, setProduct] = useState({});
+  const { slug } = useParams();
+
+  console.log(product);
+
+  useEffect(() => {
+    const data = async () => {
+      await axios
+        .get(`${process.env.REACT_APP_PROXY}/api/v1/products/${slug}`)
+        .then((res) => setProduct(res.data));
+    };
+    data();
+  }, [slug]);
   return (
     <section className="product-details">
       <Container>
@@ -24,13 +40,25 @@ function ProductDetails() {
             <div>
               <Carousel autoPlay={true} showStatus={false}>
                 <div className="img">
-                  <img src={Product} alt="product" loading="lazy" />
+                  <img
+                    src="https://res.cloudinary.com/deacjoc4i/image/upload/v1667971289/product-view_fcp6ip.png"
+                    alt="product"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="img">
-                  <img src={Product} alt="product" loading="lazy" />
+                  <img
+                    src="https://res.cloudinary.com/deacjoc4i/image/upload/v1667977423/products/Maxxis-3.00-17-M6304-Tube-Type-Rear_pbbs0c.png"
+                    alt="product"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="img">
-                  <img src={Product} alt="product" loading="lazy" />
+                  <img
+                    src="https://res.cloudinary.com/deacjoc4i/image/upload/v1667968889/products/product_bgfofk.png"
+                    alt="product"
+                    loading="lazy"
+                  />
                 </div>
               </Carousel>
             </div>

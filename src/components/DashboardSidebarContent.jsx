@@ -4,6 +4,7 @@ import { FaProductHunt } from "react-icons/fa";
 import { AiOutlineUser, AiOutlinePullRequest } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import { GoReport } from "react-icons/go";
+import { GiCarWheel } from "react-icons/gi";
 import { HiNewspaper } from "react-icons/hi";
 import { GiKnightBanner, GiAirplaneArrival } from "react-icons/gi";
 import { RiGalleryLine, RiHandbagLine, RiAdminLine } from "react-icons/ri";
@@ -76,8 +77,11 @@ export default function DashboardSidebarContent() {
         </Link>
       </li>
       <li>
-        <Link to="/dashboard/products">
-          <span></span> Tire Range
+        <Link to="/dashboard/tire_range">
+          <span>
+            <GiCarWheel />
+          </span>{" "}
+          Tire Range
         </Link>
       </li>
       <li>

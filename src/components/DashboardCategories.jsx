@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { alrtError, alrtSuccess } from "../utils/common";
+import AllCategories from "./AllCategories";
 
 export default function DashboardCategories() {
   const { register, handleSubmit, resetField } = useForm();
@@ -36,6 +37,8 @@ export default function DashboardCategories() {
       <button className="mb-3 new-gallery" onClick={() => setIsAdd(true)}>
         Add Category
       </button>
+
+      <AllCategories />
     </div>
   );
 }

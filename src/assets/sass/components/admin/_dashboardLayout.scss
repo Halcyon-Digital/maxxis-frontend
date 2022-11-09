@@ -1,5 +1,5 @@
-@import "../../utils/mixins";
-@import "../../utils/variable";
+@import '../../utils/mixins';
+@import '../../utils/variable';
 
 .dashboard-header {
   display: grid;
@@ -20,7 +20,7 @@
 
 // Dashboard Main Content
 .dashboard-content {
-  background: url("../../../images/dashboard-bg.png") no-repeat center;
+  background: url('../../../images/dashboard-bg.png') no-repeat center;
   background-size: cover;
 
   .dashboard-colum {
@@ -54,4 +54,5 @@
   text-align: center;
   color: $secondary-color;
   padding: 0;
+  background: $black-color;
 }

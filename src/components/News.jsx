@@ -15,8 +15,8 @@ function News() {
           mainClass="black__border"
         />
         <Row lg={3} className="mt-5">
-          {[...Array(6).keys()].map(() => (
-            <NewsCard />
+          {[...Array(6).keys()].map((_, i) => (
+            <NewsCard key={i} />
           ))}
         </Row>
       </Container>

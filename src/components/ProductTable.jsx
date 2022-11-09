@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 
 export default function ProductTable() {
   return (
-    <Table striped>
+    <Table hover striped>
       <thead>
         <tr className="bg-dark text-light">
           <th>Product ID</th>
