@@ -1,120 +1,120 @@
-import { Link } from "react-router-dom";
-import { MdSpaceDashboard } from "react-icons/md";
-import { FaProductHunt } from "react-icons/fa";
-import { AiOutlineUser, AiOutlinePullRequest } from "react-icons/ai";
-import { BiCategory } from "react-icons/bi";
-import { GoReport } from "react-icons/go";
-import { GiCarWheel } from "react-icons/gi";
-import { HiNewspaper } from "react-icons/hi";
-import { GiKnightBanner, GiAirplaneArrival } from "react-icons/gi";
-import { RiGalleryLine, RiHandbagLine, RiAdminLine } from "react-icons/ri";
+import { NavLink } from 'react-router-dom';
+import { MdSpaceDashboard } from 'react-icons/md';
+import { FaProductHunt } from 'react-icons/fa';
+import { AiOutlineUser, AiOutlinePullRequest } from 'react-icons/ai';
+import { BiCategory } from 'react-icons/bi';
+import { GoReport } from 'react-icons/go';
+import { GiCarWheel } from 'react-icons/gi';
+import { HiNewspaper } from 'react-icons/hi';
+import { GiKnightBanner, GiAirplaneArrival } from 'react-icons/gi';
+import { RiGalleryLine, RiHandbagLine, RiAdminLine } from 'react-icons/ri';
 
 export default function DashboardSidebarContent() {
   return (
     <ul>
       <li>
-        <Link to="/dashboard">
+        <NavLink to="/dashboard/home">
           <span>
             <MdSpaceDashboard />
-          </span>{" "}
+          </span>{' '}
           Dashboard
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/products">
+        <NavLink to="/dashboard/products">
           <span>
             <FaProductHunt />
-          </span>{" "}
+          </span>{' '}
           products
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/customers">
+        <NavLink to="/dashboard/customers">
           <span>
             <AiOutlineUser />
-          </span>{" "}
+          </span>{' '}
           Customer
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/categories">
+        <NavLink to="/dashboard/categories">
           <span>
             <BiCategory />
-          </span>{" "}
+          </span>{' '}
           Categories
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/reports">
+        <NavLink to="/dashboard/reports">
           <span>
             <GoReport />
-          </span>{" "}
+          </span>{' '}
           Reports
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/news">
+        <NavLink to="/dashboard/news">
           <span>
             <HiNewspaper />
-          </span>{" "}
+          </span>{' '}
           News
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/banner">
+        <NavLink to="/dashboard/banner">
           <span>
             <GiKnightBanner />
-          </span>{" "}
+          </span>{' '}
           Banner Image
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/requests">
+        <NavLink to="/dashboard/requests">
           <span>
             <AiOutlinePullRequest />
-          </span>{" "}
+          </span>{' '}
           Dealer Requests
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/tire_range">
+        <NavLink to="/dashboard/tire_range">
           <span>
             <GiCarWheel />
-          </span>{" "}
+          </span>{' '}
           Tire Range
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/arrivals">
+        <NavLink to="/dashboard/arrivals">
           <span>
             <GiAirplaneArrival />
-          </span>{" "}
+          </span>{' '}
           Arrivals
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/gallery">
+        <NavLink to="/dashboard/gallery">
           <span>
             <RiGalleryLine />
-          </span>{" "}
+          </span>{' '}
           Gallery
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/jobs">
+        <NavLink to="/dashboard/jobs">
           <span>
             <RiHandbagLine />
-          </span>{" "}
+          </span>{' '}
           Jobs
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/admin">
+        <NavLink to="/dashboard/admin">
           <span>
             <RiAdminLine />
-          </span>{" "}
+          </span>{' '}
           Make Admin
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );

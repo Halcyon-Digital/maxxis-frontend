@@ -81,6 +81,14 @@ function index() {
             }
           />
           <Route
+            path="/dashboard/home"
+            element={
+              <PrivateRoute>
+                <DashboardPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="/dashboard/products"
             element={
               <PrivateRoute>

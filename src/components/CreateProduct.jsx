@@ -47,7 +47,7 @@ export default function CreateProduct() {
           {...register('categories', { required: true })}
           aria-label="Default select example"
         >
-          <option>Open this select menu</option>
+          <option>Select Product Categories</option>
           {data &&
             data.map((category) => (
               <option value={category.title}>{category.title}</option>
