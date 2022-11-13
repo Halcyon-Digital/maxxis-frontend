@@ -1,14 +1,23 @@
-import React from "react";
-import { Col, Container, Row, Table } from "react-bootstrap";
-import CartItems from "./CartItems";
-import "../assets/sass/components/_cart.scss";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Col, Container, Row, Table } from 'react-bootstrap';
+import CartItems from './CartItems';
+import '../assets/sass/components/_cart.scss';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function CartElement() {
+  const cart = useSelector((state) => state.cart.cart);
+
+  const subTotalPrice = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue + Number(currentValue.price * currentValue.quantity),
+    0
+  );
+
   return (
     <section className="cart-page">
       <Container>
-        <CartItems />
+        <CartItems cart={cart} />
         <div className="mt-5">
           <Row className="align-items-end">
             <Col>
@@ -33,7 +42,7 @@ function CartElement() {
                 <tbody>
                   <tr>
                     <td>Include</td>
-                    <td>1000/-</td>
+                    <td>{subTotalPrice}/-</td>
                   </tr>
                 </tbody>
               </Table>

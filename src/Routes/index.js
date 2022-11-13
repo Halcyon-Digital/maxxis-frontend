@@ -1,9 +1,13 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Loading from '../components/Loading';
-import DashboardProductCreatePage from '../pages/admin/DashboardProductCreatePage';
-import DashboardTireRangePage from '../pages/admin/DashboardTireRangePage';
-import PrivateRoute from '../utils/PrivateRoute';
+const Loading = lazy(() => import('../components/Loading'));
+const DashboardProductCreatePage = lazy(() =>
+  import('../pages/admin/DashboardProductCreatePage')
+);
+const DashboardTireRangePage = lazy(() =>
+  import('../pages/admin/DashboardTireRangePage')
+);
+const PrivateRoute = lazy(() => import('../utils/PrivateRoute'));
 const DashboardAdmin = lazy(() => import('../pages/admin/DashboardAdmin'));
 const DashboardCustomers = lazy(() =>
   import('../pages/admin/DashboardCustomers')

@@ -1,6 +1,14 @@
-import { Table } from "react-bootstrap";
+import { Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeItem,
+} from '../features/cart/cartSlice';
 
-function CartItems() {
+function CartItems({ cart }) {
+  const dispatch = useDispatch((state) => state.cart);
+
   return (
     <div>
       <Table striped="columns border" responsive>
@@ -16,57 +24,41 @@ function CartItems() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Extramaxx (M6234)</td>
-            <td>5000/-</td>
-            <td>Will be included after proceeding to checkout</td>
-            <td>
-              <div className="mt-3">
-                <button>+</button>
-                <span>2</span>
-                <button>-</button>
-              </div>
-            </td>
-            <td>140/70-17</td>
-            <td>5000/-</td>
-            <td className="text-center">
-              <button className="delete">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Extramaxx (M6234)</td>
-            <td>5000/-</td>
-            <td>Will be included after proceeding to checkout</td>
-            <td>
-              <div className="mt-3">
-                <button>+</button>
-                <span>2</span>
-                <button>-</button>
-              </div>
-            </td>
-            <td>140/70-17</td>
-            <td>5000/-</td>
-            <td className="text-center">
-              <button className="delete">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Extramaxx (M6234)</td>
-            <td>5000/-</td>
-            <td>Will be included after proceeding to checkout</td>
-            <td>
-              <div className="mt-3">
-                <button>+</button>
-                <span>2</span>
-                <button>-</button>
-              </div>
-            </td>
-            <td>140/70-17</td>
-            <td>5000/-</td>
-            <td className="text-center">
-              <button className="delete">Delete</button>
-            </td>
-          </tr>
+          {cart.map((item) => (
+            <tr>
+              <td>{item.title}</td>
+              <td>{item.price}/-</td>
+              <td>Will be included after proceeding to checkout</td>
+              <td>
+                <div className="mt-3">
+                  <button onClick={() => dispatch(decrementQuantity(item))}>
+                    -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => dispatch(incrementQuantity(item))}>
+                    +
+                  </button>
+                </div>
+              </td>
+              <td>{item.size}</td>
+              <td>{Number(item.price) * Number(item.quantity)}</td>
+              <td className="text-center">
+                <button
+                  onClick={() => {
+                    const confirm = window.confirm(
+                      'Are you sure want to remove cart'
+                    );
+                    if (confirm) {
+                      dispatch(removeItem(item));
+                    }
+                  }}
+                  className="delete"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>

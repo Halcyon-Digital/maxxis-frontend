@@ -4,15 +4,25 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Carousel } from 'react-responsive-carousel';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Loading from './Loading';
 import '../assets/sass/components/_productDetails.scss';
 import Title from './Title';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../features/cart/cartSlice';
+import { alrtSuccess } from '../utils/common';
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { slug } = useParams();
+  const dispatch = useDispatch((state) => state.cart);
+  const navigate = useNavigate();
+
+  const addCart = (data) => {
+    dispatch(addToCart(data));
+    alrtSuccess('Product Added to Cart');
+  };
 
   useEffect(() => {
     const data = async () => {
@@ -76,8 +86,15 @@ function ProductDetails() {
               </p>
 
               <div className="button">
-                <button>Buy Now</button>
-                <button>Add To Cart</button>
+                <button
+                  onClick={() => {
+                    addCart(product);
+                    navigate('/cart');
+                  }}
+                >
+                  Buy Now
+                </button>
+                <button onClick={() => addCart(product)}>Add To Cart</button>
               </div>
             </Col>
           </Row>

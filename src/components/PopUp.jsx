@@ -1,9 +1,31 @@
-import BkashImage from "../assets/images/Bkash.png";
-import { AiOutlineClose } from "react-icons/ai";
-import { Container, Row, Col } from "react-bootstrap";
-import OrderCard from "./OrderCard";
+import BkashImage from '../assets/images/Bkash.png';
+import { AiOutlineClose } from 'react-icons/ai';
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import OrderCard from './OrderCard';
+import axios from 'axios';
 
 export default function PopUp({ online }) {
+  var data = {
+    service_id: 'service_f1wxdsh',
+    template_id: 'template_zkzji8s',
+    user_id: 'user_BFbs1Zr1ntopcBjHwy90B',
+    template_params: {
+      id: '5611dffd',
+      name: 'Jobair',
+      email: 'talhajobair08@gmail.com',
+    },
+  };
+
+  const setMail = async (e) => {
+    await axios
+      .post('https://api.emailjs.com/api/v1.0/email/send', data)
+      .then((res) => alert(res.data))
+      .catch((error) => console.log(error));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="popup">
       <div className="text-end">
@@ -18,7 +40,7 @@ export default function PopUp({ online }) {
               <div className="text-center">
                 <img className="mb-3" src={BkashImage} alt="bkash logo" />
                 <p>
-                  1. From Your BKash choose{" "}
+                  1. From Your BKash choose{' '}
                   <span className="span-item">SENT MONEY</span>
                 </p>
                 <p>1. Type the Receiver number</p>
@@ -31,11 +53,11 @@ export default function PopUp({ online }) {
                   below-
                 </p>
 
-                <form>
+                <Form>
                   <input type="text" placeholder="Your Payment Number" />
                   <input type="text" placeholder="TextID" />
                   <button type="submit">PLACE ORDER</button>
-                </form>
+                </Form>
               </div>
             </Col>
             <Col lg={3}>
