@@ -17,6 +17,7 @@ export default function PopUp({ online }) {
   };
 
   const setMail = async (e) => {
+    e.preventDefault();
     await axios
       .post('https://api.emailjs.com/api/v1.0/email/send', data)
       .then((res) => alert(res.data))
@@ -53,7 +54,7 @@ export default function PopUp({ online }) {
                   below-
                 </p>
 
-                <Form>
+                <Form onSubmit={setMail}>
                   <input type="text" placeholder="Your Payment Number" />
                   <input type="text" placeholder="TextID" />
                   <button type="submit">PLACE ORDER</button>

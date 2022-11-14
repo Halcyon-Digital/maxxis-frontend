@@ -3,11 +3,13 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { allProducts } from '../api/fetchData';
 import { alrtError, alrtSuccess } from '../utils/common';
 import Loading from './Loading';
 
 export default function ProductTable() {
+  const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth.user);
   const { data, isLoading } = useQuery('allProducts', () => allProducts());
 
@@ -60,8 +62,16 @@ export default function ProductTable() {
                 <td>{product.shippingInDhaka}</td>
                 <td>{product.shippingInDhaka}</td>
                 <td>
-                  <button>Edit</button>
-                  <button>Show</button>
+                  <button
+                    onClick={() =>
+                      navigate(`/dashboard/products/update/${product._id}`)
+                    }
+                  >
+                    Edit
+                  </button>
+                  <button onClick={() => navigate(`/products/${product._id}`)}>
+                    Show
+                  </button>
                   <button onClick={() => deleteProduct(product._id)}>
                     Delete
                   </button>

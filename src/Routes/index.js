@@ -1,5 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+const DashboardUpdateProduct = lazy(() =>
+  import('../pages/admin/DashboardUpdateProduct')
+);
 const Loading = lazy(() => import('../components/Loading'));
 const DashboardProductCreatePage = lazy(() =>
   import('../pages/admin/DashboardProductCreatePage')
@@ -105,6 +108,15 @@ function index() {
             element={
               <PrivateRoute>
                 <DashboardProductCreatePage />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard/products/update/:slug"
+            element={
+              <PrivateRoute>
+                <DashboardUpdateProduct />
               </PrivateRoute>
             }
           />

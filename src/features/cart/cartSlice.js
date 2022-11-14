@@ -3,6 +3,17 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cart: [],
+    customer: {
+      name: '',
+      companyName: '',
+      address: '',
+      town: '',
+      district: '',
+      postCode: '',
+      mobileNumber: '',
+      email: '',
+      notes: '',
+    },
   },
   reducers: {
     addToCart: (state, action) => {

@@ -1,6 +1,26 @@
-import { Table } from "react-bootstrap";
+import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 function Cart() {
+  const cart = useSelector((state) => state.cart.cart);
+  const customer = useSelector((state) => state.cart.customer);
+  const subTotalPrice = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue + Number(currentValue.price * currentValue.quantity),
+    0
+  );
+  const shippingDhaka = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue + Number(currentValue.shippingInDhaka),
+    0
+  );
+  const shippingDhakaOut = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue + Number(currentValue.shippingOutDhaka),
+    0
+  );
+
+  console.log(customer);
   return (
     <div>
       <Table striped>
@@ -11,22 +31,16 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Otto</td>
-            <td>3200</td>
-          </tr>
-          <tr>
-            <td>Thornton</td>
-            <td>1200</td>
-          </tr>
-
-          <tr>
-            <td>Shipping</td>
-            <td>1000</td>
-          </tr>
+          {cart.map((item) => (
+            <tr>
+              <td>{item.title}</td>
+              <td>{item.price * item.quantity}</td>
+            </tr>
+          ))}
+          <tr></tr>
           <tr className="bg-dark text-light">
             <td>Total</td>
-            <td>10100</td>
+            <td>{subTotalPrice}</td>
           </tr>
         </tbody>
       </Table>
@@ -41,11 +55,11 @@ function Cart() {
           <tbody>
             <tr>
               <td>Inside Dhaka</td>
-              <td>120</td>
+              <td>{shippingDhaka}</td>
             </tr>
             <tr>
               <td>Outside Dhaka</td>
-              <td>200</td>
+              <td>{shippingDhakaOut}</td>
             </tr>
           </tbody>
         </Table>

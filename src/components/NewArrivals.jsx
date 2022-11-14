@@ -1,13 +1,13 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import Title from "./Title";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import "../assets/sass/components/_newArrivals.scss";
-import Loading from "./Loading";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import Title from './Title';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import '../assets/sass/components/_newArrivals.scss';
+import Loading from './Loading';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function NewArrivals() {
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +43,12 @@ function NewArrivals() {
           <div>
             <IoIosArrowBack
               className="change__button"
-              onClick={() => setPage((prevState) => prevState - 1)}
+              onClick={() => {
+                if (page === 0) {
+                  return setPage(0);
+                }
+                setPage((prevState) => prevState - 1);
+              }}
             />
             <IoIosArrowForward
               className="change__button"

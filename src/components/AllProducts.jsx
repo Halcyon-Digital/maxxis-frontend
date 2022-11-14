@@ -29,7 +29,7 @@ function AllProducts() {
   }, [page, size]);
 
   const backPage = () => {
-    if (page == 0) {
+    if (page === 0) {
       return setPage(0);
     }
     setPage((prevState) => prevState - 1);

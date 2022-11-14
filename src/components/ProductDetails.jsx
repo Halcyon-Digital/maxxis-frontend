@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Carousel } from 'react-responsive-carousel';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from './Loading';
 import '../assets/sass/components/_productDetails.scss';
 import Title from './Title';
@@ -53,7 +53,7 @@ function ProductDetails() {
               <div>
                 <Carousel autoPlay={true} showStatus={false}>
                   {product.images &&
-                    product?.images.map((imageSrc, i) => (
+                    product.images.split(',').map((imageSrc, i) => (
                       <div className="img" key={i}>
                         <img src={imageSrc} alt="product" loading="lazy" />
                       </div>
@@ -62,28 +62,32 @@ function ProductDetails() {
               </div>
             </Col>
             <Col>
+              <h2>{product.title}</h2>
+              <h6>BDT. Price: {product.price}/-</h6>
+              <h2>{product.size}</h2>
+              <p className="content-title">Specifications</p>
+              <p>{product.description}</p>
+              <p className="content-title">Features and Benefits</p>
+              <ul>
+                {product.featuresDetails &&
+                  product.featuresDetails
+                    .split(',')
+                    .map((feature) => <li>{feature}</li>)}
+              </ul>
+
               <div className="d-flex align-items-end mb-4">
                 {product.features &&
-                  product.features.map((imageSrc, i) => (
-                    <img key={i} src={imageSrc} alt="feature" loading="lazy" />
-                  ))}
+                  product.features
+                    .split(',')
+                    .map((imageSrc, i) => (
+                      <img
+                        key={i}
+                        src={imageSrc}
+                        alt="feature"
+                        loading="lazy"
+                      />
+                    ))}
               </div>
-
-              <h2>Extramaxx (M6234)</h2>
-              <h6>BDT. Price: 500/-</h6>
-              <h2>140/70-17</h2>
-              <p className="content-title">Specifications</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida.
-              </p>
-              <p className="content-title">Features</p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices gravida.
-              </p>
 
               <div className="button">
                 <button

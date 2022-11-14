@@ -1,73 +1,86 @@
-import { useForm } from 'react-hook-form';
-import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { alrtError, alrtSuccess } from '../utils/common';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { categoriesData } from '../api/fetchData';
+import { alrtError, alrtSuccess } from '../utils/common';
 
-export default function CreateProduct() {
+export default function UpdateProduct() {
+  const { slug } = useParams();
   const { token } = useSelector((state) => state.auth.user);
   const { data } = useQuery('category', () => categoriesData());
-  const {
-    register,
-    handleSubmit,
-    resetField,
-    formState: { errors },
-  } = useForm();
+  const [product, setProduct] = useState({});
 
-  const onSubmit = async (data) => {
+  useEffect(() => {
+    const data = async () => {
+      const response = await axios.get(
+        `${process.env.REACT_APP_PROXY}/api/v1/products/${slug}`
+      );
+      setProduct(response.data);
+    };
+
+    data();
+  }, [slug]);
+
+  const onChange = (e) =>
+    setProduct((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
     await axios
-      .post(`${process.env.REACT_APP_PROXY}/api/v1/products`, data, {
+      .put(`${process.env.REACT_APP_PROXY}/api/v1/products/${slug}`, product, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => alrtSuccess(res.data.message))
       .catch((error) => alrtError(error.message));
-    resetField('title');
-    resetField('code');
-    resetField('categories');
-    resetField('description');
-    resetField('regularPrice');
-    resetField('discountPrice');
-    resetField('weight');
-    resetField('size');
-    resetField('stockQuantity');
-    resetField('shippingRateDhaka');
-    resetField('shippingRateOut');
-    resetField('images');
-    resetField('features');
-    resetField('featuresDetails');
-    resetField('thumbnailImage');
   };
+
   return (
     <div>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={onSubmit}>
         <Form.Label htmlFor="title">Title</Form.Label>
         <Form.Control
+          onChange={onChange}
+          value={product.title}
           id="title"
-          {...register('title', { required: true })}
+          name="title"
           placeholder="Title"
         />
-        {errors.title && <span>Title field is required</span>}
 
         <Form.Label htmlFor="code">Code</Form.Label>
         <Form.Control
+          onChange={onChange}
+          value={product.code}
           id="code"
-          {...register('code', { required: true })}
+          name="code"
           placeholder="Code"
         />
 
         <Form.Label htmlFor="categories">Categories</Form.Label>
         <Form.Select
-          {...register('categories', { required: true })}
+          name="categories"
+          onChange={onChange}
           aria-label="Default select example"
         >
           <option>Select Product Categories</option>
           {data &&
             data.map((category, i) => (
-              <option key={i} value={category.title}>
+              <option
+                key={i}
+                onChange={onChange}
+                value={category.title}
+                selected={product.categories === category.title ? true : null}
+              >
                 {category.title}
               </option>
             ))}
@@ -76,38 +89,48 @@ export default function CreateProduct() {
         <Form.Label htmlFor="description">Description</Form.Label>
         <Form.Control
           id="description"
-          {...register('description', { required: true })}
+          onChange={onChange}
+          value={product.description}
+          name="description"
           placeholder="Description"
         />
 
         <Form.Label htmlFor="regularPrice">Regular Price</Form.Label>
         <Form.Control
+          onChange={onChange}
+          value={product.regularPrice}
           type="number"
           id="regularPrice"
-          {...register('regularPrice', { required: true })}
+          name="regularPrice"
           placeholder="RegularPrice"
         />
 
         <Form.Label htmlFor="discountPrice">DiscountPrice</Form.Label>
         <Form.Control
+          onChange={onChange}
+          value={product.discountPrice}
           type="number"
           id="discountPrice"
-          {...register('discountPrice', { required: true })}
+          name="discountPrice"
           placeholder="DiscountPrice"
         />
 
         <Form.Label htmlFor="weight">Weight</Form.Label>
         <Form.Control
+          onChange={onChange}
+          value={product.weight}
           id="weight"
           type="number"
-          {...register('weight', { required: true })}
+          name="weight"
           placeholder="Weight"
         />
 
         <Form.Label htmlFor="size">Size</Form.Label>
         <Form.Control
           id="size"
-          {...register('size', { required: true })}
+          onChange={onChange}
+          value={product.size}
+          name="size"
           placeholder="Size"
         />
 
@@ -115,7 +138,9 @@ export default function CreateProduct() {
         <Form.Control
           id="stockQuantity"
           type="number"
-          {...register('stockQuantity', { required: true })}
+          onChange={onChange}
+          value={product.stockQuantity}
+          name="stockQuantity"
           placeholder="Stock Quantity"
         />
 
@@ -123,7 +148,9 @@ export default function CreateProduct() {
         <Form.Control
           id="shippingInDhaka"
           type="number"
-          {...register('shippingRateDhaka', { required: true })}
+          onChange={onChange}
+          value={product.shippingRateDhaka}
+          name="shippingRateDhaka"
           placeholder="Shipping In Dhaka"
         />
 
@@ -131,44 +158,50 @@ export default function CreateProduct() {
         <Form.Control
           id="shippingOutDhaka"
           type="number"
-          {...register('shippingRateOut', { required: true })}
+          onChange={onChange}
+          value={product.shippingRateOut}
+          name="shippingRateOut"
           placeholder="Shipping Out Dhaka"
         />
 
         <Form.Label htmlFor="images">Product Images</Form.Label>
         <Form.Control
           id="images"
-          {...register('images', { required: true })}
+          onChange={onChange}
+          value={product.images}
+          name="images"
           placeholder="First image link, Second image link, Third image link"
         />
-        {errors.images && <span>This field is required</span>}
 
         <Form.Label htmlFor="features">Features Images</Form.Label>
         <Form.Control
           id="features"
-          {...register('features', { required: true })}
+          onChange={onChange}
+          value={product.features}
+          name="features"
           placeholder="First image link, Second image link, Third image link"
         />
-        {errors.images && <span>This field is required</span>}
 
         <Form.Label htmlFor="featuresDetails">Features Details</Form.Label>
         <Form.Control
           id="featuresDetails"
-          {...register('featuresDetails', { required: true })}
+          onChange={onChange}
+          value={product.featuresDetails}
+          name="featuresDetails"
           placeholder="@elample sports, onroad, allwather"
         />
-        {errors.images && <span>This field is required</span>}
 
         <Form.Label htmlFor="thumbnailImage">Thumbnail Images</Form.Label>
         <Form.Control
           id="thumbnailImage"
-          {...register('thumbnailImage', { required: true })}
+          onChange={onChange}
+          value={product.thumbnailImage}
+          name="thumbnailImage"
           placeholder="Thumbnail Images"
         />
-        {errors.images && <span>This field is required</span>}
 
         <Button variant="danger" type="submit">
-          Crate
+          Create
         </Button>
       </Form>
     </div>
