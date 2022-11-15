@@ -200,8 +200,8 @@ export default function UpdateProduct() {
           placeholder="Thumbnail Images"
         />
 
-        <Button variant="danger" type="submit">
-          Create
+        <Button className="mt-2" variant="danger" type="submit">
+          Update
         </Button>
       </Form>
     </div>

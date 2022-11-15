@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 function Cart() {
   const cart = useSelector((state) => state.cart.cart);
-  const customer = useSelector((state) => state.cart.customer);
   const subTotalPrice = cart.reduce(
     (previousValue, currentValue) =>
       previousValue + Number(currentValue.price * currentValue.quantity),
@@ -20,7 +19,6 @@ function Cart() {
     0
   );
 
-  console.log(customer);
   return (
     <div>
       <Table striped>
@@ -37,10 +35,9 @@ function Cart() {
               <td>{item.price * item.quantity}</td>
             </tr>
           ))}
-          <tr></tr>
           <tr className="bg-dark text-light">
-            <td>Total</td>
-            <td>{subTotalPrice}</td>
+            <td className="text-light">Total</td>
+            <td className="text-light">{subTotalPrice}</td>
           </tr>
         </tbody>
       </Table>

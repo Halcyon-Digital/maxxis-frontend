@@ -1,94 +1,141 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import {
+  addCustomerAddress,
+  addCustomerCompanyName,
+  addCustomerDistrict,
+  addCustomerEmail,
+  addCustomerMobile,
+  addCustomerName,
+  addCustomerNotes,
+  addCustomerPostCode,
+  addCustomerTown,
+} from '../features/cart/cartSlice';
 
 function OrderForm() {
+  const dispatch = useDispatch();
   return (
     <div>
       <Form>
-        <input type="text" placeholder="Your Name" />
-        <input type="text" placeholder="Company Name (optional)" />
-        <input type="text" placeholder="Street address *" />
+        <input
+          type="text"
+          placeholder="Your Name"
+          required={true}
+          onBlur={(e) => dispatch(addCustomerName(e.target.value))}
+        />
+        <input
+          type="text"
+          placeholder="Company Name (optional)"
+          onBlur={(e) => dispatch(addCustomerCompanyName(e.target.value))}
+        />
+        <input
+          type="text"
+          placeholder="Street address *"
+          onBlur={(e) => dispatch(addCustomerAddress(e.target.value))}
+        />
         <input
           type="text"
           placeholder="Apartment, Saite, Unit, etc (Optinal)"
         />
-        <input type="text" placeholder="Town / City *" />
+        <input
+          type="text"
+          placeholder="Town / City *"
+          onBlur={(e) => dispatch(addCustomerTown(e.target.value))}
+        />
 
-        <Form.Select name="district" required>
-          <option value="1">Dhaka</option>
-          <option value="2">Barisal</option>
-          <option value="3">Bhola</option>
-          <option value="4">Jhalokati</option>
-          <option value="5">Patuakhali </option>
-          <option value="6">Pirojpur</option>
-          <option value="7">Bandarban</option>
-          <option value="8">Brahmanbaria</option>
-          <option value="9">Chandpur</option>
-          <option value="10">Chittagong</option>
-          <option value="11">Comilla</option>
-          <option value="12">Cox's Bazar</option>
-          <option value="13">Feni</option>
-          <option value="14">Khagrachhari</option>
-          <option value="15">Lakshmipur</option>
-          <option value="16">Noakhali</option>
-          <option value="17">Rangamati </option>
-          <option value="18">Barguna</option>
-          <option value="19">Faridpur</option>
-          <option value="20">Gazipur</option>
-          <option value="21">Gopalganj</option>
-          <option value="22">Kishoreganj</option>
-          <option value="23">Madaripur</option>
-          <option value="24">Manikganj</option>
-          <option value="25">Munshiganj</option>
-          <option value="26">Narayanganj</option>
-          <option value="27">Narsingdi</option>
-          <option value="28">Rajbari</option>
-          <option value="29">Shariatpur </option>
-          <option value="30">Tangail</option>
-          <option value="31">Bagerhat</option>
-          <option value="32">Chuadanga</option>
-          <option value="33">Jessore</option>
-          <option value="34">Jhenaidah</option>
-          <option value="35">Khulna</option>
-          <option value="36">Kushtia</option>
-          <option value="37">Magura</option>
-          <option value="38">Meherpur</option>
-          <option value="39">Narail</option>
-          <option value="40">Satkhira</option>
-          <option value="41">Jamalpur </option>
-          <option value="42">Mymensingh</option>
-          <option value="43">Netrokona</option>
-          <option value="44">Sherpur</option>
-          <option value="45">Bogra</option>
-          <option value="46">Joypurhat</option>
-          <option value="47">Naogaon</option>
-          <option value="48">Natore</option>
-          <option value="49">Chapainawabganj</option>
-          <option value="50">Pabna</option>
-          <option value="51">Rajshahi</option>
-          <option value="52">Sirajganj</option>
-          <option value="53">Dinajpur </option>
-          <option value="54">Gaibandha</option>
-          <option value="55">Kurigram</option>
-          <option value="56">Lalmonirhat</option>
-          <option value="57">Nilphamari</option>
-          <option value="58">Panchagarh</option>
-          <option value="59">Rangpur</option>
-          <option value="60">Thakurgaon</option>
-          <option value="61">Habiganj</option>
-          <option value="62">Moulvibazar</option>
-          <option value="63">Sunamganj</option>
-          <option value="64">Sylhet</option>
+        <Form.Select
+          name="district"
+          onBlur={(e) => dispatch(addCustomerDistrict(e.target.value))}
+          required
+        >
+          <option>Dhaka</option>
+          <option>Barisal</option>
+          <option>Bhola</option>
+          <option>Jhalokati</option>
+          <option>Patuakhali </option>
+          <option>Pirojpur</option>
+          <option>Bandarban</option>
+          <option>Brahmanbaria</option>
+          <option>Chandpur</option>
+          <option>Chittagong</option>
+          <option>Comilla</option>
+          <option>Cox's Bazar</option>
+          <option>Feni</option>
+          <option>Khagrachhari</option>
+          <option>Lakshmipur</option>
+          <option>Noakhali</option>
+          <option>Rangamati </option>
+          <option>Barguna</option>
+          <option>Faridpur</option>
+          <option>Gazipur</option>
+          <option>Gopalganj</option>
+          <option>Kishoreganj</option>
+          <option>Madaripur</option>
+          <option>Manikganj</option>
+          <option>Munshiganj</option>
+          <option>Narayanganj</option>
+          <option>Narsingdi</option>
+          <option>Rajbari</option>
+          <option>Shariatpur </option>
+          <option>Tangail</option>
+          <option>Bagerhat</option>
+          <option>Chuadanga</option>
+          <option>Jessore</option>
+          <option>Jhenaidah</option>
+          <option>Khulna</option>
+          <option>Kushtia</option>
+          <option>Magura</option>
+          <option>Meherpur</option>
+          <option>Narail</option>
+          <option>Satkhira</option>
+          <option>Jamalpur </option>
+          <option>Mymensingh</option>
+          <option>Netrokona</option>
+          <option>Sherpur</option>
+          <option>Bogra</option>
+          <option>Joypurhat</option>
+          <option>Naogaon</option>
+          <option>Natore</option>
+          <option>Chapainawabganj</option>
+          <option>Pabna</option>
+          <option>Rajshahi</option>
+          <option>Sirajganj</option>
+          <option>Dinajpur </option>
+          <option>Gaibandha</option>
+          <option>Kurigram</option>
+          <option>Lalmonirhat</option>
+          <option>Nilphamari</option>
+          <option>Panchagarh</option>
+          <option>Rangpur</option>
+          <option>Thakurgaon</option>
+          <option>Habiganj</option>
+          <option>Moulvibazar</option>
+          <option>Sunamganj</option>
+          <option>Sylhet</option>
         </Form.Select>
-        <input type="text" placeholder="Postcode / ZIP (optional)" />
-        <input type="text" placeholder="Billing Mobile Number *" />
-        <input type="text" placeholder="Billing Email *" />
+        <input
+          type="number"
+          onBlur={(e) => dispatch(addCustomerPostCode(e.target.value))}
+          placeholder="Postcode / ZIP (optional)"
+        />
+        <input
+          type="number"
+          onBlur={(e) => dispatch(addCustomerMobile(e.target.value))}
+          placeholder="Billing Mobile Number *"
+        />
+        <input
+          onBlur={(e) => dispatch(addCustomerEmail(e.target.value))}
+          type="email"
+          placeholder="Billing Email *"
+        />
         <textarea
           name="ordernotes"
           id="ordernotes"
           cols="30"
           rows="4"
           placeholder="Notes about your order, e.g. special notes for delivery"
+          onBlur={(e) => dispatch(addCustomerNotes(e.target.value))}
         ></textarea>
       </Form>
     </div>

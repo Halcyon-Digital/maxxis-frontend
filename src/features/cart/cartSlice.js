@@ -8,11 +8,16 @@ const cartSlice = createSlice({
       companyName: '',
       address: '',
       town: '',
-      district: '',
+      district: 'Dhaka',
       postCode: '',
       mobileNumber: '',
       email: '',
       notes: '',
+    },
+    order: {
+      paymentType: 'Cash on Delivery',
+      mobileNumber: '',
+      trxID: '',
     },
   },
   reducers: {
@@ -44,8 +49,60 @@ const cartSlice = createSlice({
       );
       state.cart = removeItem;
     },
+    addCustomerName: (state, action) => {
+      state.customer.name = action.payload;
+    },
+    addCustomerCompanyName: (state, action) => {
+      state.customer.companyName = action.payload;
+    },
+    addCustomerAddress: (state, action) => {
+      state.customer.address = action.payload;
+    },
+    addCustomerTown: (state, action) => {
+      state.customer.town = action.payload;
+    },
+    addCustomerDistrict: (state, action) => {
+      state.customer.district = action.payload;
+    },
+    addCustomerPostCode: (state, action) => {
+      state.customer.postCode = action.payload;
+    },
+    addCustomerMobile: (state, action) => {
+      state.customer.mobileNumber = action.payload;
+    },
+    addCustomerEmail: (state, action) => {
+      state.customer.email = action.payload;
+    },
+    addCustomerNotes: (state, action) => {
+      state.customer.notes = action.payload;
+    },
+    addOrderNumber: (state, action) => {
+      state.order.mobileNumber = action.payload;
+    },
+    addTrxID: (state, action) => {
+      state.order.trxID = action.payload;
+    },
+    addPaymentType: (state, action) => {
+      state.order.paymentType = action.payload;
+    },
   },
 });
-export const { addToCart, incrementQuantity, decrementQuantity, removeItem } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  incrementQuantity,
+  decrementQuantity,
+  removeItem,
+  addCustomerAddress,
+  addCustomerCompanyName,
+  addCustomerDistrict,
+  addCustomerEmail,
+  addCustomerMobile,
+  addCustomerName,
+  addCustomerNotes,
+  addCustomerPostCode,
+  addCustomerTown,
+  addOrderNumber,
+  addTrxID,
+  addPaymentType,
+} = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;

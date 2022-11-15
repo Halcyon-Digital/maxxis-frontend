@@ -1,14 +1,21 @@
-import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import OrderForm from "./OrderForm";
-import "../assets/sass/components/_order.scss";
-import Cart from "./Cart";
-import PopUp from "./PopUp";
+import { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import OrderForm from './OrderForm';
+import '../assets/sass/components/_order.scss';
+import Cart from './Cart';
+import PopUp from './PopUp';
+import PopUpDelivery from './PopUpDelivery';
+import { useDispatch } from 'react-redux';
+import { addPaymentType } from '../features/cart/cartSlice';
 
 function Order() {
   const [isOnline, setIsOnline] = useState(false);
+  const [isCash, setIsCash] = useState(false);
+
+  const dispatch = useDispatch();
 
   const online = () => setIsOnline(!isOnline);
+  const cash = () => setIsCash(!isCash);
 
   return (
     <section className="order">
@@ -19,12 +26,20 @@ function Order() {
           </Col>
           <Col lg={4}>
             <Cart />
-            <button onClick={online}>Online Payment</button>
-            <button>Cash on Delivery</button>
+            <button
+              onClick={(e) => {
+                dispatch(addPaymentType('Online Payment'));
+                online();
+              }}
+            >
+              Online Payment
+            </button>
+            <button onClick={cash}>Cash on Delivery</button>
           </Col>
         </Row>
       </Container>
       {isOnline && <PopUp online={online} />}
+      {isCash && <PopUpDelivery cash={cash} />}
     </section>
   );
 }
