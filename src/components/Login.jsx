@@ -12,7 +12,7 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  const destination = location?.state?.from || '/';
+  const destination = location.state?.from || '/';
   const { register, handleSubmit, resetField } = useForm();
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -34,16 +34,7 @@ function Login() {
     }
 
     dispatch(reset());
-  }, [
-    user,
-    isLoading,
-    isError,
-    isSuccess,
-    message,
-    navigate,
-    dispatch,
-    destination,
-  ]);
+  }, [isLoading, isError, isSuccess, message, navigate, dispatch, destination]);
 
   return (
     <section className="authentication">

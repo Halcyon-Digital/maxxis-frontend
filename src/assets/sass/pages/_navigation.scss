@@ -1,5 +1,5 @@
-@import "../utils/mixins";
-@import "../utils/variable";
+@import '../utils/mixins';
+@import '../utils/variable';
 
 .navbar.bg-dark {
   background: $black-color !important;
@@ -19,7 +19,7 @@
 
     &::after {
       position: absolute;
-      content: "";
+      content: '';
       background: $primary-color;
       bottom: -12px;
       left: 0;
@@ -28,7 +28,7 @@
     }
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       background: $primary-color;
       bottom: -10px;
       left: 50%;
@@ -36,6 +36,12 @@
       width: 30px;
       height: 12px;
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    @media (min-width: 320px) and (max-width: 575px) {
+      &::after,
+      &::before {
+        display: none;
+      }
     }
   }
 }

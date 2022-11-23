@@ -18,8 +18,8 @@ function CartElement() {
     <section className="cart-page">
       <Container>
         <CartItems cart={cart} />
-        <div className="mt-5">
-          <Row className="align-items-end">
+        <div className="mt-sm-5">
+          <Row xs={1} sm={1} md={2} className="align-items-end">
             <Col>
               <div>
                 <p className="paragraph">

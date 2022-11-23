@@ -1,15 +1,15 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 
-import "../assets/sass/components/_dealershipContent.scss";
-import DealerForm from "./DealerForm";
-import Title from "./Title";
+import '../assets/sass/components/_dealershipContent.scss';
+import DealerForm from './DealerForm';
+import Title from './Title';
 
 function DealershipContent() {
   return (
     <section className="dealership">
       <Container>
-        <Row>
+        <Row xs={1} lg={2}>
           <Col>
             <Title
               spanItem="Dealer"

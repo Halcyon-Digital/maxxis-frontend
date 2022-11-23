@@ -10,6 +10,9 @@ const DashboardProductCreatePage = lazy(() =>
 const DashboardTireRangePage = lazy(() =>
   import('../pages/admin/DashboardTireRangePage')
 );
+const DashboardTireSizePage = lazy(() =>
+  import('../pages/admin/DashboardTireSizePage')
+);
 const PrivateRoute = lazy(() => import('../utils/PrivateRoute'));
 const DashboardAdmin = lazy(() => import('../pages/admin/DashboardAdmin'));
 const DashboardCustomers = lazy(() =>
@@ -53,6 +56,9 @@ const ProductDetailPage = lazy(() => import('../pages/ProductDetailPage'));
 const ProductsPage = lazy(() => import('../pages/ProductsPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const TireCategoriesPage = lazy(() => import('../pages/TireCategoriesPage'));
+const SuccessPage = lazy(() => import('../pages/SuccessPage'));
+const ProfilePage = lazy(() => import('../pages/ProfilePage'));
+const ProfileOrderPage = lazy(() => import('../pages/ProfileOrderPage'));
 
 function index() {
   return (
@@ -75,7 +81,10 @@ function index() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/career" element={<CareerPage />} />
+          <Route path="/success" element={<SuccessPage />} />
           <Route path="/jobs/:slug" element={<JobDetailsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/orders" element={<ProfileOrderPage />} />
 
           {/* Admin Route */}
 
@@ -201,6 +210,14 @@ function index() {
             element={
               <PrivateRoute>
                 <DashboardTireRangePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard/tire_size"
+            element={
+              <PrivateRoute>
+                <DashboardTireSizePage />
               </PrivateRoute>
             }
           />

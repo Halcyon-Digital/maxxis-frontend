@@ -1,10 +1,10 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .authentication {
   padding: 100px 0;
   text-align: center;
-  background: url("../../images/orderbg.png") no-repeat center;
+  background: url('../../images/orderbg.png') no-repeat center;
   background-size: 100% 100%;
 
   .wrapper {
@@ -49,6 +49,14 @@
         color: $secondary-color;
         background: $primary-color;
       }
+    }
+  }
+  @media (min-width: 320px) and (max-width: 575px) {
+    padding: 50px 0;
+
+    .wrapper {
+      width: auto;
+      padding: 20px;
     }
   }
 }

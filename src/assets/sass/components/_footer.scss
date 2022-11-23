@@ -1,5 +1,5 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 footer {
   padding-top: 115px;
@@ -80,5 +80,9 @@ footer {
 
   .content {
     margin-left: 100px;
+
+    @media (min-width: 320px) and (max-width: 575px) {
+      margin-left: 0;
+    }
   }
 }

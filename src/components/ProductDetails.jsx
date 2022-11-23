@@ -72,7 +72,7 @@ function ProductDetails() {
                 {product.featuresDetails &&
                   product.featuresDetails
                     .split(',')
-                    .map((feature) => <li>{feature}</li>)}
+                    .map((feature, i) => <li key={i}>{feature}</li>)}
               </ul>
 
               <div className="d-flex align-items-end mb-4">

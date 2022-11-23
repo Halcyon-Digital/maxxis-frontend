@@ -61,7 +61,7 @@ function AllProducts() {
                 <Loading />
               ) : (
                 <Row lg={4} xs={1}>
-                  {products.map((product, i) => (
+                  {products.reverse().map((product, i) => (
                     <ProductsCard key={i} index={i} product={product} />
                   ))}
                 </Row>

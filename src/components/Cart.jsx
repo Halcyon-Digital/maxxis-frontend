@@ -2,6 +2,7 @@ import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 function Cart() {
+  const allCart = useSelector((state) => state.cart);
   const cart = useSelector((state) => state.cart.cart);
   const subTotalPrice = cart.reduce(
     (previousValue, currentValue) =>
@@ -10,12 +11,14 @@ function Cart() {
   );
   const shippingDhaka = cart.reduce(
     (previousValue, currentValue) =>
-      previousValue + Number(currentValue.shippingInDhaka),
+      previousValue +
+      Number(currentValue.shippingInDhaka * currentValue.quantity),
     0
   );
   const shippingDhakaOut = cart.reduce(
     (previousValue, currentValue) =>
-      previousValue + Number(currentValue.shippingOutDhaka),
+      previousValue +
+      Number(currentValue.shippingOutDhaka * currentValue.quantity),
     0
   );
 
@@ -30,14 +33,26 @@ function Cart() {
         </thead>
         <tbody>
           {cart.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td>{item.title}</td>
               <td>{item.price * item.quantity}</td>
             </tr>
           ))}
+          <tr>
+            <td>Shipping</td>
+            <td>
+              {allCart.customer.district === 'Dhaka'
+                ? shippingDhaka
+                : shippingDhakaOut}
+            </td>
+          </tr>
           <tr className="bg-dark text-light">
             <td className="text-light">Total</td>
-            <td className="text-light">{subTotalPrice}</td>
+            <td className="text-light">
+              {allCart.customer.district === 'Dhaka'
+                ? shippingDhaka + subTotalPrice
+                : shippingDhakaOut + subTotalPrice}
+            </td>
           </tr>
         </tbody>
       </Table>
@@ -46,7 +61,7 @@ function Cart() {
         <Table striped>
           <thead>
             <tr className="bg-dark text-light">
-              <th colSpan={2}>Shipping</th>
+              <th colSpan={2}>Shipping Details</th>
             </tr>
           </thead>
           <tbody>

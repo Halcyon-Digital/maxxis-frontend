@@ -119,7 +119,9 @@ export default function CreateProduct() {
           placeholder="Stock Quantity"
         />
 
-        <Form.Label htmlFor="shippingInDhaka">Shipping in Dhaka</Form.Label>
+        <Form.Label htmlFor="shippingInDhaka">
+          Shipping rate in Dhaka
+        </Form.Label>
         <Form.Control
           id="shippingInDhaka"
           type="number"
@@ -127,7 +129,9 @@ export default function CreateProduct() {
           placeholder="Shipping In Dhaka"
         />
 
-        <Form.Label htmlFor="shippingOutDhaka">Shipping Out Dhaka</Form.Label>
+        <Form.Label htmlFor="shippingOutDhaka">
+          Shipping rate Out Dhaka
+        </Form.Label>
         <Form.Control
           id="shippingOutDhaka"
           type="number"

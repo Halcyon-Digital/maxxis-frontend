@@ -1,5 +1,5 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 .filter {
   background: $primary-color;
   align-items: center;
@@ -7,6 +7,10 @@
 
   .titlle {
     text-align: center;
+
+    @media (min-width: 320px) and (max-width: 575px) {
+      text-align: left;
+    }
 
     .choose {
       color: $secondary-color;

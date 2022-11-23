@@ -12,7 +12,7 @@ import axios from 'axios';
 function NewArrivals() {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(0);
-  let size = 8;
+  let size = 4;
   const [arrivals, setArrivals] = useState([]);
 
   useEffect(() => {

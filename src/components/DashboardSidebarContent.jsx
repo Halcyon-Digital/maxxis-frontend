@@ -6,6 +6,7 @@ import { BiCategory } from 'react-icons/bi';
 import { GoReport } from 'react-icons/go';
 import { GiCarWheel } from 'react-icons/gi';
 import { HiNewspaper } from 'react-icons/hi';
+import { MdFormatSize } from 'react-icons/md';
 import { GiKnightBanner, GiAirplaneArrival } from 'react-icons/gi';
 import { RiGalleryLine, RiHandbagLine, RiAdminLine } from 'react-icons/ri';
 
@@ -82,6 +83,14 @@ export default function DashboardSidebarContent() {
             <GiCarWheel />
           </span>{' '}
           Tire Range
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/tire_size">
+          <span>
+            <MdFormatSize />
+          </span>{' '}
+          Tire Size
         </NavLink>
       </li>
       <li>

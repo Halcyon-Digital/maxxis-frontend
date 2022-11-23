@@ -25,7 +25,7 @@ function CartItems({ cart }) {
         </thead>
         <tbody>
           {cart.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td>{item.title}</td>
               <td>{item.price}/-</td>
               <td>Will be included after proceeding to checkout</td>

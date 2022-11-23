@@ -5,43 +5,71 @@ import OrderCard from './OrderCard';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addOrderNumber, addTrxID } from '../features/cart/cartSlice';
+import { alrtSuccess } from '../utils/common';
+import { useState } from 'react';
+import { Oval } from 'react-loader-spinner';
+import { useNavigate } from 'react-router-dom';
 
 export default function PopUpDelivery({ cash }) {
+  const navigate = useNavigate();
+  const [isLoader, setIsLoader] = useState(false);
   const orderInfo = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
-  const { customer, order } = useSelector((state) => state.cart);
-  const data = {
-    service_id: 'service_f1wxdsh',
-    template_id: 'template_zkzji8s',
-    user_id: 'user_BFbs1Zr1ntopcBjHwy90B',
-    template_params: {
-      id: '5611dffd',
-      name: customer.name,
-      mobile: customer.mobile,
-      email: customer.email,
-      town: customer.town,
-      district: customer.district,
-      trxId: order.mobileNumber,
-      paymentType: order.paymentType,
-    },
-  };
 
-  const setMail = (e) => {
+  const shippingDhaka = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue +
+      Number(currentValue.shippingInDhaka * currentValue.quantity),
+    0
+  );
+  const shippingDhakaOut = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue +
+      Number(currentValue.shippingOutDhaka * currentValue.quantity),
+    0
+  );
+
+  const setMail = (orderInfo) => {
+    const data = {
+      service_id: 'service_f1wxdsh',
+      template_id: 'template_zkzji8s',
+      user_id: 'user_BFbs1Zr1ntopcBjHwy90B',
+      template_params: {
+        id: orderInfo._id,
+        name: orderInfo.customerInfo.name,
+        mobile: orderInfo.customerInfo.mobileNumber,
+        email: orderInfo.customerInfo.email,
+        town: orderInfo.customerInfo.town,
+        district: orderInfo.customerInfo.district,
+        trxId: orderInfo.customerInfo.mobileNumber,
+        paymentType: orderInfo.customerInfo.paymentType,
+      },
+    };
     axios
       .post('https://api.emailjs.com/api/v1.0/email/send', data)
-      .then((res) => alert(res.data))
+      .then((res) => console.log(res.data))
       .catch((error) => console.log(error));
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoader(true);
     const response = await axios.post(
       `${process.env.REACT_APP_PROXY}/api/v1/orders`,
       orderInfo
     );
-    console.log(response.data);
+    if (response.data) {
+      await setMail(response.data);
+      setIsLoader(false);
+      alrtSuccess('Your Order sent Successfully!');
+
+      setTimeout(() => {
+        navigate('/success');
+      }, 1000);
+    }
   };
+
   return (
     <div className="popup">
       <div className="text-end">
@@ -66,7 +94,12 @@ export default function PopUpDelivery({ cash }) {
                 <p>1. Type the Receiver number</p>
                 <h2 className="span-item">01711-111111</h2>
                 <p>3. Type amount of</p>
-                <h4 className="span-item">Tk. 980</h4>
+                <h4 className="span-item">
+                  Tk.{' '}
+                  {orderInfo.customer.district === 'Dhaka'
+                    ? shippingDhaka
+                    : shippingDhakaOut}
+                </h4>
                 <p>4. Use the given Reference ID at the reference section.</p>
                 <p>
                   5. After completing the payment mention the Transaction ID
@@ -95,6 +128,22 @@ export default function PopUpDelivery({ cash }) {
             </Col>
           </Row>
         </Container>
+        {isLoader && (
+          <div className="overlay">
+            <Oval
+              height={80}
+              width={80}
+              color="#4fa94d"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="oval-loading"
+              secondaryColor="#4fa94d"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

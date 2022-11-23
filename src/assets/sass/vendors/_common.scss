@@ -33,6 +33,9 @@ ol {
   outline-width: 0px;
 }
 body {
-  background: url("../../images/body-bg.png") no-repeat;
+  background: url('../../images/body-bg.png') no-repeat;
   background-size: cover;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  background: #fc4704 !important;
 }

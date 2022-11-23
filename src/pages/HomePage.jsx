@@ -1,11 +1,12 @@
-import React from "react";
-import Banner from "../components/Banner";
-import Distributor from "../components/Distributor";
-import FilterBar from "../components/FilterBar";
-import NewArrivals from "../components/NewArrivals";
-import Sponsor from "../components/Sponsor";
-import TireRange from "../components/TireRange";
-import HomeLayout from "../shared/HomeLayout";
+import React from 'react';
+import Banner from '../components/Banner';
+import Distributor from '../components/Distributor';
+import FilterBar from '../components/FilterBar';
+import NewArrivals from '../components/NewArrivals';
+import Sponsor from '../components/Sponsor';
+import TireFinder from '../components/TireFinder';
+import TireRange from '../components/TireRange';
+import HomeLayout from '../shared/HomeLayout';
 
 function HomePage() {
   return (
@@ -16,6 +17,7 @@ function HomePage() {
       <Distributor />
       <Sponsor />
       <NewArrivals />
+      <TireFinder />
     </HomeLayout>
   );
 }

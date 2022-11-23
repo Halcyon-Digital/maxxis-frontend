@@ -1,13 +1,20 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .tire_range {
   padding-top: 300px;
   padding-bottom: 150px;
-  background: url("../../images/tire-range-bg.png") no-repeat center;
+  background: url('../../images/tire-range-bg.png') no-repeat center;
   background-size: 100% 100%;
   margin-top: -194px;
   position: relative;
+
+  @media (min-width: 320px) and (max-width: 575px) {
+    background: $black-color;
+    margin-top: -6px;
+    padding-top: 30px;
+    padding-bottom: 80px;
+  }
 
   .slick-slide {
     padding: 0px 6px;
@@ -18,7 +25,7 @@
 
     &::after {
       position: absolute;
-      content: "";
+      content: '';
       width: 0;
       height: 0;
       background: rgba(255, 255, 255, 0.1);
@@ -34,7 +41,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       width: 0;
       height: 0;
       background: rgba(255, 255, 255, 0.1);
@@ -61,6 +68,10 @@
 
   .slider__main {
     margin-top: 100px;
+
+    @media (min-width: 320px) and (max-width: 575px) {
+      margin-top: 30px;
+    }
   }
 
   .tire__item {
@@ -101,6 +112,11 @@
           font-size: 0;
         }
       }
+    }
+  }
+  @media (min-width: 320px) and (max-width: 575px) {
+    .tire__item h3 {
+      font-size: 44px;
     }
   }
 }

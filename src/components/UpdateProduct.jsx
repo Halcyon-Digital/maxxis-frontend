@@ -3,7 +3,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -144,7 +143,9 @@ export default function UpdateProduct() {
           placeholder="Stock Quantity"
         />
 
-        <Form.Label htmlFor="shippingInDhaka">Shipping in Dhaka</Form.Label>
+        <Form.Label htmlFor="shippingInDhaka">
+          Shipping rate in Dhaka
+        </Form.Label>
         <Form.Control
           id="shippingInDhaka"
           type="number"
@@ -154,7 +155,9 @@ export default function UpdateProduct() {
           placeholder="Shipping In Dhaka"
         />
 
-        <Form.Label htmlFor="shippingOutDhaka">Shipping Out Dhaka</Form.Label>
+        <Form.Label htmlFor="shippingOutDhaka">
+          Shipping rate Out Dhaka
+        </Form.Label>
         <Form.Control
           id="shippingOutDhaka"
           type="number"

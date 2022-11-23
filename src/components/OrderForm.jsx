@@ -122,19 +122,19 @@ function OrderForm() {
         <input
           type="number"
           onBlur={(e) => dispatch(addCustomerMobile(e.target.value))}
-          placeholder="Billing Mobile Number *"
+          placeholder="Mobile Number *"
         />
         <input
           onBlur={(e) => dispatch(addCustomerEmail(e.target.value))}
           type="email"
-          placeholder="Billing Email *"
+          placeholder="Email *"
         />
         <textarea
           name="ordernotes"
           id="ordernotes"
           cols="30"
           rows="4"
-          placeholder="Notes about your order, e.g. special notes for delivery"
+          placeholder="Message for delivery"
           onBlur={(e) => dispatch(addCustomerNotes(e.target.value))}
         ></textarea>
       </Form>

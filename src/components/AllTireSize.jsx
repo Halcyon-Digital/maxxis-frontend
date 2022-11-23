@@ -3,19 +3,19 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
-import { categoriesData } from '../api/fetchData';
+import { tireSizeData } from '../api/fetchData';
 import { alrtError, alrtSuccess } from '../utils/common';
 import Loading from './Loading';
 
-export default function AllCategories() {
-  const { data, isLoading } = useQuery('category', () => categoriesData());
+export default function AllTireSize() {
+  const { data, isLoading } = useQuery('category', () => tireSizeData());
   const { token } = useSelector((state) => state.auth.user);
 
   const deleteCategories = async (id) => {
     const confirm = window.confirm('Are you sure want to Delete?');
     if (confirm) {
       await axios
-        .delete(`${process.env.REACT_APP_PROXY}/api/v1/category/${id}`, {
+        .delete(`${process.env.REACT_APP_PROXY}/api/v1/size/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -35,7 +35,7 @@ export default function AllCategories() {
           <thead>
             <tr>
               <th>SI NO</th>
-              <th>Title</th>
+              <th>Size</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -43,7 +43,7 @@ export default function AllCategories() {
             {data.map((category, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{category.title}</td>
+                <td>{category.size}</td>
                 <td className="text-center">
                   <button onClick={() => deleteCategories(category._id)}>
                     Delete

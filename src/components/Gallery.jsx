@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import { allGallery } from '../api/fetchData';
 
 function GalleryContainer() {
-  const { data, isLoading } = useQuery('gallery', () => allGallery());
+  const { data } = useQuery('gallery', () => allGallery());
 
   return (
     <section className="gallery">

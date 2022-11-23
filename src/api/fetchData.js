@@ -30,6 +30,11 @@ export const categoriesData = async () => {
   const data = res.data;
   return data;
 };
+export const tireSizeData = async () => {
+  const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/size`);
+  const data = res.data;
+  return data;
+};
 
 export const getDealer = async (token) => {
   const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/dealer`, {

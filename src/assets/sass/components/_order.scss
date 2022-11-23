@@ -1,9 +1,9 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .order {
   padding: 100px 0;
-  background: url("../../images/body-bg.png") no-repeat center;
+  background: url('../../images/body-bg.png') no-repeat center;
   form {
     input,
     textarea {
@@ -83,5 +83,11 @@
       margin: 15px auto;
       border: 1px solid $primary-color;
     }
+  }
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
