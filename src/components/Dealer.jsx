@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
-import { Table } from "react-bootstrap";
-import DealerModel from "./DealerModel";
+import React from 'react';
+import { useState } from 'react';
+import { Table } from 'react-bootstrap';
+import DealerModel from './DealerModel';
 
 export default function Dealer({ data }) {
   const [modalShow, setModalShow] = useState(false);
@@ -17,7 +17,7 @@ export default function Dealer({ data }) {
         </tr>
       </thead>
       <tbody>
-        {data.map((dealer, index) => (
+        {data?.map((dealer, index) => (
           <tr key={index}>
             <td>{dealer.name}</td>
             <td>{dealer.companyName}</td>

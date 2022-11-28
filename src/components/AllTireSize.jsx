@@ -8,7 +8,7 @@ import { alrtError, alrtSuccess } from '../utils/common';
 import Loading from './Loading';
 
 export default function AllTireSize() {
-  const { data, isLoading } = useQuery('category', () => tireSizeData());
+  const { data, isLoading } = useQuery('tiresize', () => tireSizeData());
   const { token } = useSelector((state) => state.auth.user);
 
   const deleteCategories = async (id) => {
@@ -40,7 +40,7 @@ export default function AllTireSize() {
             </tr>
           </thead>
           <tbody>
-            {data.map((category, index) => (
+            {data?.map((category, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{category.size}</td>

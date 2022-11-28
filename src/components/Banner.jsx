@@ -1,13 +1,13 @@
-import React from "react";
-import Slider from "react-slick";
-import "../assets/sass/components/_banner.scss";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { useQuery } from "react-query";
-import { allBanner } from "../api/fetchData";
+import React from 'react';
+import Slider from 'react-slick';
+import '../assets/sass/components/_banner.scss';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import { useQuery } from 'react-query';
+import { allBanner } from '../api/fetchData';
 
 function Banner() {
-  const { data, isLoading } = useQuery("banner", () => allBanner());
+  const { data, isLoading } = useQuery('banner', () => allBanner());
 
   const settings = {
     dots: true,
@@ -59,7 +59,7 @@ function Banner() {
           prevArrow={<IoIosArrowBack />}
           nextArrow={<IoIosArrowForward />}
         >
-          {data.map((banner) => (
+          {data?.map((banner) => (
             <div key={banner._id} className="w-100">
               <LazyLoadImage
                 className="w-100"

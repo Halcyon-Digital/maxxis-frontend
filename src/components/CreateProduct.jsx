@@ -4,11 +4,12 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { alrtError, alrtSuccess } from '../utils/common';
 import { useQuery } from 'react-query';
-import { categoriesData } from '../api/fetchData';
+import { categoriesData, tireSizeData } from '../api/fetchData';
 
 export default function CreateProduct() {
   const { token } = useSelector((state) => state.auth.user);
   const { data } = useQuery('category', () => categoriesData());
+  const { data: tireSize } = useQuery('tiresize', () => tireSizeData());
   const {
     register,
     handleSubmit,
@@ -66,11 +67,50 @@ export default function CreateProduct() {
         >
           <option>Select Product Categories</option>
           {data &&
-            data.map((category, i) => (
+            data?.map((category, i) => (
               <option key={i} value={category.title}>
                 {category.title}
               </option>
             ))}
+        </Form.Select>
+
+        <Form.Select
+          {...register('size', { required: true })}
+          aria-label="Default select example"
+        >
+          <option value="">Tire Size</option>
+          {tireSize &&
+            tireSize.map((size, i) => (
+              <option key={i} value={size.size}>
+                {size.size}
+              </option>
+            ))}
+        </Form.Select>
+
+        <Form.Select
+          {...register('rim', { required: true })}
+          aria-label="Default select example"
+        >
+          <option value="">Rim</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
         </Form.Select>
 
         <Form.Label htmlFor="description">Description</Form.Label>

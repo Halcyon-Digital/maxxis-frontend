@@ -23,7 +23,7 @@ export default function DashboardTireSize() {
       })
       .then((res) => {
         alrtSuccess(res.data.message);
-        resetField('title');
+        resetField('size');
       })
       .catch((error) => alrtError(error.message));
   };

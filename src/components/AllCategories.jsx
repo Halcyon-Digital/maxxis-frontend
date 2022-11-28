@@ -40,7 +40,7 @@ export default function AllCategories() {
             </tr>
           </thead>
           <tbody>
-            {data.map((category, index) => (
+            {data?.map((category, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{category.title}</td>

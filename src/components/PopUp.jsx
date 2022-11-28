@@ -6,9 +6,9 @@ import axios from 'axios';
 
 export default function PopUp({ online }) {
   var data = {
-    service_id: 'service_f1wxdsh',
-    template_id: 'template_zkzji8s',
-    user_id: 'user_BFbs1Zr1ntopcBjHwy90B',
+    service_id: process.env.REACT_APP_EMAIL_Service_Id,
+    template_id: process.env.REACT_APP_EMAIL_Template_Id,
+    user_id: process.env.REACT_APP_EMAIL_User_Id,
     template_params: {
       id: '5611dffd',
       name: 'Jobair',
