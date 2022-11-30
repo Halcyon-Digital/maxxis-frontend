@@ -1,9 +1,9 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .product-details {
   padding: 50px 0;
-  background: url("../../images/product-details-bg.png") no-repeat center;
+  background: url('../../images/product-details-bg.png') no-repeat center;
   background-size: cover;
 
   .img {
@@ -27,6 +27,26 @@
 
   .content-title {
     @include secondary-fonts(24px, 500);
+  }
+
+  .features-boles {
+    margin-bottom: 10px;
+    li {
+      padding-left: 15px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $black-color;
+      }
+    }
   }
 
   .button {

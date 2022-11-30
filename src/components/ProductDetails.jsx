@@ -68,7 +68,7 @@ function ProductDetails() {
               <p className="content-title">Specifications</p>
               <p>{product.description}</p>
               <p className="content-title">Features and Benefits</p>
-              <ul>
+              <ul className="features-boles">
                 {product.featuresDetails &&
                   product.featuresDetails
                     .split(',')

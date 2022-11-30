@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import '../assets/sass/components/_banner.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
