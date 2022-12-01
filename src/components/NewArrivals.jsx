@@ -30,8 +30,6 @@ function NewArrivals() {
     data();
   }, [page, size]);
 
-  console.log(arrivals);
-
   return (
     <section className="arrivals">
       <Container>

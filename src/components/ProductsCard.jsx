@@ -25,7 +25,9 @@ function ProductsCard({ product }) {
       </div>
       <div className="product-info">
         <h3>{product.title}</h3>
-        <p>BDT. Price: {product.price}/-</p>
+        <p>
+          BDT. Price: <b>{product.price}</b>/-
+        </p>
         <button>Buy Now</button>
         <button onClick={() => addCart(product)}>Add To Cart</button>
       </div>

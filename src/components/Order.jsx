@@ -7,6 +7,7 @@ import PopUp from './PopUp';
 import PopUpDelivery from './PopUpDelivery';
 import { useDispatch } from 'react-redux';
 import { addPaymentType } from '../features/cart/cartSlice';
+import { toast } from 'react-toastify';
 
 function Order() {
   const [isOnline, setIsOnline] = useState(false);
@@ -28,6 +29,7 @@ function Order() {
             <Cart />
             <button
               onClick={(e) => {
+                toast.success('Hi');
                 dispatch(addPaymentType('Online Payment'));
                 online();
               }}

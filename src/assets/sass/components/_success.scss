@@ -1,0 +1,28 @@
+@import '../utils/variable';
+@import '../utils/mixins';
+
+.success {
+  width: 600px;
+  margin: 25px auto;
+  padding: 30px;
+  background: $primary-color;
+  text-align: center;
+
+  h2 {
+    @include primary-fonts(42px);
+  }
+
+  h3 {
+    @include secondary-fonts(22px);
+    margin-bottom: 10px;
+  }
+
+  a {
+    background: $secondary-color;
+    padding: 5px 10px;
+    color: $primary-color;
+  }
+  @media (min-width: 320px) and (max-width: 575px) {
+    width: 100%;
+  }
+}

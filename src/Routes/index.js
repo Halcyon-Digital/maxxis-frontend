@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 const DashboardUpdateProduct = lazy(() =>
   import('../pages/admin/DashboardUpdateProduct')
@@ -62,171 +63,174 @@ const ProfileOrderPage = lazy(() => import('../pages/ProfileOrderPage'));
 
 function index() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/products/:slug" element={<ProductDetailPage />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/dealer" element={<DealershipPage />} />
-          <Route path="/tire/:slug" element={<TireCategoriesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/career" element={<CareerPage />} />
-          <Route path="/success" element={<SuccessPage />} />
-          <Route path="/jobs/:slug" element={<JobDetailsPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/orders" element={<ProfileOrderPage />} />
+    <>
+      <BrowserRouter>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/:slug" element={<ProductDetailPage />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/dealer" element={<DealershipPage />} />
+            <Route path="/tire/:slug" element={<TireCategoriesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/order" element={<OrderPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/career" element={<CareerPage />} />
+            <Route path="/success" element={<SuccessPage />} />
+            <Route path="/jobs/:slug" element={<JobDetailsPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/orders" element={<ProfileOrderPage />} />
 
-          {/* Admin Route */}
+            {/* Admin Route */}
 
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <DashboardPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/home"
-            element={
-              <PrivateRoute>
-                <DashboardPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/products"
-            element={
-              <PrivateRoute>
-                <DashboardProduct />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/products/create"
-            element={
-              <PrivateRoute>
-                <DashboardProductCreatePage />
-              </PrivateRoute>
-            }
-          />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <DashboardPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/home"
+              element={
+                <PrivateRoute>
+                  <DashboardPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/products"
+              element={
+                <PrivateRoute>
+                  <DashboardProduct />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/products/create"
+              element={
+                <PrivateRoute>
+                  <DashboardProductCreatePage />
+                </PrivateRoute>
+              }
+            />
 
-          <Route
-            path="/dashboard/products/update/:slug"
-            element={
-              <PrivateRoute>
-                <DashboardUpdateProduct />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/gallery"
-            element={
-              <PrivateRoute>
-                <DashboardGalleryPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/arrivals"
-            element={<DashboardArrivalsPage />}
-          />
-          <Route
-            path="/dashboard/banner"
-            element={
-              <PrivateRoute>
-                <DashboardBannerPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/reports"
-            element={
-              <PrivateRoute>
-                <DashboardReportsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/requests"
-            element={
-              <PrivateRoute>
-                <DashboardDealerPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/categories"
-            element={
-              <PrivateRoute>
-                <DashboardCategoriesPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/news"
-            element={
-              <PrivateRoute>
-                <DashboardNews />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/jobs"
-            element={
-              <PrivateRoute>
-                <DashboardJobs />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/customers"
-            element={
-              <PrivateRoute>
-                <DashboardCustomers />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/admin"
-            element={
-              <PrivateRoute>
-                <DashboardAdmin />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/tire_range"
-            element={
-              <PrivateRoute>
-                <DashboardTireRangePage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/tire_size"
-            element={
-              <PrivateRoute>
-                <DashboardTireSizePage />
-              </PrivateRoute>
-            }
-          />
+            <Route
+              path="/dashboard/products/update/:slug"
+              element={
+                <PrivateRoute>
+                  <DashboardUpdateProduct />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/gallery"
+              element={
+                <PrivateRoute>
+                  <DashboardGalleryPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/arrivals"
+              element={<DashboardArrivalsPage />}
+            />
+            <Route
+              path="/dashboard/banner"
+              element={
+                <PrivateRoute>
+                  <DashboardBannerPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/reports"
+              element={
+                <PrivateRoute>
+                  <DashboardReportsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/requests"
+              element={
+                <PrivateRoute>
+                  <DashboardDealerPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/categories"
+              element={
+                <PrivateRoute>
+                  <DashboardCategoriesPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/news"
+              element={
+                <PrivateRoute>
+                  <DashboardNews />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/jobs"
+              element={
+                <PrivateRoute>
+                  <DashboardJobs />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/customers"
+              element={
+                <PrivateRoute>
+                  <DashboardCustomers />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/admin"
+              element={
+                <PrivateRoute>
+                  <DashboardAdmin />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/tire_range"
+              element={
+                <PrivateRoute>
+                  <DashboardTireRangePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/tire_size"
+              element={
+                <PrivateRoute>
+                  <DashboardTireSizePage />
+                </PrivateRoute>
+              }
+            />
 
-          {/* 404 Page */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+            {/* 404 Page */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+      <ToastContainer />
+    </>
   );
 }
 

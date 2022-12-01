@@ -4,6 +4,21 @@
 .order {
   padding: 100px 0;
   background: url('../../images/body-bg.png') no-repeat center;
+
+  button {
+    @include button(5px 20px);
+    @include secondary-fonts(18px, 600);
+    color: $secondary-color;
+    background: $primary-color;
+    scroll-behavior: none;
+    margin-right: 5px;
+    margin-top: 10px;
+  }
+
+  p {
+    @include secondary-fonts(16px);
+  }
+
   form {
     input,
     textarea {

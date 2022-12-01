@@ -1,5 +1,5 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .distributor {
   padding-top: 135px;
@@ -15,13 +15,13 @@
   p {
     @include secondary-fonts(16px);
     color: $dark-color;
-    margin: 40px 0;
+    margin: 25px 0;
   }
 
   button {
-    padding: 13px 50px;
+    padding: 13px 20px;
     border: 2px solid $black-color;
-    @include secondary-fonts(24px);
+    @include secondary-fonts(18px);
     background: transparent;
     transition: all linear 0.4s;
 

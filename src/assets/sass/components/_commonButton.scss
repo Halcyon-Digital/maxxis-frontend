@@ -1,3 +1,9 @@
+@import '../utils/variable';
+@import '../utils/mixins';
+
 .common_button {
   padding: 5px 10px;
+  border: 0;
+  background: $primary-color;
+  color: $secondary-color;
 }

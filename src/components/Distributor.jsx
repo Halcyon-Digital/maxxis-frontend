@@ -1,8 +1,8 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import DistributorImage from "../assets/images/distributor.png";
-import "../assets/sass/components/_distributor.scss";
-import Title from "./Title";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import DistributorImage from '../assets/images/distributor.png';
+import '../assets/sass/components/_distributor.scss';
+import Title from './Title';
 
 function Distributor() {
   return (
@@ -28,14 +28,11 @@ function Distributor() {
           <Col>
             <h4>The Sole Distributor Of Maxxis Tires</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
-              <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-              maecenas accumsan lacus vel facilisis.
+              At MAXXIS we strive to provide the highest quality products and
+              customer service with the goal of creating lifelong Maxxis
+              customers. Anchored by a strong commitment to our values, we form
+              close partnerships with our stakeholders, and together we work to
+              consistently exceed our customers' expectations.
             </p>
             <button>Read More</button>
           </Col>

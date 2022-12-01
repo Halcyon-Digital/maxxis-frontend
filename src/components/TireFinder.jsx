@@ -3,13 +3,22 @@ import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { categoriesData } from '../api/fetchData';
+import { categoriesData, tireSizeData } from '../api/fetchData';
+import { AiOutlineClose } from 'react-icons/ai';
 import '../assets/sass/components/_TireFinder.scss';
+import '../assets/sass/components/_commonButton.scss';
 
 function TireFinder() {
   const navigate = useNavigate();
   const { data } = useQuery('category', () => categoriesData());
+  const { data: tireSize } = useQuery('tiresize', () => tireSizeData());
+  console.log(tireSize);
   const { register, handleSubmit } = useForm();
+
+  const onClose = (e) => {
+    const finder = document.getElementById('tirefinder');
+    finder.classList.remove('d-block');
+  };
 
   const onSubmit = (data) => {
     navigate(
@@ -20,10 +29,17 @@ function TireFinder() {
   return (
     <div
       id="tirefinder"
-      className="position-absolute top-50 start-50 translate-middle bg-dark p-3 text-light tirefinder"
+      className="position-absolute top-50 start-50 translate-middle p-3 text-light tirefinder"
     >
+      <div className="text-end mb-2 close-button">
+        <span onClick={onClose}>
+          <AiOutlineClose />
+        </span>
+      </div>
+
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Select
+          className="mb-2"
           {...register('categories', { required: true })}
           aria-label="Default select example"
         >
@@ -36,6 +52,7 @@ function TireFinder() {
             ))}
         </Form.Select>
         <Form.Select
+          className="mb-2"
           {...register('rim', { required: true })}
           aria-label="Default select example"
         >
@@ -61,19 +78,21 @@ function TireFinder() {
           <option value="23">23</option>
         </Form.Select>
         <Form.Select
+          className="mb-2"
           {...register('size', { required: true })}
           aria-label="Default select example"
         >
           <option value="">Size</option>
-          <option value="10">10</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
+          {tireSize &&
+            tireSize.map((size, i) => (
+              <option key={i} value={size.size}>
+                {size.size}
+              </option>
+            ))}
         </Form.Select>
-        <button type="submit">Find</button>
+        <button className="common_button" type="submit">
+          Find
+        </button>
       </Form>
     </div>
   );

@@ -2,11 +2,10 @@
 @import '../utils/mixins';
 
 .tire_range {
-  padding-top: 300px;
+  padding-top: 40px;
   padding-bottom: 150px;
-  background: url('../../images/tire-range-bg.png') no-repeat center;
-  background-size: 100% 100%;
-  margin-top: -194px;
+  background: $black-color;
+  margin-top: -7px;
   position: relative;
 
   @media (min-width: 320px) and (max-width: 575px) {
@@ -67,7 +66,7 @@
   }
 
   .slider__main {
-    margin-top: 100px;
+    margin-top: 40px;
 
     @media (min-width: 320px) and (max-width: 575px) {
       margin-top: 30px;
