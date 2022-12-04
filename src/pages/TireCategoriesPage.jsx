@@ -1,7 +1,12 @@
-import React from "react";
+import FilterProducts from '../components/FilterProducts';
+import Layout from '../shared/Layout';
 
 function TireCategoriesPage() {
-  return <div>TireCategoriesPage</div>;
+  return (
+    <Layout>
+      <FilterProducts />
+    </Layout>
+  );
 }
 
 export default TireCategoriesPage;

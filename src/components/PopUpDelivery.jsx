@@ -43,7 +43,7 @@ export default function PopUpDelivery({ cash }) {
         town: orderInfo.customerInfo.town,
         district: orderInfo.customerInfo.district,
         trxId: orderInfo.customerInfo.mobileNumber,
-        paymentType: orderInfo.customerInfo.paymentType,
+        paymentType: orderInfo.shippingType,
       },
     };
     axios

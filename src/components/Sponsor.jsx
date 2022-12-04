@@ -1,6 +1,6 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import SponsorImage from "../assets/images/Sponsor.png";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import SponsorImage from '../assets/images/Sponsor.png';
 // import "../assets/sass/components/_Sponsor.scss";
 
 function Sponsor() {
@@ -11,19 +11,11 @@ function Sponsor() {
           <Col>
             <h4>Proud Sponsors Of Rajshahi Royals</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. <br />
-              <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-              gravida. Risus commodo viverra maecenas accumsan lacus vel
-              facilisis.
+              We were the proud sponsor of Rajshahi Royals, which was the
+              champion of 2019-20 season and is one of the most successful teams
+              in Bangladeshi franchise Twenty20 cricket teams. The team is based
+              in Rajshahi in Bangladesh and competes in the Bangladesh Premier
+              League (BPL), a Twenty20 franchise cricket competition.
             </p>
           </Col>
           <Col>

@@ -1,15 +1,15 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { ImFacebook } from "react-icons/im";
-import { BsInstagram } from "react-icons/bs";
-import FooterImage from "../assets/images/footer-logo.png";
-import "../assets/sass/components/_footer.scss";
-import { Link } from "react-router-dom";
-import { IoIosArrowForward } from "react-icons/io";
-import { MdLocationPin } from "react-icons/md";
-import { FiPhoneCall } from "react-icons/fi";
-import { FaFax } from "react-icons/fa";
-import { AiOutlineMail, AiOutlineCopyrightCircle } from "react-icons/ai";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { ImFacebook } from 'react-icons/im';
+import { BsInstagram } from 'react-icons/bs';
+import FooterImage from '../assets/images/footer-logo.png';
+import '../assets/sass/components/_footer.scss';
+import { Link } from 'react-router-dom';
+import { IoIosArrowForward } from 'react-icons/io';
+import { MdLocationPin } from 'react-icons/md';
+import { FiPhoneCall } from 'react-icons/fi';
+import { FaFax } from 'react-icons/fa';
+import { AiOutlineMail, AiOutlineCopyrightCircle } from 'react-icons/ai';
 
 function Footer() {
   return (
@@ -26,9 +26,11 @@ function Footer() {
               />
             </div>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since
+              At MAXXIS we strive to provide the highest quality products and
+              customer service with the goal of creating lifelong Maxxis
+              customers. Anchored by a strong commitment to our values, we form
+              close partnerships with our stakeholders, and together we work to
+              consistently exceed our customers' expectations.
             </p>
             <div className="social-icon d-flex">
               <div className="icon">

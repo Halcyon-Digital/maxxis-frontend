@@ -28,11 +28,21 @@ function Distributor() {
           <Col>
             <h4>The Sole Distributor Of Maxxis Tires</h4>
             <p>
-              At MAXXIS we strive to provide the highest quality products and
-              customer service with the goal of creating lifelong Maxxis
-              customers. Anchored by a strong commitment to our values, we form
-              close partnerships with our stakeholders, and together we work to
-              consistently exceed our customers' expectations.
+              SWAN International has been collaborating with Cheng Shin Rubber
+              Ind. Co. Ltd to help expand its business globally since the year
+              1996. In our efforts to succeed, we have become one of the leading
+              tire importers in Bangladesh. SWAN International awarded the best
+              distributor of the year 2011 in South Asia by Cheng Shin Rubber
+              Industry Co. Ltd. This achievement goes to our employees, our
+              distributors and especially to Cheng Shin Rubber Industry
+              marketing team who always support us in our good time and our bad
+              time. We are promoting Bicycle Tires (BC), Motorcycles Tires (MC),
+              Passenger Car Radial Tires (PCR), Light Truck Bias Tires (LTB),
+              Truck Bus Bias Tires (TBB), Truck Bus Radial Tires (TBR),
+              Industrial Tires, and Off the Road Tires (OTR), to meet our
+              domestic needs. Both LTB and TBR sector we are the No#1 in
+              Bangladesh. Our import locations include Taiwan, Thailand,
+              Vietnam, India and China.
             </p>
             <button>Read More</button>
           </Col>

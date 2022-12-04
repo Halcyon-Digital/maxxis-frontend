@@ -55,6 +55,17 @@ export const allTires = async (token) => {
   const data = res.data;
   return data;
 };
+
+export const myOrder = async (token) => {
+  const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/orders`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = res.data;
+  return data;
+};
+
 export const allProducts = async () => {
   const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/products`);
   const data = res.data;

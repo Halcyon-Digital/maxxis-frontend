@@ -12,7 +12,6 @@ function TireFinder() {
   const navigate = useNavigate();
   const { data } = useQuery('category', () => categoriesData());
   const { data: tireSize } = useQuery('tiresize', () => tireSizeData());
-  console.log(tireSize);
   const { register, handleSubmit } = useForm();
 
   const onClose = (e) => {
