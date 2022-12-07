@@ -60,7 +60,7 @@ export default function PopUpDelivery({ cash }) {
       orderInfo
     );
     if (response.data) {
-      await setMail(response.data);
+      await setMail(response.data.order);
       setIsLoader(false);
       alrtSuccess('Your Order sent Successfully!');
 

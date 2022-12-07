@@ -52,7 +52,7 @@ function DealerForm() {
 
   return (
     <Form onSubmit={onSubmit}>
-      <h6>Kindly fill-u form to connect with us.</h6>
+      <h6>Contact Us</h6>
       <label htmlFor="name">Name</label>
       <input
         {...register('name', { required: true })}

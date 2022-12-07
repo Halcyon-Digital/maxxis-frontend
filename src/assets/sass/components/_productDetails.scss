@@ -19,6 +19,7 @@
   }
   p {
     @include secondary-fonts;
+    text-align: justify;
   }
   h6 {
     @include secondary-fonts(24px);

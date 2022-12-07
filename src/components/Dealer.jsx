@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import DealerModel from './DealerModel';
 
 export default function Dealer({ data }) {
@@ -23,7 +23,12 @@ export default function Dealer({ data }) {
             <td>{dealer.companyName}</td>
             <td>{dealer.mobile}</td>
             <td>
-              <button onClick={() => setModalShow(true)}>Show</button>
+              <Button
+                variant="outline-secondary"
+                onClick={() => setModalShow(true)}
+              >
+                Show
+              </Button>
               <DealerModel
                 show={modalShow}
                 onHide={() => setModalShow(false)}

@@ -1,6 +1,8 @@
-import { Table } from "react-bootstrap";
+import { Button, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-export default function OrdersTable() {
+export default function OrdersTable({ orders }) {
+  const navigate = useNavigate();
   return (
     <Table striped>
       <thead>
@@ -8,42 +10,29 @@ export default function OrdersTable() {
           <th>Order ID</th>
           <th>Customer Name</th>
           <th>Delivery Status</th>
-          <th>Date</th>
+          <th>Date (MM-DD-YYYY)</th>
           <th>Total Price</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>121</td>
-          <td>Halcyon Digital</td>
-          <td>Pending</td>
-          <td>2022-11-01 05:43:17</td>
-          <td>100</td>
-          <td>
-            <button>Show</button>
-          </td>
-        </tr>
-        <tr>
-          <td>121</td>
-          <td>Halcyon Digital</td>
-          <td>Pending</td>
-          <td>2022-11-01 05:43:17</td>
-          <td>100</td>
-          <td>
-            <button>Show</button>
-          </td>
-        </tr>
-        <tr>
-          <td>121</td>
-          <td>Halcyon Digital</td>
-          <td>Pending</td>
-          <td>2022-11-01 05:43:17</td>
-          <td>100</td>
-          <td>
-            <button>Show</button>
-          </td>
-        </tr>
+        {orders.map((order) => (
+          <tr>
+            <td>{order._id}</td>
+            <td>{order.customerInfo.name}</td>
+            <td>{order.status}</td>
+            <td>{new Date(order.createdAt).toLocaleString()}</td>
+            <td>100</td>
+            <td>
+              <Button
+                variant="secondary"
+                onClick={() => navigate(`/dashboard/orders/${order._id}`)}
+              >
+                Show
+              </Button>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );

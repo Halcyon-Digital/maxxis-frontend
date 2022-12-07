@@ -10,7 +10,7 @@ export default function MyOrder() {
   return (
     <section className="my-order">
       <Container>
-        {data ? (
+        {data?.length > 0 ? (
           data.map((orders) => (
             <Table striped className="my-3">
               <thead>
@@ -33,7 +33,9 @@ export default function MyOrder() {
             </Table>
           ))
         ) : (
-          <h3>No Search Products.</h3>
+          <div className="my-5 text-center">
+            <h3>No Order Pending</h3>
+          </div>
         )}
       </Container>
     </section>

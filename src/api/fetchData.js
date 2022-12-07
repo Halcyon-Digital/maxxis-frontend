@@ -13,6 +13,20 @@ export const arrivals = async () => {
   const data = res.data;
   return data;
 };
+
+export const video = async () => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_PROXY}/api/v1/video/one`
+  );
+  const data = res.data;
+  return data;
+};
+export const videoOne = async () => {
+  const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/video`);
+  const data = res.data;
+  return data;
+};
+
 export const allBanner = async () => {
   const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/banners`);
   const data = res.data;
@@ -62,6 +76,21 @@ export const myOrder = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   });
+  const data = res.data;
+  return data;
+};
+
+export const changeStatus = async ({ token, body, key }) => {
+  console.log(token, body, key);
+  const res = await axios.put(
+    `${process.env.REACT_APP_PROXY}/api/v1/orders/${key}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   const data = res.data;
   return data;
 };

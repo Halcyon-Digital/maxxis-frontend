@@ -7,6 +7,7 @@ import ProductsCard from './ProductsCard';
 import axios from 'axios';
 import Loading from './Loading';
 import { useParams } from 'react-router-dom';
+import MotorcycleCard from './MotorcyleCard';
 
 function FilterProducts() {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,7 +65,7 @@ function FilterProducts() {
               ) : (
                 <Row lg={4} xs={1}>
                   {products.map((product, i) => (
-                    <ProductsCard key={i} index={i} product={product} />
+                    <MotorcycleCard key={i} index={i} product={product} />
                   ))}
                 </Row>
               )}

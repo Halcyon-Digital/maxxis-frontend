@@ -1,6 +1,7 @@
 import Routes from './Routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-tabs/style/react-tabs.css';
+import 'react-multi-carousel/lib/styles.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

@@ -1,14 +1,23 @@
 import { NavLink } from 'react-router-dom';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { FaProductHunt } from 'react-icons/fa';
-import { AiOutlineUser, AiOutlinePullRequest } from 'react-icons/ai';
+import {
+  AiOutlineUser,
+  AiOutlinePullRequest,
+  AiOutlineShoppingCart,
+} from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
 import { GoReport } from 'react-icons/go';
 import { GiCarWheel } from 'react-icons/gi';
 import { HiNewspaper } from 'react-icons/hi';
 import { MdFormatSize } from 'react-icons/md';
 import { GiKnightBanner, GiAirplaneArrival } from 'react-icons/gi';
-import { RiGalleryLine, RiHandbagLine, RiAdminLine } from 'react-icons/ri';
+import {
+  RiGalleryLine,
+  RiHandbagLine,
+  RiAdminLine,
+  RiVideoLine,
+} from 'react-icons/ri';
 
 export default function DashboardSidebarContent() {
   return (
@@ -30,13 +39,21 @@ export default function DashboardSidebarContent() {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/dashboard/orders">
+          <span>
+            <AiOutlineShoppingCart />
+          </span>{' '}
+          Orders
+        </NavLink>
+      </li>
+      {/* <li>
         <NavLink to="/dashboard/customers">
           <span>
             <AiOutlineUser />
           </span>{' '}
           Customer
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink to="/dashboard/categories">
           <span>
@@ -59,6 +76,14 @@ export default function DashboardSidebarContent() {
             <HiNewspaper />
           </span>{' '}
           News
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/video">
+          <span>
+            <RiVideoLine />
+          </span>{' '}
+          Video
         </NavLink>
       </li>
       <li>

@@ -1,12 +1,15 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import { HashLink } from "react-router-hash-link";
-import Slider from "react-slick";
-import Image1 from "../assets/images/tire-range1.png";
-import Image2 from "../assets/images/tire-range2.png";
-import Image3 from "../assets/images/tire-range3.png";
-import Image4 from "../assets/images/tire-range4.png";
-import "../assets/sass/components/_tire-range.scss";
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
+import Slider from 'react-slick';
+import Image1 from '../assets/images/tire-range1.png';
+import Image2 from '../assets/images/tire-range2.png';
+import Image3 from '../assets/images/tire-range3.png';
+import Image4 from '../assets/images/tire-range4.png';
+import Image5 from '../assets/images/Industrial.jpg';
+import Image6 from '../assets/images/LTB.jpg';
+import Image7 from '../assets/images/LTR.jpg';
+import '../assets/sass/components/_tire-range.scss';
 
 function TireRange() {
   let settings = {
@@ -55,7 +58,7 @@ function TireRange() {
       </Container>
       <div className="slider__main">
         <Slider {...settings}>
-          <HashLink className="banner-item" to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/TBB">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
@@ -64,11 +67,11 @@ function TireRange() {
                 loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
-              <h3>Track</h3>
+              <h3>TBB</h3>
             </div>
           </HashLink>
 
-          <HashLink className="banner-item" to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/TBR">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
@@ -77,11 +80,11 @@ function TireRange() {
                 loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
-              <h3>BUS</h3>
+              <h3>TBR</h3>
             </div>
           </HashLink>
 
-          <HashLink className="banner-item" to="/tire/car">
+          <HashLink className="banner-item" to="/tire/Passenger Car">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
@@ -107,16 +110,42 @@ function TireRange() {
             </div>
           </HashLink>
 
-          <HashLink className="banner-item" to="/tire/motorcycle">
+          <HashLink className="banner-item" to="/tire/Industrial">
             <div className="tire__item">
               <img
                 className="position-absolute w-100 h-100"
-                src={Image4}
+                src={Image5}
                 alt="tire"
                 loading="lazy"
               />
               <div className="overlay position-absolute w-100 h-100" />
-              <h3>Motorcycle</h3>
+              <h3>Industrial</h3>
+            </div>
+          </HashLink>
+
+          <HashLink className="banner-item" to="/tire/LTB">
+            <div className="tire__item">
+              <img
+                className="position-absolute w-100 h-100"
+                src={Image6}
+                alt="tire"
+                loading="lazy"
+              />
+              <div className="overlay position-absolute w-100 h-100" />
+              <h3>LTB</h3>
+            </div>
+          </HashLink>
+
+          <HashLink className="banner-item" to="/tire/LTR">
+            <div className="tire__item">
+              <img
+                className="position-absolute w-100 h-100"
+                src={Image7}
+                alt="tire"
+                loading="lazy"
+              />
+              <div className="overlay position-absolute w-100 h-100" />
+              <h3>LTR</h3>
             </div>
           </HashLink>
         </Slider>

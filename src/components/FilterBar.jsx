@@ -19,7 +19,9 @@ function FilterBar() {
     <div className="filter position-relative py-1">
       <div className="titlle">
         <h3>
-          <span className="choose">FeaTuring:</span> Motorcycle Tire
+          <Link className="filter-link" to="/tire/motorcycle">
+            <span className="choose">FeaTuring:</span> Motorcycle Tire
+          </Link>
         </h3>
       </div>
       <div className="position-absolute top-0 end-0  h-100 bg-white">

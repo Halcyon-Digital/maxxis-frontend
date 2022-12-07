@@ -1,10 +1,12 @@
 import { Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { addToCart } from '../features/cart/cartSlice';
 import { alrtSuccess } from '../utils/common';
 
 function ProductsCard({ product }) {
+  const navigate = useNavigate();
   const dispatch = useDispatch((state) => state.cart);
 
   const addCart = (data) => {
@@ -28,8 +30,6 @@ function ProductsCard({ product }) {
         <p>
           BDT. Price: <b>{product.price}</b>/-
         </p>
-        <button>Buy Now</button>
-        <button onClick={() => addCart(product)}>Add To Cart</button>
       </div>
     </Col>
   );

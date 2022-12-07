@@ -41,6 +41,7 @@ export default function CreateProduct() {
     resetField('features');
     resetField('featuresDetails');
     resetField('thumbnailImage');
+    resetField('rim');
   };
   return (
     <div>
@@ -74,10 +75,8 @@ export default function CreateProduct() {
             ))}
         </Form.Select>
 
-        <Form.Select
-          {...register('size', { required: true })}
-          aria-label="Default select example"
-        >
+        <Form.Label htmlFor="size">Size</Form.Label>
+        <Form.Select {...register('size')} aria-label="Default select example">
           <option value="">Tire Size</option>
           {tireSize &&
             tireSize.map((size, i) => (
@@ -87,10 +86,8 @@ export default function CreateProduct() {
             ))}
         </Form.Select>
 
-        <Form.Select
-          {...register('rim', { required: true })}
-          aria-label="Default select example"
-        >
+        <Form.Label htmlFor="rim">Rim</Form.Label>
+        <Form.Select {...register('rim')} aria-label="Default select example">
           <option value="">Rim</option>
           <option value="5">5</option>
           <option value="6">6</option>
@@ -142,13 +139,6 @@ export default function CreateProduct() {
           type="number"
           {...register('weight', { required: true })}
           placeholder="Weight"
-        />
-
-        <Form.Label htmlFor="size">Size</Form.Label>
-        <Form.Control
-          id="size"
-          {...register('size', { required: true })}
-          placeholder="Size"
         />
 
         <Form.Label htmlFor="stockQuantity">Stock Quantity</Form.Label>
@@ -211,7 +201,7 @@ export default function CreateProduct() {
         />
         {errors.images && <span>This field is required</span>}
 
-        <Button variant="danger" type="submit">
+        <Button className="mt-2" variant="danger" type="submit">
           Crate
         </Button>
       </Form>

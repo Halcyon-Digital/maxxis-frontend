@@ -4,11 +4,11 @@ import '../assets/sass/components/_banner.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { useQuery } from 'react-query';
-import { allBanner } from '../api/fetchData';
+import { allBanner, videoOne } from '../api/fetchData';
 
 function Banner() {
   const { data, isLoading } = useQuery('banner', () => allBanner());
-
+  const { data: bannerVideo, isSuccess } = useQuery('videos', () => videoOne());
   const settings = {
     dots: true,
     infinite: true,
@@ -51,25 +51,37 @@ function Banner() {
 
   return (
     <div className="banner">
-      {isLoading ? (
-        <h3>Loading...</h3>
+      {isSuccess & (bannerVideo?.length > 0) ? (
+        <video
+          className="w-100"
+          autoPlay
+          muted
+          loop
+          src={bannerVideo[0].url}
+        ></video>
       ) : (
-        <Slider
-          {...settings}
-          prevArrow={<IoIosArrowBack />}
-          nextArrow={<IoIosArrowForward />}
-        >
-          {data?.map((banner) => (
-            <div key={banner._id} className="w-100">
-              <LazyLoadImage
-                className="w-100"
-                src={`${process.env.REACT_APP_PROXY}/files/${banner.image}`}
-                alt="banner"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </Slider>
+        <>
+          {isLoading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <Slider
+              {...settings}
+              prevArrow={<IoIosArrowBack />}
+              nextArrow={<IoIosArrowForward />}
+            >
+              {data?.map((banner) => (
+                <div key={banner._id} className="w-100">
+                  <LazyLoadImage
+                    className="w-100"
+                    src={`${process.env.REACT_APP_PROXY}/files/${banner.image}`}
+                    alt="banner"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </Slider>
+          )}
+        </>
       )}
     </div>
   );

@@ -1,6 +1,11 @@
 import React, { Suspense, lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DashboardVideoIdPage from '../pages/admin/DashboardVideoIdPage';
+const Invoice = lazy(() => import('../pages/Invoice'));
+const DashboardOrderPage = lazy(() =>
+  import('../pages/admin/DashboardOrderPage')
+);
 const DashboardUpdateProduct = lazy(() =>
   import('../pages/admin/DashboardUpdateProduct')
 );
@@ -23,6 +28,9 @@ const DashboardDealerPage = lazy(() =>
   import('../pages/admin/DashboardDealerPage')
 );
 const DashboardJobs = lazy(() => import('../pages/admin/DashboardJobs'));
+const DashboardOrderDetails = lazy(() =>
+  import('../pages/admin/DashboardOrderDetails')
+);
 const DashboardNews = lazy(() => import('../pages/admin/DashboardNews'));
 const AboutPage = lazy(() => import('../pages/AboutPage'));
 const DashboardArrivalsPage = lazy(() =>
@@ -60,6 +68,9 @@ const TireCategoriesPage = lazy(() => import('../pages/TireCategoriesPage'));
 const SuccessPage = lazy(() => import('../pages/SuccessPage'));
 const ProfilePage = lazy(() => import('../pages/ProfilePage'));
 const ProfileOrderPage = lazy(() => import('../pages/ProfileOrderPage'));
+const DashboardVideoPage = lazy(() =>
+  import('../pages/admin/DashboardVideoPage')
+);
 
 function index() {
   return (
@@ -87,6 +98,7 @@ function index() {
             <Route path="/jobs/:slug" element={<JobDetailsPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/orders" element={<ProfileOrderPage />} />
+            <Route path="/invoice/:id" element={<Invoice />} />
 
             {/* Admin Route */}
 
@@ -111,6 +123,22 @@ function index() {
               element={
                 <PrivateRoute>
                   <DashboardProduct />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/orders"
+              element={
+                <PrivateRoute>
+                  <DashboardOrderPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/orders/:key"
+              element={
+                <PrivateRoute>
+                  <DashboardOrderDetails />
                 </PrivateRoute>
               }
             />
@@ -204,6 +232,22 @@ function index() {
               element={
                 <PrivateRoute>
                   <DashboardAdmin />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/video"
+              element={
+                <PrivateRoute>
+                  <DashboardVideoPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/video/:id"
+              element={
+                <PrivateRoute>
+                  <DashboardVideoIdPage />
                 </PrivateRoute>
               }
             />

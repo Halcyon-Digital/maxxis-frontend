@@ -63,7 +63,7 @@ export default function Dashboard() {
 
       <h4>Latest Orders</h4>
 
-      <OrdersTable />
+      {/* <OrdersTable /> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .about-us {
   padding-top: 100px;
@@ -12,5 +12,6 @@
   p {
     @include secondary-fonts(16px);
     margin-bottom: 30px;
+    text-align: justify;
   }
 }

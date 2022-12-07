@@ -12,11 +12,12 @@ footer {
   p {
     @include secondary-fonts(16px);
     color: $secondary-color;
+    text-align: justify;
   }
 
   .social-icon {
     margin-top: 45px;
-    .icon {
+    .icon a {
       font-size: 22px;
       background: $dark-color;
       color: $secondary-color;

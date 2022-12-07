@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +23,10 @@ export default function ProductTable() {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((res) => alrtSuccess(res.data.message))
+        .then((res) => {
+          alrtSuccess(res.data.message);
+          allProducts();
+        })
         .catch((error) => alrtError(error.message));
     }
   };
@@ -62,19 +65,29 @@ export default function ProductTable() {
                 <td>{product.shippingInDhaka}</td>
                 <td>{product.shippingInDhaka}</td>
                 <td>
-                  <button
+                  <Button
+                    className="p-1 mx-1"
+                    variant="outline-secondary"
                     onClick={() =>
                       navigate(`/dashboard/products/update/${product._id}`)
                     }
                   >
                     Edit
-                  </button>
-                  <button onClick={() => navigate(`/products/${product._id}`)}>
+                  </Button>
+                  <Button
+                    className="p-1 mx-1"
+                    variant="outline-secondary"
+                    onClick={() => navigate(`/products/${product._id}`)}
+                  >
                     Show
-                  </button>
-                  <button onClick={() => deleteProduct(product._id)}>
+                  </Button>
+                  <Button
+                    className="p-1 mx-1"
+                    variant="outline-secondary"
+                    onClick={() => deleteProduct(product._id)}
+                  >
                     Delete
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))}

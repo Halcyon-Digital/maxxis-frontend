@@ -25,7 +25,7 @@ function CartElement() {
                 <p className="paragraph">
                   Do you want to buy some more product?
                 </p>
-                <Link className="continue-shopping" to="/products">
+                <Link className="continue-shopping" to="/tire/motorcycle">
                   Continue Shopping
                 </Link>
               </div>

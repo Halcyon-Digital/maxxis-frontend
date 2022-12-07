@@ -88,18 +88,19 @@ function ProductDetails() {
                       />
                     ))}
               </div>
-
-              <div className="button">
-                <button
-                  onClick={() => {
-                    addCart(product);
-                    navigate('/cart');
-                  }}
-                >
-                  Buy Now
-                </button>
-                <button onClick={() => addCart(product)}>Add To Cart</button>
-              </div>
+              {product.categories === 'motorcycle' && (
+                <div className="button">
+                  <button
+                    onClick={() => {
+                      addCart(product);
+                      navigate('/cart');
+                    }}
+                  >
+                    Buy Now
+                  </button>
+                  <button onClick={() => addCart(product)}>Add To Cart</button>
+                </div>
+              )}
             </Col>
           </Row>
         )}

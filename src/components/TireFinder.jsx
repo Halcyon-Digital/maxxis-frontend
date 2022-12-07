@@ -7,6 +7,7 @@ import { categoriesData, tireSizeData } from '../api/fetchData';
 import { AiOutlineClose } from 'react-icons/ai';
 import '../assets/sass/components/_TireFinder.scss';
 import '../assets/sass/components/_commonButton.scss';
+import { useState } from 'react';
 
 function TireFinder() {
   const navigate = useNavigate();
@@ -56,25 +57,25 @@ function TireFinder() {
           aria-label="Default select example"
         >
           <option value="">Rim</option>
-          <option value="5">5</option>
+          {/* <option value="5">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
-          <option value="9">9</option>
+          <option value="9">9</option> */}
           <option value="10">10</option>
-          <option value="11">11</option>
+          {/* <option value="11">11</option> */}
           <option value="12">12</option>
-          <option value="13">13</option>
+          {/* <option value="13">13</option>
           <option value="14">14</option>
           <option value="15">15</option>
-          <option value="16">16</option>
+          <option value="16">16</option> */}
           <option value="17">17</option>
           <option value="18">18</option>
-          <option value="19">19</option>
+          {/* <option value="19">19</option>
           <option value="20">20</option>
           <option value="21">21</option>
           <option value="22">22</option>
-          <option value="23">23</option>
+          <option value="23">23</option> */}
         </Form.Select>
         <Form.Select
           className="mb-2"

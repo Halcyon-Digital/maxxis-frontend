@@ -114,6 +114,7 @@ function OrderForm() {
           <option>Sunamganj</option>
           <option>Sylhet</option>
         </Form.Select>
+        <input type="text" placeholder="Thana" />
         <input
           type="number"
           onBlur={(e) => dispatch(addCustomerPostCode(e.target.value))}

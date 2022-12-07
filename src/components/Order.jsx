@@ -29,14 +29,20 @@ function Order() {
             <Cart />
             <button
               onClick={(e) => {
-                toast.success('Hi');
                 dispatch(addPaymentType('Online Payment'));
                 online();
               }}
             >
               Online Payment
             </button>
-            <button onClick={cash}>Cash on Delivery</button>
+            <button
+              onClick={(e) => {
+                dispatch(addPaymentType('Cash on Delivery'));
+                cash();
+              }}
+            >
+              Cash on Delivery
+            </button>
           </Col>
         </Row>
       </Container>
