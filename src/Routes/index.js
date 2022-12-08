@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DashboardVideoIdPage from '../pages/admin/DashboardVideoIdPage';
+import DashboardNewsMaker from '../pages/admin/DashboardNewsMaker';
+import FinderPage from '../pages/FinderPage';
 const Invoice = lazy(() => import('../pages/Invoice'));
 const DashboardOrderPage = lazy(() =>
   import('../pages/admin/DashboardOrderPage')
@@ -99,6 +101,7 @@ function index() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/orders" element={<ProfileOrderPage />} />
             <Route path="/invoice/:id" element={<Invoice />} />
+            <Route path="/finder" element={<FinderPage />} />
 
             {/* Admin Route */}
 
@@ -264,6 +267,14 @@ function index() {
               element={
                 <PrivateRoute>
                   <DashboardTireSizePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/news/create"
+              element={
+                <PrivateRoute>
+                  <DashboardNewsMaker />
                 </PrivateRoute>
               }
             />

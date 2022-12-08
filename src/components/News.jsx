@@ -3,8 +3,11 @@ import { Container, Row } from 'react-bootstrap';
 import NewsCard from './NewsCard';
 import Title from './Title';
 import '../assets/sass/components/_news.scss';
+import { allNews } from '../api/fetchData';
+import { useQuery } from 'react-query';
 
 function News() {
+  const { data } = useQuery('category', () => allNews());
   return (
     <section className="news">
       <Container>
@@ -15,8 +18,8 @@ function News() {
           mainClass="black__border"
         />
         <Row lg={3} xs={1} className="mt-5">
-          {[...Array(6).keys()].map((_, i) => (
-            <NewsCard key={i} />
+          {data?.map((news, i) => (
+            <NewsCard key={i} news={news} />
           ))}
         </Row>
       </Container>

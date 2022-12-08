@@ -1,0 +1,46 @@
+@import '../utils/variable';
+@import '../utils/mixins';
+
+.create-news {
+  margin-top: 15px;
+
+  form {
+    width: 400px;
+    margin: 0 auto;
+
+    textarea,
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid $primary-color;
+      padding: 4px;
+      @include secondary-fonts;
+    }
+  }
+  button {
+    @include button;
+    background: $primary-color;
+    @include secondary-fonts;
+  }
+}
+
+.dashboard-jobs {
+  padding: 15px;
+  form {
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 5px;
+      border: 1px solid $dark-color;
+      padding: 5px;
+    }
+    &::placeholder {
+      @include primary-fonts;
+    }
+  }
+  button {
+    @include button;
+    background: $primary-color;
+    @include secondary-fonts;
+  }
+}

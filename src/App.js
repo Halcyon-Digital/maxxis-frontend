@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 // import 'react-spinner-loader.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/sass/vendors/_common.scss';
+import './assets/sass/randorm/random.scss';
 import './assets/sass/vendors/_responsive.scss';
 
 function App() {

@@ -64,7 +64,9 @@ function ProductDetails() {
             <Col>
               <h2>{product.title}</h2>
               <h6>BDT. Price: {product.price}/-</h6>
-              <h2>{product.size}</h2>
+              <h2>
+                {product.size} - {product.rim}
+              </h2>
               <p className="content-title">Specifications</p>
               <p>{product.description}</p>
               <p className="content-title">Features and Benefits</p>

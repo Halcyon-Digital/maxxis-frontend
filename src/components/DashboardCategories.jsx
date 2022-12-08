@@ -1,10 +1,11 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
-import { alrtError, alrtSuccess } from "../utils/common";
-import AllCategories from "./AllCategories";
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import { alrtError, alrtSuccess } from '../utils/common';
+import AllCategories from './AllCategories';
+import '../assets/sass/components/admin/_dashboardGallery.scss';
 
 export default function DashboardCategories() {
   const { register, handleSubmit, resetField } = useForm();
@@ -21,7 +22,7 @@ export default function DashboardCategories() {
       })
       .then((res) => {
         alrtSuccess(res.data.message);
-        resetField("title");
+        resetField('title');
       })
       .catch((error) => alrtError(error.message));
   };
@@ -30,7 +31,7 @@ export default function DashboardCategories() {
     <div className="dashboard-gallery">
       {isAdd && (
         <Form onSubmit={handleSubmit(onSubmit)} className=" py-3">
-          <input type="text" {...register("title", { required: true })} />
+          <input type="text" {...register('title', { required: true })} />
           <button type="submit">Create</button>
         </Form>
       )}

@@ -13,6 +13,11 @@ export const arrivals = async () => {
   const data = res.data;
   return data;
 };
+export const allNews = async () => {
+  const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/news`);
+  const data = res.data;
+  return data;
+};
 
 export const video = async () => {
   const res = await axios.get(

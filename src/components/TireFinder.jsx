@@ -14,6 +14,9 @@ function TireFinder() {
   const { data } = useQuery('category', () => categoriesData());
   const { data: tireSize } = useQuery('tiresize', () => tireSizeData());
   const { register, handleSubmit } = useForm();
+  const [rim, setRim] = useState('');
+  const [size, setSize] = useState('');
+  const [categories, setCategories] = useState('');
 
   const onClose = (e) => {
     const finder = document.getElementById('tirefinder');
@@ -22,7 +25,9 @@ function TireFinder() {
 
   const onSubmit = (data) => {
     navigate(
-      `/products?categories=${data.categories}&&rim=${data.rim}&&size=${data.size}`
+      `/finder?categories=${data.categories}${rim && `&&rim=${rim}`}${
+        size && `&&size=${size}`
+      }`
     );
   };
 
@@ -36,14 +41,14 @@ function TireFinder() {
           <AiOutlineClose />
         </span>
       </div>
-
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Select
-          className="mb-2"
           {...register('categories', { required: true })}
-          aria-label="Default select example"
+          onChange={(e) => setCategories(e.target.value)}
+          className="mb-2"
         >
           <option value="">Categories</option>
+
           {data &&
             data.map((category, i) => (
               <option key={i} value={category.title}>
@@ -51,46 +56,39 @@ function TireFinder() {
               </option>
             ))}
         </Form.Select>
-        <Form.Select
-          className="mb-2"
-          {...register('rim', { required: true })}
-          aria-label="Default select example"
-        >
-          <option value="">Rim</option>
-          {/* <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option> */}
-          <option value="10">10</option>
-          {/* <option value="11">11</option> */}
-          <option value="12">12</option>
-          {/* <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option> */}
-          <option value="17">17</option>
-          <option value="18">18</option>
-          {/* <option value="19">19</option>
-          <option value="20">20</option>
-          <option value="21">21</option>
-          <option value="22">22</option>
-          <option value="23">23</option> */}
-        </Form.Select>
-        <Form.Select
-          className="mb-2"
-          {...register('size', { required: true })}
-          aria-label="Default select example"
-        >
-          <option value="">Size</option>
-          {tireSize &&
-            tireSize.map((size, i) => (
-              <option key={i} value={size.size}>
-                {size.size}
-              </option>
-            ))}
-        </Form.Select>
-        <button className="common_button" type="submit">
+
+        {categories === 'motorcycle' && (
+          <>
+            <Form.Select
+              {...register('size', { required: true })}
+              onChange={(e) => setSize(e.target.value)}
+              className="mb-2"
+            >
+              <option value="">Size</option>
+
+              {tireSize &&
+                tireSize.map((size, i) => (
+                  <option key={i} value={size.size}>
+                    {size.size}
+                  </option>
+                ))}
+            </Form.Select>
+            <Form.Select
+              {...register('rim')}
+              name=""
+              id=""
+              onChange={(e) => setRim(e.target.value)}
+            >
+              <option value="">Rim</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+            </Form.Select>
+          </>
+        )}
+
+        <button className="common_button mt-2" type="submit">
           Find
         </button>
       </Form>

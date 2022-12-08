@@ -6,30 +6,15 @@ import '../assets/sass/components/_products.scss';
 import ProductsCard from './ProductsCard';
 import axios from 'axios';
 import Loading from './Loading';
-import { categoriesData } from '../api/fetchData';
-import { useQuery } from 'react-query';
+import { useLocation } from 'react-router-dom';
 
-function AllProducts() {
+export default function FindProducts() {
+  const { search } = useLocation();
+  console.log(search);
   const [isLoading, setIsLoading] = useState(false);
-  const { data } = useQuery('category', () => categoriesData());
   const [page, setPage] = useState(0);
   let size = 8;
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState('all');
-  useEffect(() => {
-    const data = async () => {
-      setIsLoading(true);
-      await axios
-        .get(
-          `${process.env.REACT_APP_PROXY}/api/v1/products/pagination?page=${page}&size=${size}&categories=${categories}`
-        )
-        .then((res) => {
-          setProducts(res.data);
-          setIsLoading(false);
-        });
-    };
-    data();
-  }, [page, size, categories]);
 
   const backPage = () => {
     if (page === 0) {
@@ -37,6 +22,21 @@ function AllProducts() {
     }
     setPage((prevState) => prevState - 1);
   };
+
+  useEffect(() => {
+    const data = async () => {
+      setIsLoading(true);
+      await axios
+        .get(
+          `${process.env.REACT_APP_PROXY}/api/v1/products/finder${search}&&page=${page}&size=${size}`
+        )
+        .then((res) => {
+          setProducts(res.data);
+          setIsLoading(false);
+        });
+    };
+    data();
+  }, [page, size, search]);
 
   return (
     <section className="products">
@@ -50,25 +50,6 @@ function AllProducts() {
                 classList="title__back"
                 mainClass="black__border"
               />
-              <select
-                onChange={(e) => setCategories(e.target.value)}
-                style={{ borderColor: '#fc4704' }}
-                className="px-3"
-              >
-                <option value="all" selected>
-                  All
-                </option>
-                {data?.map((item) => (
-                  <option value={item?.title}>{item?.title}</option>
-                ))}
-                {/*  <option value="motorcycle">motorcycle</option>
-                <option value="LTB">LTB</option>
-                <option value="LLR">LLR</option>
-                <option value="TBB">TBB </option>
-                <option value="TBR">TBR </option>
-                <option value="Industrial">Industrial </option>
-                <option value="	Passenger Car"> Passenger Car </option> */}
-              </select>
               <div>
                 <IoIosArrowBack onClick={backPage} className="change__button" />
                 <IoIosArrowForward
@@ -101,5 +82,3 @@ function AllProducts() {
     </section>
   );
 }
-
-export default AllProducts;

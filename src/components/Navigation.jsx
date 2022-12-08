@@ -80,9 +80,9 @@ function Navigation() {
               </Nav.Link>
             )}
           </Nav>
-          <button onClick={block} className="tire__finder">
+          {/*  <button onClick={block} className="tire__finder">
             Tire Finder
-          </button>
+          </button> */}
         </Navbar.Collapse>
       </>
     </Navbar>
