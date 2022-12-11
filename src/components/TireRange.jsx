@@ -19,6 +19,7 @@ function TireRange() {
     slidesToShow: 4,
     slidesToScroll: 2,
     initialSlide: 0,
+    autoplay: true,
     arrows: false,
     responsive: [
       {
@@ -58,32 +59,6 @@ function TireRange() {
       </Container>
       <div className="slider__main">
         <Slider {...settings}>
-          <HashLink className="banner-item" to="/tire/TBB">
-            <div className="tire__item">
-              <img
-                className="position-absolute w-100 h-100"
-                src={Image1}
-                alt="tire"
-                loading="lazy"
-              />
-              <div className="overlay position-absolute w-100 h-100" />
-              <h3>TBB</h3>
-            </div>
-          </HashLink>
-
-          <HashLink className="banner-item" to="/tire/TBR">
-            <div className="tire__item">
-              <img
-                className="position-absolute w-100 h-100"
-                src={Image2}
-                alt="tire"
-                loading="lazy"
-              />
-              <div className="overlay position-absolute w-100 h-100" />
-              <h3>TBR</h3>
-            </div>
-          </HashLink>
-
           <HashLink className="banner-item" to="/tire/Passenger Car">
             <div className="tire__item">
               <img
@@ -107,6 +82,32 @@ function TireRange() {
               />
               <div className="overlay position-absolute w-100 h-100" />
               <h3>Motorcycle</h3>
+            </div>
+          </HashLink>
+
+          <HashLink className="banner-item" to="/tire/TBB">
+            <div className="tire__item">
+              <img
+                className="position-absolute w-100 h-100"
+                src={Image1}
+                alt="tire"
+                loading="lazy"
+              />
+              <div className="overlay position-absolute w-100 h-100" />
+              <h3>TBB</h3>
+            </div>
+          </HashLink>
+
+          <HashLink className="banner-item" to="/tire/TBR">
+            <div className="tire__item">
+              <img
+                className="position-absolute w-100 h-100"
+                src={Image2}
+                alt="tire"
+                loading="lazy"
+              />
+              <div className="overlay position-absolute w-100 h-100" />
+              <h3>TBR</h3>
             </div>
           </HashLink>
 

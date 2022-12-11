@@ -60,9 +60,22 @@ function TireFinder() {
         {categories === 'motorcycle' && (
           <>
             <Form.Select
+              {...register('rim')}
+              name=""
+              id=""
+              onChange={(e) => setRim(e.target.value)}
+              className="mb-2"
+            >
+              <option value="">Rim</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+            </Form.Select>
+
+            <Form.Select
               {...register('size', { required: true })}
               onChange={(e) => setSize(e.target.value)}
-              className="mb-2"
             >
               <option value="">Size</option>
 
@@ -72,18 +85,6 @@ function TireFinder() {
                     {size.size}
                   </option>
                 ))}
-            </Form.Select>
-            <Form.Select
-              {...register('rim')}
-              name=""
-              id=""
-              onChange={(e) => setRim(e.target.value)}
-            >
-              <option value="">Rim</option>
-              <option value="10">10</option>
-              <option value="12">12</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
             </Form.Select>
           </>
         )}

@@ -4,7 +4,6 @@ import NewImage from '../assets/images/news-img.png';
 import { IoIosArrowForward } from 'react-icons/io';
 
 function NewsCard({ news }) {
-  console.log(news);
   return (
     <Col className="mb-4">
       <div className="news-card">
@@ -16,8 +15,8 @@ function NewsCard({ news }) {
         />
         <div className="px-2 py-3">
           <h3 className="card-title">{news.title}</h3>
-          <p>{news.desc}</p>
-          <Link to="/" className="readmore">
+          <p className="text-justify">{news.desc?.slice(0, 100)}</p>
+          <Link to={`/news/${news._id}`} className="readmore">
             Read More{' '}
             <span>
               <IoIosArrowForward />

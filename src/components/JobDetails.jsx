@@ -1,9 +1,27 @@
-import { Container } from "react-bootstrap";
-import Title from "./Title";
-import "../assets/sass/components/_jobdetails.scss";
-import { HashLink } from "react-router-hash-link";
+import { Container } from 'react-bootstrap';
+import Title from './Title';
+import '../assets/sass/components/_jobdetails.scss';
+import { HashLink } from 'react-router-hash-link';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 
 export default function JobDetails() {
+  const [jobDec, setJobDec] = useState({});
+  const { slug } = useParams();
+
+  useEffect(() => {
+    const data = async () => {
+      axios
+        .get(`${process.env.REACT_APP_PROXY}/api/v1/job/${slug}`)
+        .then((res) => setJobDec(res.data));
+    };
+    data();
+  }, [slug]);
+
+  console.log(jobDec);
+
   return (
     <section className="job-details">
       <Container>
@@ -16,65 +34,40 @@ export default function JobDetails() {
       </Container>
       <div className="job-content">
         <Container>
-          <p>Sales Manager, Dhaka, 20 October</p>
-          <p> 2022 Vacancy: 01 </p>
-          <p>Experience: 02</p>
-          <p> Deadline: 2022-10-26</p>
+          <p>{jobDec.title}</p>
+          <p> Vacancy: {jobDec.vacancy} </p>
+          <p>Experience: {jobDec.experience}</p>
+          <p> Deadline: {jobDec.deadline}</p>
         </Container>
       </div>
       <div className="job-description">
         <Container>
           <h2>Job Description</h2>
           <h5>Job Purpose</h5>
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text. All the Lorem Ipsum generators on the Internet tend
-            to repeat predefined chunks as necessary, making this the first true
-            generator on the Internet. It uses a dictionary of over 200 Latin
-            words, combined with a handful of model sentence structures, to
-            generate Lorem Ipsum which looks reasonable. The generated Lorem
-            Ipsum is therefore always free from repetition, injected humour, or
-            non-characteristic words etc.
-          </p>
+          <p>{jobDec.desc}</p>
           <h5>Key Accountabilities:</h5>
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text.
-          </p>
+          <p>{jobDec.accountabilities}</p>
 
-          <h5>Educational Requirement:</h5>
+          <h5>Educational Requirement:{jobDec.eduReq}</h5>
 
-          <h5>Dimension:</h5>
+          {/* <h5>Dimension:</h5> */}
 
-          <h5>Experience Requirement:</h5>
+          <h5>Experience Requirement:{jobDec.experience}</h5>
 
           <h5>Skills Requirement:</h5>
 
           <ul>
-            <li>
-              There are many variations of passages of Lorem Ipsum available.
-            </li>
-            <li>There are many variations</li>
-            <li>There are many variationsThere are many variations</li>
-            <li>There are many</li>
-            <li>There are many variations of passages</li>
-            <li>There are many variations of passages of lorem</li>
+            {jobDec.skills?.split(',').map((skill) => (
+              <li>{skill}</li>
+            ))}
           </ul>
 
           <h5>Employment Status: </h5>
 
-          <h5>Experience: </h5>
-          <h5>Job Location: </h5>
-          <h5>Salary: </h5>
-          <h5>Reference Code: </h5>
+          <h5>Experience: {jobDec.experience}</h5>
+          <h5>Job Location: {jobDec.location}</h5>
+          <h5>Salary: {jobDec.salary}</h5>
+          <h5>Reference Code: {jobDec.ref}</h5>
 
           <HashLink className="button" to="/">
             Apply

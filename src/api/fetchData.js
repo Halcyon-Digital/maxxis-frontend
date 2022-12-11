@@ -38,6 +38,12 @@ export const allBanner = async () => {
   return data;
 };
 
+export const allJobs = async () => {
+  const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/job`);
+  const data = res.data;
+  return data;
+};
+
 export const reportsUser = async () => {
   const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/contact`);
   const data = res.data;

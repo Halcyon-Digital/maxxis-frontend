@@ -1,12 +1,12 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { MdLocationPin } from "react-icons/md";
-import { FiPhoneCall } from "react-icons/fi";
-import { FaFax } from "react-icons/fa";
-import { AiOutlineMail } from "react-icons/ai";
-import "../assets/sass/components/_contactInfo.scss";
-import Title from "./Title";
-import ContactForm from "./ContactForm";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { MdLocationPin } from 'react-icons/md';
+import { FiPhoneCall } from 'react-icons/fi';
+import { FaFax } from 'react-icons/fa';
+import { AiOutlineMail } from 'react-icons/ai';
+import '../assets/sass/components/_contactInfo.scss';
+import Title from './Title';
+import ContactForm from './ContactForm';
 
 function ContactInfo() {
   return (
@@ -25,7 +25,16 @@ function ContactInfo() {
               <div className="icon">
                 <MdLocationPin />
               </div>
-              <p style={{ width: "300px" }} className="ms-3">
+              <p style={{ width: '300px' }} className="ms-3">
+                1230, D.T. Road, Dhanialapara, Kadamtali, Chittagong-4100,
+                Bangladesh.
+              </p>
+            </div>
+            <div className="d-flex mb-2 ">
+              <div className="icon">
+                <MdLocationPin />
+              </div>
+              <p style={{ width: '300px' }} className="ms-3">
                 Navana Rahim ardent, Apt#C 2(2nd Floor)’ 185 Shaheed Nazrul
                 Islam Sharoni, Bijoynagar, Dhaka
               </p>

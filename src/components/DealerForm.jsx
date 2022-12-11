@@ -94,8 +94,8 @@ function DealerForm() {
         {...register('file', { required: true })}
         type="file"
         id="file"
-        accept="image/png, image/jpeg, image/webp"
-        onBlur={(e) => setFile(e.target.files[0])}
+        accept="image/png, image/jpeg"
+        onChange={(e) => setFile(e.target.files[0])}
       />
       <label htmlFor="message">Message</label>
       <textarea

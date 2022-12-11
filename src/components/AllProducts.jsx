@@ -50,26 +50,27 @@ function AllProducts() {
                 classList="title__back"
                 mainClass="black__border"
               />
-              <select
-                onChange={(e) => setCategories(e.target.value)}
-                style={{ borderColor: '#fc4704' }}
-                className="px-3"
-              >
-                <option value="all" selected>
-                  All
-                </option>
-                {data?.map((item) => (
-                  <option value={item?.title}>{item?.title}</option>
-                ))}
-                {/*  <option value="motorcycle">motorcycle</option>
+              <div>
+                <select
+                  onChange={(e) => setCategories(e.target.value)}
+                  style={{ width: '80px' }}
+                  className="px-3"
+                >
+                  <option value="all" selected>
+                    All
+                  </option>
+                  {data?.map((item) => (
+                    <option value={item?.title}>{item?.title}</option>
+                  ))}
+                  {/*  <option value="motorcycle">motorcycle</option>
                 <option value="LTB">LTB</option>
                 <option value="LLR">LLR</option>
                 <option value="TBB">TBB </option>
                 <option value="TBR">TBR </option>
                 <option value="Industrial">Industrial </option>
                 <option value="	Passenger Car"> Passenger Car </option> */}
-              </select>
-              <div>
+                </select>
+
                 <IoIosArrowBack onClick={backPage} className="change__button" />
                 <IoIosArrowForward
                   onClick={() => setPage((prevState) => prevState + 1)}

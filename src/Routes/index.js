@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DashboardVideoIdPage from '../pages/admin/DashboardVideoIdPage';
 import DashboardNewsMaker from '../pages/admin/DashboardNewsMaker';
 import FinderPage from '../pages/FinderPage';
+import NewsDetailsPage from '../pages/NewsDetailsPage';
 const Invoice = lazy(() => import('../pages/Invoice'));
 const DashboardOrderPage = lazy(() =>
   import('../pages/admin/DashboardOrderPage')
@@ -102,6 +103,7 @@ function index() {
             <Route path="/orders" element={<ProfileOrderPage />} />
             <Route path="/invoice/:id" element={<Invoice />} />
             <Route path="/finder" element={<FinderPage />} />
+            <Route path="/news/:id" element={<NewsDetailsPage />} />
 
             {/* Admin Route */}
 

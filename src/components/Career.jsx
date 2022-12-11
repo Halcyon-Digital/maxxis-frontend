@@ -1,11 +1,15 @@
-import React from "react";
-import { Container, Row } from "react-bootstrap";
-import CareerBanner from "./CareerBanner";
-import JobCard from "./JobCard";
-import Title from "./Title";
-import "../assets/sass/components/_career.scss";
+import React from 'react';
+import { Container, Row } from 'react-bootstrap';
+import CareerBanner from './CareerBanner';
+import JobCard from './JobCard';
+import Title from './Title';
+import '../assets/sass/components/_career.scss';
+import { allJobs } from '../api/fetchData';
+import { useQuery } from 'react-query';
 
 export default function Career() {
+  const { data } = useQuery('jobs', () => allJobs());
+  console.log(data);
   return (
     <>
       <CareerBanner />
@@ -18,7 +22,7 @@ export default function Career() {
             mainClass="black__border"
           />
           <Row className="mt-5" lg={4} xs={1}>
-            {[...Array(8).keys()].map((job, i) => (
+            {data?.map((job, i) => (
               <JobCard key={i} index={i} job={job} />
             ))}
           </Row>

@@ -55,19 +55,16 @@ export default function PopUpDelivery({ cash }) {
   const onSubmit = async (e) => {
     e.preventDefault();
     setIsLoader(true);
-    const response = await axios.post(
-      `${process.env.REACT_APP_PROXY}/api/v1/orders`,
-      orderInfo
-    );
-    if (response.data) {
-      await setMail(response.data.order);
-      setIsLoader(false);
-      alrtSuccess('Your Order sent Successfully!');
-
-      setTimeout(() => {
-        navigate('/success');
-      }, 1000);
-    }
+    await axios
+      .post(`${process.env.REACT_APP_PROXY}/api/v1/orders`, orderInfo)
+      .then((res) => {
+        setMail(res.data._doc);
+        setIsLoader(false);
+        alrtSuccess(res.data.message);
+        setTimeout(() => {
+          navigate('/success');
+        }, 1000);
+      });
   };
 
   return (
@@ -89,7 +86,7 @@ export default function PopUpDelivery({ cash }) {
                 />
                 <p>
                   1. From Your BKash choose{' '}
-                  <span className="span-item">SENT MONEY</span>
+                  <span className="span-item">SEND MONEY</span>
                 </p>
                 <p>1. Type the Receiver number</p>
                 <h2 className="span-item">01711-111111</h2>
@@ -100,7 +97,7 @@ export default function PopUpDelivery({ cash }) {
                     ? shippingDhaka
                     : shippingDhakaOut}
                 </h4>
-                <p>4. Use the given Reference ID at the reference section.</p>
+                <p>4. Use Your Bkash Number.</p>
                 <p>
                   5. After completing the payment mention the Transaction ID
                   below-

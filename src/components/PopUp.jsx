@@ -67,7 +67,7 @@ export default function PopUp({ online }) {
     if (response.data) {
       await setMail(response.data.order);
       setIsLoader(false);
-      alrtSuccess('Your Order sent Successfully!');
+      alrtSuccess('Your Order send Successfully!');
 
       setTimeout(() => {
         navigate('/success');
@@ -90,7 +90,7 @@ export default function PopUp({ online }) {
                 <img className="mb-3" src={BkashImage} alt="bkash logo" />
                 <p>
                   1. From Your BKash choose{' '}
-                  <span className="span-item">SENT MONEY</span>
+                  <span className="span-item">SEND MONEY</span>
                 </p>
                 <p>1. Type the Receiver number</p>
                 <h2 className="span-item">01711-111111</h2>
@@ -101,7 +101,7 @@ export default function PopUp({ online }) {
                     ? shippingDhaka + subTotal
                     : shippingDhakaOut + subTotal}
                 </h4>
-                <p>4. Use the given Reference ID at the reference section.</p>
+                <p>4. Use Your Bkash Number.</p>
                 <p>
                   5. After completing the payment mention the Transaction ID
                   below-

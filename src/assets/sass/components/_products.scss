@@ -1,9 +1,9 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .products {
-  background: url("../../images/orderbg.png") no-repeat left;
-  background-size: 90% 100%;
+  background: url('../../images/orderbg.png') no-repeat left;
+  background-size: 100% 100%;
   background-blend-mode: hard-light;
   margin-top: -7px;
   padding: 100px 0;

@@ -121,8 +121,8 @@ function Footer() {
                 <MdLocationPin />
               </div>
               <p className="ms-3">
-                Navana Rahim ardent, Apt#C 2(2nd Floor)’ 185 Shaheed Nazrul
-                Islam Sharoni, Bijoynagar, Dhaka
+                1230, D.T. Road, Dhanialapara, Kadamtali, Chittagong-4100,
+                Bangladesh.
               </p>
             </div>
 
@@ -131,8 +131,8 @@ function Footer() {
                 <MdLocationPin />
               </div>
               <p className="ms-3">
-                1230, D.T. Road, Dhanialapara, Kadamtali, Chittagong-4100,
-                Bangladesh.
+                Navana Rahim ardent, Apt#C 2(2nd Floor)’ 185 Shaheed Nazrul
+                Islam Sharoni, Bijoynagar, Dhaka
               </p>
             </div>
 

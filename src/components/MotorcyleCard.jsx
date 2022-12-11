@@ -28,7 +28,9 @@ function MotorcycleCard({ product }) {
       <div className="product-info">
         <h3>{product.title}</h3>
         <p>
-          BDT. Price: <b>{product.price}</b>/-
+          BDT. Price:{' '}
+          <del className="text-secondary">{product.regularPrice}</del>{' '}
+          <b>{product.price}</b>/-
         </p>
         {product.categories === 'motorcycle' && (
           <>

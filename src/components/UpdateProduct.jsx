@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { categoriesData } from '../api/fetchData';
+import { categoriesData, tireSizeData } from '../api/fetchData';
 import { alrtError, alrtSuccess } from '../utils/common';
 
 export default function UpdateProduct() {
@@ -14,6 +14,8 @@ export default function UpdateProduct() {
   const { token } = useSelector((state) => state.auth.user);
   const { data } = useQuery('category', () => categoriesData());
   const [product, setProduct] = useState({});
+  const { data: tireSize } = useQuery('tiresize', () => tireSizeData());
+  console.log(product);
 
   useEffect(() => {
     const data = async () => {
@@ -85,6 +87,42 @@ export default function UpdateProduct() {
             ))}
         </Form.Select>
 
+        <Form.Label htmlFor="size">Size</Form.Label>
+        <Form.Select
+          name="size"
+          onChange={onChange}
+          aria-label="Default select example"
+        >
+          <option value="">Tire Size</option>
+          {tireSize &&
+            tireSize.map((size, i) => (
+              <option
+                key={i}
+                value={size.size}
+                selected={product.size == size.size ? true : null}
+              >
+                {size.size}
+              </option>
+            ))}
+        </Form.Select>
+
+        <Form.Label htmlFor="rim">Rim</Form.Label>
+        <Form.Select
+          name="rim"
+          onChange={onChange}
+          aria-label="Default select example"
+        >
+          <option value="">Rim</option>
+          {[...Array(18).keys()].map((_, i) => (
+            <option
+              value={i + 6}
+              selected={Number(product.rim) === i + 6 ? true : null}
+            >
+              {i + 6}
+            </option>
+          ))}
+        </Form.Select>
+
         <Form.Label htmlFor="description">Description</Form.Label>
         <Form.Control
           id="description"
@@ -122,15 +160,6 @@ export default function UpdateProduct() {
           type="number"
           name="weight"
           placeholder="Weight"
-        />
-
-        <Form.Label htmlFor="size">Size</Form.Label>
-        <Form.Control
-          id="size"
-          onChange={onChange}
-          value={product.size}
-          name="size"
-          placeholder="Size"
         />
 
         <Form.Label htmlFor="stockQuantity">Stock Quantity</Form.Label>
