@@ -25,7 +25,9 @@ export default function DashboardNews() {
 
   return (
     <AdminLayout>
-      <Link to="/dashboard/news/create">Make News</Link>
+      <Link className="link" to="/dashboard/news/create">
+        Make News
+      </Link>
       <Row lg={3}>
         {data?.length > 0 &&
           data.map((news) => (

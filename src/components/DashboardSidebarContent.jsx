@@ -135,6 +135,14 @@ export default function DashboardSidebarContent() {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/dashboard/bkash">
+          <span>
+            <RiHandbagLine />
+          </span>{' '}
+          Bkash
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/dashboard/jobs">
           <span>
             <RiHandbagLine />

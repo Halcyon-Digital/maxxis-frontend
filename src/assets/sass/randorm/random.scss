@@ -48,3 +48,17 @@
 .text-justify {
   text-align: justify;
 }
+
+.select-product {
+  background: $primary-color;
+  margin-left: 25px;
+  color: $secondary-color;
+  border: 1px solid $primary-color;
+}
+
+.link {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background: $primary-color;
+  color: $secondary-color;
+}

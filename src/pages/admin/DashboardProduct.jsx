@@ -6,7 +6,9 @@ import AdminLayout from '../../shared/AdminLayout';
 export default function DashboardProduct() {
   return (
     <AdminLayout>
-      <Link to="/dashboard/products/create">New Product</Link>
+      <Link className="link" to="/dashboard/products/create">
+        New Product
+      </Link>
       <ProductTable />
     </AdminLayout>
   );

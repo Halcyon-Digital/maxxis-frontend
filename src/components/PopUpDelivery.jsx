@@ -5,16 +5,20 @@ import OrderCard from './OrderCard';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addOrderNumber, addTrxID } from '../features/cart/cartSlice';
-import { alrtSuccess } from '../utils/common';
+import { alrtError, alrtSuccess } from '../utils/common';
 import { useState } from 'react';
 import { Oval } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { getMobile } from '../api/fetchData';
 
 export default function PopUpDelivery({ cash }) {
+  const { data } = useQuery('mobile', () => getMobile());
   const navigate = useNavigate();
   const [isLoader, setIsLoader] = useState(false);
   const orderInfo = useSelector((state) => state.cart);
   const cart = useSelector((state) => state.cart.cart);
+  const { mobileNumber, email } = useSelector((state) => state.cart.customer);
   const dispatch = useDispatch();
 
   const shippingDhaka = cart.reduce(
@@ -54,17 +58,25 @@ export default function PopUpDelivery({ cash }) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setIsLoader(true);
-    await axios
-      .post(`${process.env.REACT_APP_PROXY}/api/v1/orders`, orderInfo)
-      .then((res) => {
-        setMail(res.data._doc);
+    if ((email, mobileNumber)) {
+      setIsLoader(true);
+
+      const response = await axios.post(
+        `${process.env.REACT_APP_PROXY}/api/v1/orders`,
+        orderInfo
+      );
+      if (response.data) {
+        await setMail(response.data.order);
         setIsLoader(false);
-        alrtSuccess(res.data.message);
+        alrtSuccess('Your Order send Successfully!');
+
         setTimeout(() => {
           navigate('/success');
         }, 1000);
-      });
+      }
+    } else {
+      alrtError('Please Fill up the all form info');
+    }
   };
 
   return (
@@ -89,7 +101,7 @@ export default function PopUpDelivery({ cash }) {
                   <span className="span-item">SEND MONEY</span>
                 </p>
                 <p>1. Type the Receiver number</p>
-                <h2 className="span-item">01711-111111</h2>
+                <h2 className="span-item">{data?.mobile}</h2>
                 <p>3. Type amount of</p>
                 <h4 className="span-item">
                   Tk.{' '}

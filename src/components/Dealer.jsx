@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import DealerModel from './DealerModel';
 
 export default function Dealer({ data }) {
-  const [modalShow, setModalShow] = useState(false);
+  // const [modalShow, setModalShow] = useState(false);
+  const nevigate = useNavigate();
 
   return (
     <Table striped bordered hover size="sm">
@@ -25,15 +27,17 @@ export default function Dealer({ data }) {
             <td>
               <Button
                 variant="outline-secondary"
-                onClick={() => setModalShow(true)}
+                onClick={() => nevigate(`/dashboard/requests/${dealer._id}`)}
               >
                 Show
               </Button>
-              <DealerModel
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                dealer={dealer}
-              />
+              <div className="d-none">
+                {/*  <DealerModel
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                  dealer={dealer}
+                /> */}
+              </div>
             </td>
           </tr>
         ))}

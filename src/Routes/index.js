@@ -5,6 +5,9 @@ import DashboardVideoIdPage from '../pages/admin/DashboardVideoIdPage';
 import DashboardNewsMaker from '../pages/admin/DashboardNewsMaker';
 import FinderPage from '../pages/FinderPage';
 import NewsDetailsPage from '../pages/NewsDetailsPage';
+import DashbaordBkash from '../pages/admin/DashbaordBkash';
+import DashboardEditBkash from '../pages/admin/DashboardEditBkash';
+import DashboardDealerDetailsPage from '../pages/admin/DashboardDealerDetailsPage';
 const Invoice = lazy(() => import('../pages/Invoice'));
 const DashboardOrderPage = lazy(() =>
   import('../pages/admin/DashboardOrderPage')
@@ -201,6 +204,14 @@ function index() {
               }
             />
             <Route
+              path="/dashboard/requests/:slug"
+              element={
+                <PrivateRoute>
+                  <DashboardDealerDetailsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/dashboard/categories"
               element={
                 <PrivateRoute>
@@ -277,6 +288,22 @@ function index() {
               element={
                 <PrivateRoute>
                   <DashboardNewsMaker />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/bkash"
+              element={
+                <PrivateRoute>
+                  <DashbaordBkash />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/bkash/:id"
+              element={
+                <PrivateRoute>
+                  <DashboardEditBkash />
                 </PrivateRoute>
               }
             />

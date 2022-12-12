@@ -44,17 +44,16 @@ function AllProducts() {
         <Row>
           <Col>
             <div className="d-flex justify-content-between">
-              <Title
-                spanItem="Products"
-                main=""
-                classList="title__back"
-                mainClass="black__border"
-              />
               <div>
+                <Title
+                  spanItem="Products"
+                  main=""
+                  classList="title__back"
+                  mainClass=""
+                />
                 <select
                   onChange={(e) => setCategories(e.target.value)}
-                  style={{ width: '80px' }}
-                  className="px-3"
+                  className="px-3 select-product"
                 >
                   <option value="all" selected>
                     All
@@ -62,15 +61,10 @@ function AllProducts() {
                   {data?.map((item) => (
                     <option value={item?.title}>{item?.title}</option>
                   ))}
-                  {/*  <option value="motorcycle">motorcycle</option>
-                <option value="LTB">LTB</option>
-                <option value="LLR">LLR</option>
-                <option value="TBB">TBB </option>
-                <option value="TBR">TBR </option>
-                <option value="Industrial">Industrial </option>
-                <option value="	Passenger Car"> Passenger Car </option> */}
                 </select>
+              </div>
 
+              <div>
                 <IoIosArrowBack onClick={backPage} className="change__button" />
                 <IoIosArrowForward
                   onClick={() => setPage((prevState) => prevState + 1)}

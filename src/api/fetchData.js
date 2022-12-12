@@ -111,3 +111,8 @@ export const allProducts = async () => {
   const data = res.data;
   return data;
 };
+export const getMobile = async () => {
+  const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/mobile`);
+  const data = res.data;
+  return data;
+};
