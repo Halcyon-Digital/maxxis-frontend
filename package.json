@@ -29,6 +29,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-tabs": "^5.1.0",
+    "react-to-print": "^2.14.10",
     "react-toastify": "^9.1.1",
     "sass": "^1.55.0",
     "slick-carousel": "^1.8.1",

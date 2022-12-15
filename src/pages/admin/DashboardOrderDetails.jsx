@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Col, Row, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { changeStatus } from '../../api/fetchData';
 import Loading from '../../components/Loading';
 import AdminLayout from '../../shared/AdminLayout';
@@ -15,8 +15,7 @@ export default function DashboardOrderDetails() {
   const [isSuccess, setIsSuccess] = useState(false);
   const { token } = useSelector((state) => state.auth.user);
   const [orderInfo, setOrderInfo] = useState({});
-
-  console.log(orderInfo);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const data = async () => {
@@ -32,6 +31,21 @@ export default function DashboardOrderDetails() {
     };
     data();
   }, [key, isSuccess]);
+
+  const sendMail = (mail) => {
+    const data = {
+      service_id: 'service_f1wxdsh',
+      template_id: 'template_zkzji8s',
+      user_id: 'user_BFbs1Zr1ntopcBjHwy90B',
+      template_params: {
+        email: mail,
+      },
+    };
+    axios
+      .post('https://api.emailjs.com/api/v1.0/email/send', data)
+      .then((res) => console.log(res.data))
+      .catch((error) => console.log(error));
+  };
 
   const updateStatus = async (status) => {
     const confirm = window.confirm('Do you want change status.');
@@ -54,9 +68,12 @@ export default function DashboardOrderDetails() {
                 <li> Email: {orderInfo.customerInfo.email} </li>
                 <li> Reference No.: {orderInfo.referenceNumber}</li>
                 <li> Transection ID : 84/b,</li>
-                <li> dhalkanagar lane gandaria</li>
                 <li> District: {orderInfo.customerInfo.district} </li>
                 <li> Thana: {orderInfo.customerInfo.thana}</li>
+              </ul>
+            </Col>
+            <Col>
+              <ul>
                 <li>
                   {' '}
                   Delivery Charge :{' '}
@@ -79,13 +96,14 @@ export default function DashboardOrderDetails() {
                         0
                       )}
                 </li>
-              </ul>
-            </Col>
-            <Col>
-              <ul>
                 <li>Order Status: {orderInfo.status}</li>
                 <li>Order Date: {orderInfo.createdAt}</li>
-                <Button className="mt-2" variant="warning">
+                <li>Shipping Type: {orderInfo.shippingType}</li>
+                <Button
+                  onClick={() => navigate(`/invoice/${orderInfo._id}`)}
+                  className="mt-2"
+                  variant="warning"
+                >
                   Invoice
                 </Button>{' '}
               </ul>
@@ -117,7 +135,10 @@ export default function DashboardOrderDetails() {
               Shipped
             </Button>{' '}
             <Button
-              onClick={() => updateStatus({ status: 'completed' })}
+              onClick={() => {
+                sendMail(orderInfo.customerInfo.email);
+                updateStatus({ status: 'completed' });
+              }}
               variant="success"
             >
               Completed

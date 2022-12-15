@@ -41,9 +41,12 @@ export default function PopUp({ online }) {
 
   const setMail = (orderInfo) => {
     const data = {
-      service_id: 'service_f1wxdsh',
+      service_id: 'service_tsg2umr',
+      template_id: 'template_ha1g1a8',
+      user_id: 'bIHUBBAnE4aUuSs5g',
+      /* service_id: 'service_f1wxdsh',
       template_id: 'template_zkzji8s',
-      user_id: 'user_BFbs1Zr1ntopcBjHwy90B',
+      user_id: 'user_BFbs1Zr1ntopcBjHwy90B', */
       template_params: {
         id: orderInfo._id,
         name: orderInfo.customerInfo.name,
