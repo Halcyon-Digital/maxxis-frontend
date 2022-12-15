@@ -44,7 +44,6 @@ function Distributor() {
               Bangladesh. Our import locations include Taiwan, Thailand,
               Vietnam, India and China.
             </p>
-            <button>Read More</button>
           </Col>
         </Row>
       </Container>

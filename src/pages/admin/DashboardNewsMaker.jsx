@@ -41,6 +41,7 @@ export default function DashboardNewsMaker() {
             placeholder="News Title"
           />
           <br />
+          <span>Size: [455 x 277]</span>
           <input onChange={(e) => setFile(e.target.files[0])} type="file" />
           <br />
           <textarea

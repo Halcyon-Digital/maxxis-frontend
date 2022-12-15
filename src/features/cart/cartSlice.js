@@ -8,6 +8,7 @@ const cartSlice = createSlice({
       companyName: '',
       address: '',
       town: '',
+      thana: '',
       district: 'Dhaka',
       postCode: '',
       mobileNumber: '',
@@ -73,6 +74,9 @@ const cartSlice = createSlice({
     addCustomerEmail: (state, action) => {
       state.customer.email = action.payload;
     },
+    addCustomerThana: (state, action) => {
+      state.customer.thana = action.payload;
+    },
     addCustomerNotes: (state, action) => {
       state.customer.notes = action.payload;
     },
@@ -104,5 +108,6 @@ export const {
   addOrderNumber,
   addTrxID,
   addPaymentType,
+  addCustomerThana,
 } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;

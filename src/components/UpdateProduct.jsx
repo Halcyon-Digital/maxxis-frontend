@@ -15,7 +15,6 @@ export default function UpdateProduct() {
   const { data } = useQuery('category', () => categoriesData());
   const [product, setProduct] = useState({});
   const { data: tireSize } = useQuery('tiresize', () => tireSizeData());
-  console.log(product);
 
   useEffect(() => {
     const data = async () => {
@@ -65,6 +64,15 @@ export default function UpdateProduct() {
           id="code"
           name="code"
           placeholder="Code"
+        />
+
+        <Form.Label htmlFor="ts">Text Product Size</Form.Label>
+        <Form.Control
+          id="ts"
+          name="ts"
+          onChange={onChange}
+          placeholder="Text Size"
+          value={product.ts}
         />
 
         <Form.Label htmlFor="categories">Categories</Form.Label>
@@ -196,7 +204,9 @@ export default function UpdateProduct() {
           placeholder="Shipping Out Dhaka"
         />
 
-        <Form.Label htmlFor="images">Product Images</Form.Label>
+        <Form.Label htmlFor="images">
+          Product Images [size: 306 x 305]
+        </Form.Label>
         <Form.Control
           id="images"
           onChange={onChange}
@@ -205,7 +215,9 @@ export default function UpdateProduct() {
           placeholder="First image link, Second image link, Third image link"
         />
 
-        <Form.Label htmlFor="features">Features Images</Form.Label>
+        <Form.Label htmlFor="features">
+          Features Images [size: 80 x 80]
+        </Form.Label>
         <Form.Control
           id="features"
           onChange={onChange}
@@ -223,7 +235,9 @@ export default function UpdateProduct() {
           placeholder="@elample sports, onroad, allwather"
         />
 
-        <Form.Label htmlFor="thumbnailImage">Thumbnail Images</Form.Label>
+        <Form.Label htmlFor="thumbnailImage">
+          Thumbnail Images [size: 302 x 345]
+        </Form.Label>
         <Form.Control
           id="thumbnailImage"
           onChange={onChange}

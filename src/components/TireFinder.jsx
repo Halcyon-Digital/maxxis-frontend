@@ -45,7 +45,7 @@ function TireFinder() {
         <Form.Select
           {...register('categories', { required: true })}
           onChange={(e) => setCategories(e.target.value)}
-          className="mb-2"
+          className="mb-2 find-ctg"
         >
           <option value="">Categories</option>
 
@@ -57,7 +57,7 @@ function TireFinder() {
             ))}
         </Form.Select>
 
-        {categories === 'motorcycle' && (
+        {(categories === 'motorcycle' || categories === 'Passenger Car') && (
           <>
             <Form.Select
               {...register('rim')}

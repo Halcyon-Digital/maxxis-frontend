@@ -8,6 +8,9 @@ import NewsDetailsPage from '../pages/NewsDetailsPage';
 import DashbaordBkash from '../pages/admin/DashbaordBkash';
 import DashboardEditBkash from '../pages/admin/DashboardEditBkash';
 import DashboardDealerDetailsPage from '../pages/admin/DashboardDealerDetailsPage';
+import DashboardJobRequests from '../pages/admin/DashboardJobRequests';
+import DashboardCareerPage from '../pages/admin/DashboardCareerPage';
+import DashboardUpdateJobs from '../pages/admin/DashboardUpdateJobs';
 const Invoice = lazy(() => import('../pages/Invoice'));
 const DashboardOrderPage = lazy(() =>
   import('../pages/admin/DashboardOrderPage')
@@ -231,7 +234,31 @@ function index() {
               path="/dashboard/jobs"
               element={
                 <PrivateRoute>
+                  <DashboardCareerPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/jobs/edit/:slug"
+              element={
+                <PrivateRoute>
+                  <DashboardUpdateJobs />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/jobs/create"
+              element={
+                <PrivateRoute>
                   <DashboardJobs />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/jobs-request"
+              element={
+                <PrivateRoute>
+                  <DashboardJobRequests />
                 </PrivateRoute>
               }
             />

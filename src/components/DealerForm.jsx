@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux';
 import { alrtError, alrtSuccess } from '../utils/common';
 
 function DealerForm() {
-  const { user } = useSelector((state) => state.auth);
-  const { register, resetField } = useForm();
+  const { handleSubmit, register, resetField } = useForm();
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [email, setEmail] = useState('');
@@ -17,7 +16,6 @@ function DealerForm() {
   const formData = new FormData();
 
   const onSubmit = async (e) => {
-    e.preventDefault();
     formData.append('name', name);
     formData.append('mobile', mobile);
     formData.append('email', email);
@@ -25,11 +23,7 @@ function DealerForm() {
     formData.append('file', file);
     formData.append('message', message);
     await axios
-      .post(`${process.env.REACT_APP_PROXY}/api/v1/dealer`, formData, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      })
+      .post(`${process.env.REACT_APP_PROXY}/api/v1/dealer`, formData)
       .then((res) => {
         alrtSuccess(res.data.message);
       })
@@ -44,7 +38,7 @@ function DealerForm() {
   };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <h6>Contact Us</h6>
       <label htmlFor="name">Name</label>
       <input
@@ -53,6 +47,7 @@ function DealerForm() {
         id="name"
         onBlur={(e) => setName(e.target.value)}
         placeholder="Name"
+        required
       />
 
       <label htmlFor="phone-number">Phone Number</label>
@@ -62,6 +57,7 @@ function DealerForm() {
         id="phone-number"
         placeholder="Phone Number"
         onBlur={(e) => setMobile(e.target.value)}
+        required
       />
 
       <label htmlFor="email">Email</label>
@@ -71,6 +67,7 @@ function DealerForm() {
         id="name"
         placeholder="Email"
         onBlur={(e) => setEmail(e.target.value)}
+        required
       />
 
       <label htmlFor="companyName">Company Name</label>
@@ -80,6 +77,7 @@ function DealerForm() {
         id="companyName"
         placeholder="Company Name"
         onBlur={(e) => setCompanyName(e.target.value)}
+        required
       />
 
       <label htmlFor="file">Business Card Photo</label>
@@ -89,6 +87,7 @@ function DealerForm() {
         id="file"
         accept="image/png, image/jpeg"
         onChange={(e) => setFile(e.target.files[0])}
+        required
       />
       <label htmlFor="message">Message</label>
       <textarea

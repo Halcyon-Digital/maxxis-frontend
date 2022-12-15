@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addCustomerAddress,
   addCustomerCompanyName,
@@ -10,10 +10,13 @@ import {
   addCustomerName,
   addCustomerNotes,
   addCustomerPostCode,
+  addCustomerThana,
   addCustomerTown,
 } from '../features/cart/cartSlice';
 
 function OrderForm() {
+  const { user } = useSelector((state) => state.auth);
+  console.log(user);
   const dispatch = useDispatch();
   return (
     <div>
@@ -36,7 +39,7 @@ function OrderForm() {
         />
         <input
           type="text"
-          placeholder="Apartment, Saite, Unit, etc (Optinal)"
+          placeholder="Apartment, Saite, Unit, etc (Optional)"
         />
         <input
           type="text"
@@ -46,7 +49,7 @@ function OrderForm() {
 
         <Form.Select
           name="district"
-          onBlur={(e) => dispatch(addCustomerDistrict(e.target.value))}
+          onChange={(e) => dispatch(addCustomerDistrict(e.target.value))}
           required
         >
           <option>Dhaka</option>
@@ -114,7 +117,11 @@ function OrderForm() {
           <option>Sunamganj</option>
           <option>Sylhet</option>
         </Form.Select>
-        <input type="text" placeholder="Thana" />
+        <input
+          onBlur={(e) => dispatch(addCustomerThana(e.target.value))}
+          type="text"
+          placeholder="Thana"
+        />
         <input
           type="number"
           onBlur={(e) => dispatch(addCustomerPostCode(e.target.value))}
@@ -124,11 +131,13 @@ function OrderForm() {
           type="number"
           onBlur={(e) => dispatch(addCustomerMobile(e.target.value))}
           placeholder="Mobile Number *"
+          defaultValue={user?.mobile}
         />
         <input
           onBlur={(e) => dispatch(addCustomerEmail(e.target.value))}
           type="email"
           placeholder="Email *"
+          defaultValue={user?.email}
         />
         <textarea
           name="ordernotes"

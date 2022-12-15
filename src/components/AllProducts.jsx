@@ -8,6 +8,7 @@ import axios from 'axios';
 import Loading from './Loading';
 import { categoriesData } from '../api/fetchData';
 import { useQuery } from 'react-query';
+import AddToCart from './AddToCart';
 
 function AllProducts() {
   const [isLoading, setIsLoading] = useState(false);
@@ -93,6 +94,7 @@ function AllProducts() {
           </Col>
         </Row>
       </Container>
+      <AddToCart />
     </section>
   );
 }

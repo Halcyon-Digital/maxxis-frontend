@@ -1,15 +1,39 @@
-import { Container } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import Title from './Title';
 import '../assets/sass/components/_jobdetails.scss';
-import { HashLink } from 'react-router-hash-link';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import { alrtSuccess } from '../utils/common';
 
 export default function JobDetails() {
   const [jobDec, setJobDec] = useState({});
+  const [file, setFile] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const { slug } = useParams();
+
+  const formData = new FormData();
+  const onSubmit = async (e) => {
+    formData.append('file', file);
+    formData.append('jobInfo', slug);
+    e.preventDefault();
+
+    await axios
+      .post(`${process.env.REACT_APP_PROXY}/api/v1/job/apply`, formData)
+      .then((res) => {
+        e.target.reset();
+        alrtSuccess(res.data.message);
+        setIsOpen(false);
+      })
+      .catch((error) => console.log(error.message));
+  };
+
+  const openForm = () => {
+    window.scroll(0, 0);
+    setIsOpen(true);
+  };
+  const closeForm = () => setIsOpen(false);
 
   useEffect(() => {
     const data = async () => {
@@ -19,8 +43,6 @@ export default function JobDetails() {
     };
     data();
   }, [slug]);
-
-  console.log(jobDec);
 
   return (
     <section className="job-details">
@@ -69,9 +91,36 @@ export default function JobDetails() {
           <h5>Salary: {jobDec.salary}</h5>
           <h5>Reference Code: {jobDec.ref}</h5>
 
-          <HashLink className="button" to="/">
+          <button onClick={openForm} className="button">
             Apply
-          </HashLink>
+          </button>
+          {isOpen && (
+            <div className="p-3 position-absolute top-50 start-50 translate-middle bg-light">
+              <div className="text-end">
+                <Button onClick={closeForm} variant="secondary">
+                  X
+                </Button>
+              </div>
+              <h3 className="text-center mb-4">Apply Form</h3>
+
+              <Form onSubmit={onSubmit}>
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label>Please attach your CV here</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setFile(e.target.files[0])}
+                    required
+                    type="file"
+                  />
+                  <Form.Text className="text-muted">
+                    File will be Maximum 5 MB [Only .pdf or .docs file]
+                  </Form.Text>
+                </Form.Group>
+                <Button variant="secondary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </div>
+          )}
         </Container>
       </div>
     </section>

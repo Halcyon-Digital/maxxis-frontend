@@ -92,7 +92,6 @@ export const myOrder = async (token) => {
 };
 
 export const changeStatus = async ({ token, body, key }) => {
-  console.log(token, body, key);
   const res = await axios.put(
     `${process.env.REACT_APP_PROXY}/api/v1/orders/${key}`,
     body,
@@ -108,6 +107,20 @@ export const changeStatus = async ({ token, body, key }) => {
 
 export const allProducts = async () => {
   const res = await axios.get(`${process.env.REACT_APP_PROXY}/api/v1/products`);
+  const data = res.data;
+  return data;
+};
+export const allUsers = async () => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_PROXY}/api/v1/auth/user`
+  );
+  const data = res.data;
+  return data;
+};
+export const jobRequests = async () => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_PROXY}/api/v1/job/apply`
+  );
   const data = res.data;
   return data;
 };

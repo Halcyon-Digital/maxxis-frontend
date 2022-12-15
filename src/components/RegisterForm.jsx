@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { Container, Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { alrtError } from "../utils/common";
-import "../assets/sass/components/_authentication.scss";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { register as registerUser, reset } from "../features/auth/authSlice";
-import { Link } from "react-router-dom";
-import Logo from "../assets/images/logo.png";
+import React, { useEffect } from 'react';
+import { Container, Form } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { alrtError } from '../utils/common';
+import '../assets/sass/components/_authentication.scss';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { register as registerUser, reset } from '../features/auth/authSlice';
+import { Link } from 'react-router-dom';
+import Logo from '../assets/images/logo.png';
 
 function RegisterForm() {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function RegisterForm() {
     }
 
     if (isSuccess || user) {
-      navigate("/");
+      navigate('/');
     }
 
     dispatch(reset());
@@ -31,10 +31,10 @@ function RegisterForm() {
 
   const onSubmit = async (data) => {
     dispatch(registerUser(data));
-    resetField("userName");
-    resetField("mobile");
-    resetField("password");
-    resetField("email");
+    resetField('userName');
+    resetField('mobile');
+    resetField('password');
+    resetField('email');
   };
   return (
     <section className="authentication">
@@ -45,26 +45,26 @@ function RegisterForm() {
           <p>Sign up to continue to maxxis.</p>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <input
-              {...register("userName", { required: true })}
+              {...register('userName', { required: true })}
               type="text"
               id="userName"
               placeholder="User Name"
             />
             <input
-              {...register("mobile", { required: true })}
+              {...register('mobile', { required: true })}
               type="number"
               id="mobile"
               maxLength={12}
               placeholder="Mobile Number"
             />
             <input
-              {...register("password", { required: true })}
+              {...register('password', { required: true })}
               type="password"
               id="password"
-              placeholder="password"
+              placeholder="password (Minimum 6 digit)"
             />
             <input
-              {...register("email", { required: true })}
+              {...register('email', { required: true })}
               type="email"
               id="email"
               placeholder="email"

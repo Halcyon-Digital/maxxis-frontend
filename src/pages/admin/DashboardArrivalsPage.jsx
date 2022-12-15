@@ -1,27 +1,27 @@
-import AdminLayout from "../../shared/AdminLayout";
-import axios from "axios";
-import { useState } from "react";
-import { Form, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { alrtError, alrtSuccess } from "../../utils/common";
-import { useQuery } from "react-query";
-import { arrivals } from "../../api/fetchData";
-import DashboardItemCard from "../../components/DashboardItemCard";
-import "../../assets/sass/components/admin/_dashboardGallery.scss";
+import AdminLayout from '../../shared/AdminLayout';
+import axios from 'axios';
+import { useState } from 'react';
+import { Form, Row } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { alrtError, alrtSuccess } from '../../utils/common';
+import { useQuery } from 'react-query';
+import { arrivals } from '../../api/fetchData';
+import DashboardItemCard from '../../components/DashboardItemCard';
+import '../../assets/sass/components/admin/_dashboardGallery.scss';
 
 export default function DashboardArrivalsPage() {
   const [isAdd, setIsAdd] = useState(false);
   const { user } = useSelector((state) => state.auth);
 
-  const { data, isLoading } = useQuery("arrivals", () => arrivals());
+  const { data, isLoading } = useQuery('arrivals', () => arrivals());
 
   const [file, setFile] = useState(null);
   const formData = new FormData();
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    formData.append("file", file);
-    formData.append("item", "new");
+    formData.append('file', file);
+    formData.append('item', 'new');
 
     await axios
       .post(`${process.env.REACT_APP_PROXY}/api/v1/arrivals`, formData, {
@@ -37,7 +37,7 @@ export default function DashboardArrivalsPage() {
   };
 
   const onDelete = async (id) => {
-    const confirm = window.confirm("Do you really want to Delete?");
+    const confirm = window.confirm('Do you really want to Delete?');
     if (confirm) {
       await axios
         .delete(`${process.env.REACT_APP_PROXY}/api/v1/arrivals/${id}`, {
@@ -62,6 +62,8 @@ export default function DashboardArrivalsPage() {
               id="file"
             />
             <button type="submit">Create</button>
+            <br />
+            [Size: 417 x 417]
           </Form>
         )}
         <button className="mb-3 new-gallery" onClick={() => setIsAdd(true)}>

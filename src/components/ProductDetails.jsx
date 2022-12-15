@@ -11,6 +11,7 @@ import Title from './Title';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 import { alrtSuccess } from '../utils/common';
+import AddToCart from './AddToCart';
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
@@ -64,9 +65,7 @@ function ProductDetails() {
             <Col>
               <h2>{product.title}</h2>
               <h6>BDT. Price: {product.price}/-</h6>
-              <h2>
-                {product.size} - {product.rim}
-              </h2>
+              <h2>{product.ts}</h2>
               <p className="content-title">Specifications</p>
               <p>{product.description}</p>
               <p className="content-title">Features and Benefits</p>
@@ -107,6 +106,7 @@ function ProductDetails() {
           </Row>
         )}
       </Container>
+      <AddToCart />
     </section>
   );
 }

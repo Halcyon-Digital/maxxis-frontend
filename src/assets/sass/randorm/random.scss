@@ -54,6 +54,13 @@
   margin-left: 25px;
   color: $secondary-color;
   border: 1px solid $primary-color;
+  text-transform: capitalize;
+  z-index: 5;
+  @media (min-width: 320px) and (max-width: 575px) {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }
 
 .link {
@@ -61,4 +68,42 @@
   margin-bottom: 10px;
   background: $primary-color;
   color: $secondary-color;
+}
+
+.tocart {
+  position: fixed;
+  right: 20px;
+  top: 200px;
+  padding: 10px;
+  background: $primary-color;
+  border-radius: 5px;
+  color: $secondary-color;
+  font-size: 18px;
+  cursor: pointer;
+
+  svg {
+    font-size: 22px;
+  }
+  span {
+    font-size: 10px;
+    padding: 3px;
+    background: $secondary-color;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary-color;
+  }
+}
+
+.button {
+  border: 0;
+  padding: 5px;
+  background: $primary-color;
+}
+
+.find-ctg {
+  text-transform: capitalize;
 }

@@ -42,6 +42,7 @@ export default function CreateProduct() {
     resetField('featuresDetails');
     resetField('thumbnailImage');
     resetField('rim');
+    resetField('ts');
   };
   return (
     <div>
@@ -59,6 +60,13 @@ export default function CreateProduct() {
           id="code"
           {...register('code', { required: true })}
           placeholder="Code"
+        />
+
+        <Form.Label htmlFor="ts">Text Product Size</Form.Label>
+        <Form.Control
+          id="ts"
+          {...register('ts', { required: true })}
+          placeholder="Text Size"
         />
 
         <Form.Label htmlFor="categories">Categories</Form.Label>
@@ -169,7 +177,9 @@ export default function CreateProduct() {
           placeholder="Shipping Out Dhaka"
         />
 
-        <Form.Label htmlFor="images">Product Images</Form.Label>
+        <Form.Label htmlFor="images">
+          Product Images [size: 306 x 305]
+        </Form.Label>
         <Form.Control
           id="images"
           {...register('images', { required: true })}
@@ -177,7 +187,9 @@ export default function CreateProduct() {
         />
         {errors.images && <span>This field is required</span>}
 
-        <Form.Label htmlFor="features">Features Images</Form.Label>
+        <Form.Label htmlFor="features">
+          Features Images [size: 80 x 80]
+        </Form.Label>
         <Form.Control
           id="features"
           {...register('features', { required: true })}
@@ -193,7 +205,9 @@ export default function CreateProduct() {
         />
         {errors.images && <span>This field is required</span>}
 
-        <Form.Label htmlFor="thumbnailImage">Thumbnail Images</Form.Label>
+        <Form.Label htmlFor="thumbnailImage">
+          Thumbnail Images [size: 302 x 345]
+        </Form.Label>
         <Form.Control
           id="thumbnailImage"
           {...register('thumbnailImage', { required: true })}

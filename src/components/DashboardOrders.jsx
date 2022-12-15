@@ -7,7 +7,7 @@ import OrdersTable from './OrdersTable';
 export default function DashboardOrders() {
   const { token } = useSelector((state) => state.auth.user);
   const [page, setPage] = useState(0);
-  let size = 8;
+  let size = 12;
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {

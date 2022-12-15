@@ -21,11 +21,11 @@ function Navigation() {
     dispatch(reset());
   };
 
-  const block = () => {
+  /* const block = () => {
     const finder = document.getElementById('tirefinder');
     finder.classList.add('d-block');
   };
-
+ */
   return (
     <Navbar
       className="px-4"

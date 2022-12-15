@@ -8,6 +8,7 @@ import axios from 'axios';
 import Loading from './Loading';
 import { useParams } from 'react-router-dom';
 import MotorcycleCard from './MotorcyleCard';
+import AddToCart from './AddToCart';
 
 function FilterProducts() {
   const [isLoading, setIsLoading] = useState(false);
@@ -74,6 +75,7 @@ function FilterProducts() {
           </Col>
         </Row>
       </Container>
+      <AddToCart />
     </section>
   );
 }

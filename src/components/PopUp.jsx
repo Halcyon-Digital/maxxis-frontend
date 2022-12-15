@@ -63,7 +63,6 @@ export default function PopUp({ online }) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    e.preventDefault();
     if ((email, mobileNumber)) {
       setIsLoader(true);
 
@@ -111,7 +110,6 @@ export default function PopUp({ online }) {
                     ? shippingDhaka + subTotal
                     : shippingDhakaOut + subTotal}
                 </h4>
-                <p>4. Use Your Bkash Number.</p>
                 <p>
                   5. After completing the payment mention the Transaction ID
                   below-

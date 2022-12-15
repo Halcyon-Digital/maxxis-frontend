@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 export default function NewsDetails() {
@@ -20,18 +20,19 @@ export default function NewsDetails() {
   }, [id]);
 
   return (
-    <div className="news-details py-3">
+    <div className="news-details py-5">
       <Row>
-        <div class="col-md-6 offset-md-3">
-          {' '}
+        <Col xs={12} md={6} className="pe-3">
+          <h5 className="my-3">{news.title}</h5>
+          <p className="text-justify">{news.desc}</p>
+        </Col>
+        <Col xs={12} md={6}>
           <img
             className="w-100"
             src={`${process.env.REACT_APP_PROXY}/files/${news.image}`}
             alt="news"
           />
-          <h5 className="my-3">{news.title}</h5>
-          <p className="text-justify">{news.desc}</p>
-        </div>
+        </Col>
       </Row>
     </div>
   );

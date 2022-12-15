@@ -106,3 +106,22 @@
     transform: translate(-50%, -50%);
   }
 }
+
+@media (min-width: 320px) and (max-width: 575px) {
+  .order form button {
+    margin-bottom: 5px;
+  }
+  .order {
+    img {
+      width: 60px;
+    }
+    .popup {
+      p {
+        font-size: 12px;
+      }
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

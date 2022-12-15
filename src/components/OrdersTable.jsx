@@ -22,7 +22,14 @@ export default function OrdersTable({ orders }) {
             <td>{order.customerInfo.name}</td>
             <td>{order.status}</td>
             <td>{new Date(order.createdAt).toLocaleString()}</td>
-            <td>100</td>
+            <td>
+              {order.products.reduce(
+                (previousValue, currentValue) =>
+                  previousValue +
+                  Number(currentValue.price * currentValue.quantity),
+                0
+              )}
+            </td>
             <td>
               <Button
                 variant="secondary"

@@ -16,7 +16,6 @@ export default function DashboardVideoIdPage() {
   const { register, handleSubmit } = useForm();
   const { id } = useParams();
   const [videoInfo, setVideoInfo] = useState({});
-  console.log(videoInfo);
 
   const onChange = (e) =>
     setVideoInfo((prevState) => ({
@@ -41,7 +40,7 @@ export default function DashboardVideoIdPage() {
     <AdminLayout>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3">
-          <Form.Label>URL</Form.Label>
+          <Form.Label>URL [video size: 1920 x 786]</Form.Label>
           <Form.Control
             onChange={onChange}
             name="url"

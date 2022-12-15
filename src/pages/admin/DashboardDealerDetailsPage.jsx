@@ -18,7 +18,7 @@ export default function DashboardDealerDetailsPage() {
     };
     dealerInfo();
   }, [slug]);
-  console.log(dealer);
+
   return (
     <AdminLayout>
       <Row className="p-5">

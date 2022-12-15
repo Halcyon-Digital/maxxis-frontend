@@ -9,7 +9,6 @@ import { useQuery } from 'react-query';
 
 export default function Career() {
   const { data } = useQuery('jobs', () => allJobs());
-  console.log(data);
   return (
     <>
       <CareerBanner />

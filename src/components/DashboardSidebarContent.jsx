@@ -2,15 +2,17 @@ import { NavLink } from 'react-router-dom';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { FaProductHunt } from 'react-icons/fa';
 import {
-  AiOutlineUser,
   AiOutlinePullRequest,
   AiOutlineShoppingCart,
+  AiOutlineUser,
 } from 'react-icons/ai';
 import { BiCategory } from 'react-icons/bi';
 import { GoReport } from 'react-icons/go';
 import { GiCarWheel } from 'react-icons/gi';
 import { HiNewspaper } from 'react-icons/hi';
+import { SiFampay } from 'react-icons/si';
 import { MdFormatSize } from 'react-icons/md';
+import { BsFillChatSquareQuoteFill } from 'react-icons/bs';
 import { GiKnightBanner, GiAirplaneArrival } from 'react-icons/gi';
 import {
   RiGalleryLine,
@@ -46,14 +48,14 @@ export default function DashboardSidebarContent() {
           Orders
         </NavLink>
       </li>
-      {/* <li>
+      <li>
         <NavLink to="/dashboard/customers">
           <span>
             <AiOutlineUser />
           </span>{' '}
-          Customer
+          Users
         </NavLink>
-      </li> */}
+      </li>
       <li>
         <NavLink to="/dashboard/categories">
           <span>
@@ -137,7 +139,7 @@ export default function DashboardSidebarContent() {
       <li>
         <NavLink to="/dashboard/bkash">
           <span>
-            <RiHandbagLine />
+            <SiFampay />
           </span>{' '}
           Bkash
         </NavLink>
@@ -148,6 +150,14 @@ export default function DashboardSidebarContent() {
             <RiHandbagLine />
           </span>{' '}
           Jobs
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/jobs-request">
+          <span>
+            <BsFillChatSquareQuoteFill />
+          </span>{' '}
+          Job Requests
         </NavLink>
       </li>
       <li>

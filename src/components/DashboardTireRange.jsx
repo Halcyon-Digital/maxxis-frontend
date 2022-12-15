@@ -34,21 +34,33 @@ export default function DashboardTireRange() {
 
   return (
     <div className="dashboard-gallery">
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        style={{ width: '350px' }}
+        className="pt-3"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <input
           {...register('title', { required: true })}
+          className="w-100"
           type="text"
           name="title"
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
         />
+        <br />
         <input
+          className="mt-2 w-100"
           {...register('file', { required: true })}
           type="file"
           name="title"
           onChange={(e) => setFile(e.target.files[0])}
         />
-        <button type="submit">Create</button>
+        <br />
+        <span>size: [368 x 634]</span>
+        <br />
+        <button className="mt-2" type="submit">
+          Create
+        </button>
       </Form>
       <div className="mt-4">
         <TireFeature />

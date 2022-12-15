@@ -109,7 +109,6 @@ export default function PopUpDelivery({ cash }) {
                     ? shippingDhaka
                     : shippingDhakaOut}
                 </h4>
-                <p>4. Use Your Bkash Number.</p>
                 <p>
                   5. After completing the payment mention the Transaction ID
                   below-

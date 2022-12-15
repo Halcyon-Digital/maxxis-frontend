@@ -16,6 +16,8 @@ export default function DashboardOrderDetails() {
   const { token } = useSelector((state) => state.auth.user);
   const [orderInfo, setOrderInfo] = useState({});
 
+  console.log(orderInfo);
+
   useEffect(() => {
     const data = async () => {
       const res = await axios.get(
@@ -48,20 +50,41 @@ export default function DashboardOrderDetails() {
             <Col>
               <ul>
                 <li> Customer Name: {orderInfo.customerInfo.name}</li>
-                <li> Customer Mobile:{orderInfo.customerInfo.mobileNumber}</li>
+                <li> Customer Mobile: {orderInfo.customerInfo.mobileNumber}</li>
                 <li> Email: {orderInfo.customerInfo.email} </li>
                 <li> Reference No.: {orderInfo.referenceNumber}</li>
                 <li> Transection ID : 84/b,</li>
                 <li> dhalkanagar lane gandaria</li>
                 <li> District: {orderInfo.customerInfo.district} </li>
-                <li> Thana: Gandaria</li>
-                <li> Delivery Charge : 100</li>
+                <li> Thana: {orderInfo.customerInfo.thana}</li>
+                <li>
+                  {' '}
+                  Delivery Charge :{' '}
+                  {orderInfo.customerInfo.district === 'Dhaka'
+                    ? orderInfo.products.reduce(
+                        (previousValue, currentValue) =>
+                          previousValue +
+                          Number(
+                            currentValue.shippingInDhaka * currentValue.quantity
+                          ),
+                        0
+                      )
+                    : orderInfo.products.reduce(
+                        (previousValue, currentValue) =>
+                          previousValue +
+                          Number(
+                            currentValue.shippingOutDhaka *
+                              currentValue.quantity
+                          ),
+                        0
+                      )}
+                </li>
               </ul>
             </Col>
             <Col>
               <ul>
                 <li>Order Status: {orderInfo.status}</li>
-                <li>Order Date: Pending</li>
+                <li>Order Date: {orderInfo.createdAt}</li>
                 <Button className="mt-2" variant="warning">
                   Invoice
                 </Button>{' '}
@@ -118,6 +141,38 @@ export default function DashboardOrderDetails() {
                   <td>{product.quantity * product.price}</td>
                 </tr>
               ))}
+              <tr>
+                <td></td>
+                <td>Total</td>
+                <td></td>
+                <td>
+                  {orderInfo.products.reduce(
+                    (previousValue, currentValue) =>
+                      previousValue +
+                      Number(currentValue.price * currentValue.quantity),
+                    0
+                  ) +
+                    orderInfo.customerInfo.district ===
+                  'Dhaka'
+                    ? orderInfo.products.reduce(
+                        (previousValue, currentValue) =>
+                          previousValue +
+                          Number(
+                            currentValue.shippingInDhaka * currentValue.quantity
+                          ),
+                        0
+                      )
+                    : orderInfo.products.reduce(
+                        (previousValue, currentValue) =>
+                          previousValue +
+                          Number(
+                            currentValue.shippingOutDhaka *
+                              currentValue.quantity
+                          ),
+                        0
+                      )}
+                </td>
+              </tr>
               {/* {data.map((product, i) => (
             <tr key={product._id}>
               <td>{i + 1}</td>

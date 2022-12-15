@@ -39,7 +39,7 @@ export default function ProductTable() {
           <thead>
             <tr className="bg-dark text-light">
               <th>SI NO</th>
-              <th>Product ID</th>
+              <th>Product Key</th>
               <th>Product Name</th>
               <th>Tire Code</th>
               <th>Tire Size</th>

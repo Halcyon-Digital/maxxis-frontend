@@ -17,12 +17,13 @@ export default function DashboardAdmin() {
 
   return (
     <AdminLayout>
-      <div className="p5">
+      <div className="p-4">
         <Form onSubmit={onSubmit}>
           <input
             onBlur={(e) => setMobile(e.target.value)}
             type="number"
             style={{ borderColor: 'red' }}
+            placeholder="Admin Mobile"
           />{' '}
           <br />
           <br />

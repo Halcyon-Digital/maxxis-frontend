@@ -10,7 +10,6 @@ import { useLocation } from 'react-router-dom';
 
 export default function FindProducts() {
   const { search } = useLocation();
-  console.log(search);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(0);
   let size = 8;

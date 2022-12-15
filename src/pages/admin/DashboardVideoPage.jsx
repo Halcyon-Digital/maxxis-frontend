@@ -35,7 +35,11 @@ export default function DashboardVideoPage() {
       <div className="dashboard-gallery">
         {isAdd && (
           <Form onSubmit={handleSubmit(onSubmit)} className=" py-3">
-            <input type="text" {...register('url', { required: true })} />
+            <input
+              placeholder="size [1920 x 786]"
+              type="text"
+              {...register('url', { required: true })}
+            />
             <button type="submit">Create</button>
           </Form>
         )}
@@ -47,7 +51,8 @@ export default function DashboardVideoPage() {
           <Col>
             <div className="p-4">
               <div>
-                <h5>URL</h5>
+                <span className="text-secondary">Video Size: [1920 x 786]</span>
+                <h5 className="mt-3">URL</h5>
                 <p className="mt-3">{data?.url}</p>
                 <Link to={`/dashboard/video/${data?._id}`}>Edit</Link>
               </div>
