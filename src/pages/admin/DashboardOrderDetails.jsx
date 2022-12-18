@@ -17,6 +17,21 @@ export default function DashboardOrderDetails() {
   const [orderInfo, setOrderInfo] = useState({});
   const navigate = useNavigate();
 
+  const charge =
+    orderInfo.customerInfo?.district === 'Dhaka'
+      ? orderInfo.products?.reduce(
+          (previousValue, currentValue) =>
+            previousValue +
+            Number(currentValue.shippingInDhaka * currentValue.quantity),
+          0
+        )
+      : orderInfo.products?.reduce(
+          (previousValue, currentValue) =>
+            previousValue +
+            Number(currentValue.shippingOutDhaka * currentValue.quantity),
+          0
+        );
+
   useEffect(() => {
     const data = async () => {
       const res = await axios.get(
@@ -67,9 +82,9 @@ export default function DashboardOrderDetails() {
                 <li> Customer Mobile: {orderInfo.customerInfo.mobileNumber}</li>
                 <li> Email: {orderInfo.customerInfo.email} </li>
                 <li> Reference No.: {orderInfo.referenceNumber}</li>
-                <li> Transection ID : 84/b,</li>
                 <li> District: {orderInfo.customerInfo.district} </li>
                 <li> Thana: {orderInfo.customerInfo.thana}</li>
+                <li> Address: {orderInfo.customerInfo.address}</li>
               </ul>
             </Col>
             <Col>
@@ -164,6 +179,12 @@ export default function DashboardOrderDetails() {
               ))}
               <tr>
                 <td></td>
+                <td>Delivery</td>
+                <td></td>
+                <td>{charge}</td>
+              </tr>
+              <tr>
+                <td></td>
                 <td>Total</td>
                 <td></td>
                 <td>
@@ -172,26 +193,7 @@ export default function DashboardOrderDetails() {
                       previousValue +
                       Number(currentValue.price * currentValue.quantity),
                     0
-                  ) +
-                    orderInfo.customerInfo.district ===
-                  'Dhaka'
-                    ? orderInfo.products.reduce(
-                        (previousValue, currentValue) =>
-                          previousValue +
-                          Number(
-                            currentValue.shippingInDhaka * currentValue.quantity
-                          ),
-                        0
-                      )
-                    : orderInfo.products.reduce(
-                        (previousValue, currentValue) =>
-                          previousValue +
-                          Number(
-                            currentValue.shippingOutDhaka *
-                              currentValue.quantity
-                          ),
-                        0
-                      )}
+                  ) + charge}
                 </td>
               </tr>
               {/* {data.map((product, i) => (

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { alrtError, alrtSuccess } from '../utils/common';
 
 function DealerForm() {
-  const { handleSubmit, register, resetField } = useForm();
+  const { register, resetField } = useForm();
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [email, setEmail] = useState('');
@@ -16,6 +16,7 @@ function DealerForm() {
   const formData = new FormData();
 
   const onSubmit = async (e) => {
+    e.preventDefault();
     formData.append('name', name);
     formData.append('mobile', mobile);
     formData.append('email', email);
@@ -38,8 +39,8 @@ function DealerForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <h6>Contact Us</h6>
+    <Form onSubmit={onSubmit}>
+      <h6>Send us your details</h6>
       <label htmlFor="name">Name</label>
       <input
         {...register('name', { required: true })}
@@ -70,12 +71,12 @@ function DealerForm() {
         required
       />
 
-      <label htmlFor="companyName">Company Name</label>
+      <label htmlFor="companyName">Shop Name</label>
       <input
         {...register('companyName', { required: true })}
         type="text"
         id="companyName"
-        placeholder="Company Name"
+        placeholder="Shop Name"
         onBlur={(e) => setCompanyName(e.target.value)}
         required
       />

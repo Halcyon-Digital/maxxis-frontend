@@ -21,22 +21,28 @@ function ContactInfo() {
               classList="title__back"
               mainClass="black__border"
             />
-            <div className="d-flex mb-2 mt-5">
+            <h4 className="mb-2 mt-5">Head Office:</h4>
+            <div className="d-flex mb-2">
               <div className="icon">
                 <MdLocationPin />
               </div>
+
               <p style={{ width: '300px' }} className="ms-3">
-                1230, D.T. Road, Dhanialapara, Kadamtali, Chittagong-4100,
-                Bangladesh.
+                Shahabuddin Trade Center 1230, D.T. Road, Dhaniala Para,
+                Kadamtali, Chattogram-4100, Bangladesh.
               </p>
             </div>
+
+            <h4 className="mb-2 mt-4">Dhaka Office:</h4>
+
             <div className="d-flex mb-2 ">
               <div className="icon">
                 <MdLocationPin />
               </div>
               <p style={{ width: '300px' }} className="ms-3">
-                Navana Rahim ardent, Apt#C 2(2nd Floor)’ 185 Shaheed Nazrul
-                Islam Sharoni, Bijoynagar, Dhaka
+                Navana Rahim Ardent, Suitet#C-2 (2nd Floor) 185, Shahid Syed
+                Nazrul Islam Sharani, Bijoynagar, Kakrail, Dhaka-1000,
+                Bangladesh.
               </p>
             </div>
 

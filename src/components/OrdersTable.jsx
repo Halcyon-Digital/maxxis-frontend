@@ -17,7 +17,7 @@ export default function OrdersTable({ orders }) {
       </thead>
       <tbody>
         {orders.map((order) => (
-          <tr>
+          <tr className={order.status === 'pending' && 'order-bg'}>
             <td>{order._id}</td>
             <td>{order.customerInfo.name}</td>
             <td>{order.status}</td>

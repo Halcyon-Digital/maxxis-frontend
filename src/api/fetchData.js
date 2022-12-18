@@ -129,3 +129,16 @@ export const getMobile = async () => {
   const data = res.data;
   return data;
 };
+
+export const allOrders = async (token) => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_PROXY}/api/v1/orders/all`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  const data = res.data;
+  return data;
+};

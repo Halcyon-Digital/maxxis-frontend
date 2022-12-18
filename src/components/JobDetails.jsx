@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { alrtSuccess } from '../utils/common';
+import { format, compareAsc } from 'date-fns';
 
 export default function JobDetails() {
   const [jobDec, setJobDec] = useState({});
@@ -59,7 +60,11 @@ export default function JobDetails() {
           <p>{jobDec.title}</p>
           <p> Vacancy: {jobDec.vacancy} </p>
           <p>Experience: {jobDec.experience}</p>
-          <p> Deadline: {jobDec.deadline}</p>
+          <p>
+            {' '}
+            Deadline: {jobDec.deadline?.split('-')[2]} -{' '}
+            {jobDec.deadline?.split('-')[1]} -{jobDec.deadline?.split('-')[0]}
+          </p>
         </Container>
       </div>
       <div className="job-description">
@@ -70,23 +75,18 @@ export default function JobDetails() {
           <h5>Key Accountabilities:</h5>
           <p>{jobDec.accountabilities}</p>
 
-          <h5>Educational Requirement:{jobDec.eduReq}</h5>
+          <h5>Educational Requirement: {jobDec.eduReq}</h5>
 
           {/* <h5>Dimension:</h5> */}
-
-          <h5>Experience Requirement:{jobDec.experience}</h5>
 
           <h5>Skills Requirement:</h5>
 
           <ul>
-            {jobDec.skills?.split(',').map((skill) => (
-              <li>{skill}</li>
+            {jobDec.skills?.split(',').map((skill, i) => (
+              <li key={1}>{skill}</li>
             ))}
           </ul>
 
-          <h5>Employment Status: </h5>
-
-          <h5>Experience: {jobDec.experience}</h5>
           <h5>Job Location: {jobDec.location}</h5>
           <h5>Salary: {jobDec.salary}</h5>
           <h5>Reference Code: {jobDec.ref}</h5>
@@ -112,7 +112,7 @@ export default function JobDetails() {
                     type="file"
                   />
                   <Form.Text className="text-muted">
-                    File will be Maximum 5 MB [Only .pdf or .docs file]
+                    File will be Maximum 5 MB [Only .pdf file allowed]
                   </Form.Text>
                 </Form.Group>
                 <Button variant="secondary" type="submit">

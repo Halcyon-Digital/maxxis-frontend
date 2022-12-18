@@ -32,7 +32,7 @@ function FilterBar() {
               {getTotalQuantity() || 0}
             </span>
           </Link>
-          <Link to="/tire/motorcycle">
+          <Link to="/cart">
             <h3>Shop</h3>
           </Link>
         </div>

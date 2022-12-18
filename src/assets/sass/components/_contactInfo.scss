@@ -1,7 +1,10 @@
-@import "../utils/variable";
-@import "../utils/mixins";
+@import '../utils/variable';
+@import '../utils/mixins';
 
 .contact-info {
+  h4 {
+    @include secondary-fonts(22px, 600);
+  }
   margin-bottom: 100px;
 
   p {

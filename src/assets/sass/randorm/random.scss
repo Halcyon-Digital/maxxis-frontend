@@ -56,6 +56,11 @@
   border: 1px solid $primary-color;
   text-transform: capitalize;
   z-index: 5;
+
+  &:hover {
+    background: $black-color !important;
+    border-color: $black-color;
+  }
   @media (min-width: 320px) and (max-width: 575px) {
     display: block;
     margin-left: 0;
@@ -106,4 +111,25 @@
 
 .find-ctg {
   text-transform: capitalize;
+}
+
+tr {
+  @include secondary-fonts(14px);
+}
+.order-bg {
+  background: $primary-color;
+  @include secondary-fonts;
+}
+
+li {
+  @include secondary-fonts(16px);
+}
+p {
+  @include secondary-fonts(16px);
+}
+
+.print-area {
+  @media (min-width: 320px) and (max-width: 575px) {
+    overflow-x: scroll;
+  }
 }

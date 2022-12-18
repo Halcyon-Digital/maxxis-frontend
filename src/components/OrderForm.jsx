@@ -129,15 +129,13 @@ function OrderForm() {
         />
         <input
           type="number"
-          onBlur={(e) => dispatch(addCustomerMobile(e.target.value))}
+          onChange={(e) => dispatch(addCustomerMobile(e.target.value))}
           placeholder="Mobile Number *"
-          defaultValue={user?.mobile}
         />
         <input
           onBlur={(e) => dispatch(addCustomerEmail(e.target.value))}
           type="email"
           placeholder="Email *"
-          defaultValue={user?.email}
         />
         <textarea
           name="ordernotes"
